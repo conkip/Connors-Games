@@ -1,0 +1,73 @@
+<!-- 
+  Author: Connor Kippes
+  
+  Home page with login button, a brief introduction, about section, and contacts.
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <title>Creative Canvas</title>
+        <link rel="stylesheet" type="text/css" href="../style/all.css" />
+        <link rel="stylesheet" type="text/css" href="../style/index.css" />
+    </head>
+
+    <body>
+        <div id="page-wrapper">
+            <div id="nav-container"></div>
+
+            <main id = "home-content">
+                <div id="title-logo"></div>
+
+                <h3>
+                    Welcome!
+                </h3>
+
+                <h3>
+                    Login if you want to save your games!
+                </h3>
+
+                <button
+                    id="login-signup-button"
+                    onclick="clickLoginSignup()"
+                    class="top-button hover-shadow none"
+                >
+                    Login/Sign Up
+                </button>
+
+                <button
+                    id="logout-button"
+                    onclick="clickLogout()"
+                    class="top-button hover-shadow none"
+                >
+                    Logout
+                </button>
+
+                <button
+                    id="delete-account-button"
+                    onclick= "showDeleteConfirm()"
+                    class="hover-shadow none"
+                >
+                    Delete Account
+                </button>
+            </main>
+
+            <div id="footer-container"></div>
+        </div>
+
+        <div id="overlay" class="none">
+            <div class="modal">
+                <p>Are you sure you want to delete your account?</p>
+                <button id="confirm-delete" class="hover-shadow top-button">Yes, delete</button>
+                <button id="cancel-delete" class="hover-shadow">Cancel</button>
+            </div>
+        </div>
+
+        <div id="toast-container"></div>
+
+        <script src="../script/all.js"></script>
+        <script src="../script/observer.js"></script>
+        <script src="../script/index.js"></script>
+    </body>
+</html>
