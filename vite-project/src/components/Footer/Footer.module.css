@@ -1,0 +1,9 @@
+footer {
+    height: 100px;
+    text-align: center;
+    color: var(--text-color-light);
+}
+
+.copyright {
+    bottom:0px;
+}

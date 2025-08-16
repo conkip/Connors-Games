@@ -1,0 +1,37 @@
+.header {
+    display: flex;
+    justify-content: space-between; /* logo left, nav right */
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #333; /* dark background */
+    color: white;
+}
+
+.name {
+    display: flex;
+    gap: 1rem;
+    font-weight: bold;
+}
+
+.logo {
+    height: 20px;
+}
+
+ul {
+    list-style: none; /* remove bullets */
+    display: flex;    /* make horizontal */
+    gap: 1.5rem;      /* spacing between items */
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-color-medium); /* accent color on hover */
+}

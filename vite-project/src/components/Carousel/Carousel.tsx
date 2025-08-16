@@ -5,12 +5,14 @@ interface Props {
 const Carousel = ({imageNames}: Props) => {
   return (
     <div className="banner">
-        <div className="slider" style={{ "--quantity": {imageNames.length} } as React.CSSProperties}>
+        <div className="slider" style={{ "--quantity": imageNames.length.toString() } as React.CSSProperties}>
             {imageNames.map((name, index) => (
-                <div
-                    className="item"
-                    style={{ "--position": {index}} as React.CSSProperties}
-                ><img src = "images/" + {name} alt = {name}></img></div>
+                <div 
+                    className="item" 
+                    style={{ "--position": index.toString()} as React.CSSProperties}
+                >
+                    <img src = {`images/${name}`} alt = {name}></img>
+                </div>
             ))}
         </div>
         <div className="content">
