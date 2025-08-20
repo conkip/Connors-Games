@@ -4,7 +4,12 @@
     align-items: center;
     padding: 1rem 2rem;
     background-color: #333; /* dark background */
+    border-bottom: 1px solid #242424;; /* optional, nice touch */
     color: white;
+    width: 100%;
+    justify-self: center;
+    border-radius: 50px;
+    margin: 1rem auto;
 }
 
 .name {
@@ -17,7 +22,7 @@
     height: 20px;
 }
 
-ul {
+ol {
     list-style: none; /* remove bullets */
     display: flex;    /* make horizontal */
     gap: 1.5rem;      /* spacing between items */

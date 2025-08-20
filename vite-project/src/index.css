@@ -25,6 +25,14 @@
     --subtext: 13.5px/20px var(--ff);
 }
 
+
+/* Global page container (wraps all content) */
+#root {
+  max-width: 1360px;   /* pick your site’s standard width */
+  margin: 0 auto;      /* centers content */
+  padding: 0 1rem;     /* spacing for small screens */
+}
+
 * {
   margin: 0;
   padding: 0;
