@@ -17,6 +17,11 @@ import wurfelBohnanzaImg from './assets/wurfel-bohnanza.webp';
 
 import meepleImg from './assets/meeple.webp'
 
+//import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+//import Home from "./pages/Home";
+//import About from "./pages/About";
+
+
 const boardgameImages: string[] = [battlelineImg, codenamesImg, lostCitiesImg, loveLetterImg, noahImg, wurfelBohnanzaImg];
 
 const users = [{id: 1, name:"Connor"},

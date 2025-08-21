@@ -1,0 +1,13 @@
+.titleContainer {
+    display: flex;
+    gap: 1rem;
+    font-weight: bold;
+}
+
+.logo:hover {
+    cursor:pointer;
+}
+
+.title:hover {
+    cursor: pointer;
+}

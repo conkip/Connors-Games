@@ -3,26 +3,16 @@
     justify-content: space-between; /* logo left, nav right */
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #333; /* dark background */
+    background-color: var(--color-secondary); /* dark background */
     border-bottom: 1px solid #242424;; /* optional, nice touch */
-    color: white;
     width: 100%;
     justify-self: center;
     border-radius: 50px;
     margin: 1rem auto;
+    opacity: 80%;
 }
 
-.name {
-    display: flex;
-    gap: 1rem;
-    font-weight: bold;
-}
-
-.logo {
-    height: 20px;
-}
-
-ol {
+.header ol {
     list-style: none; /* remove bullets */
     display: flex;    /* make horizontal */
     gap: 1.5rem;      /* spacing between items */
@@ -30,13 +20,13 @@ ol {
     padding: 0;
 }
 
-a {
-    color: white;
+.header a {
     text-decoration: none;
+    color: var(--color-text);
     font-weight: 500;
     transition: color 0.2s ease;
 }
 
-a:hover {
-    color: var(--accent-color-medium); /* accent color on hover */
+.header a:hover {
+    color: var(--color-accent); /* accent color on hover */
 }

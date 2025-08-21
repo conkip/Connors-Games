@@ -3,22 +3,21 @@
 */
 
 .button {
-  background: linear-gradient(var(--accent-color-light), var(--accent-color-medium)); /* Slight gradient for depth */
-  border: none;
-  color: var(--text-color-light);
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 5px var(--accent-color-dark); /* Bottom shadow for 3D */
-  transition: all 0.1s ease;
+    background: var(--color-accent);
+    border: none;
+    color: var(--color-text);
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
 }
-
 .button:active {
-  transform: translateY(4px); /* Move down on click */
-  box-shadow: 0 1px var(--accent-color-dark); /* Reduce shadow */
+    transform: scaleY(0.8) scaleX(1.2);
 }
 
 .button:hover {
-  filter: brightness(1.1);
+    filter: brightness(1.1);
+}
+.button:focus {
+    outline: none;
 }
