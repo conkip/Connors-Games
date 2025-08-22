@@ -1,13 +1,23 @@
-import styles from './WebsiteTitle.module.css'
+import styles from "./WebsiteTitle.module.css";
+import logo from "../../assets/images/logo.svg";
 
 function WebsiteTitle() {
-  return (
-    <div className= {styles.titleContainer}>                
-        <img src="../../assets/logo.png"></img>
+    return (
+        <div className={styles.titleContainer}>
+            <img
+                className={styles.logo}
+                src={logo}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            ></img>
 
-        <h1 className={styles.title}>Connor's Games</h1>
-    </div>
-  )
+            <h2
+                className={styles.title}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+                Connor's Games
+            </h2>
+        </div>
+    );
 }
 
-export default WebsiteTitle
+export default WebsiteTitle;

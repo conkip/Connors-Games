@@ -4,7 +4,7 @@
 
 
 import styles from "./List.module.css"
-import type { User } from "../types";
+import type { User } from "../../types";
 
 interface Props {
     category: string,

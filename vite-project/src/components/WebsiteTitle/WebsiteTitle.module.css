@@ -11,3 +11,7 @@
 .title:hover {
     cursor: pointer;
 }
+
+.logo{
+    height: 40px;
+}

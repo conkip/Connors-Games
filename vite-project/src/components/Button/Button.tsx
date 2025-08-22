@@ -2,8 +2,8 @@
     Author: Connor Kippes
 */
 
-import styles from "./Button.module.css"
-import type { ReactNode } from "react"
+import styles from "./Button.module.css";
+import type { ReactNode } from "react";
 
 //rafce
 interface Props {
@@ -12,10 +12,12 @@ interface Props {
     onClick: () => void;
 }
 
-const Button = ({children, color = 'red', onClick}: Props) => {
-  return (
-    <button type="button" className= {styles.button} onClick={onClick}>{children}</button>
-  )
-}
+const Button = ({ children, color = "red", onClick }: Props) => {
+    return (
+        <button type="button" className={styles.button} onClick={onClick}>
+            {children}
+        </button>
+    );
+};
 
-export default Button
+export default Button;
