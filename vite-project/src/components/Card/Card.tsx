@@ -13,10 +13,11 @@ interface Props {
 const Card = ({image, title, description}: Props) => {
     return (
         <div className={styles.card}>
-            <div className={styles.imageContainer}></div>
-            <img className={styles.cardImage} src={image} alt={title}></img>
-            <h2 className={styles.cardTitle}>{title}</h2>
-            <p className={styles.cardText}>{description}</p>
+            <img src={image} alt={title}></img>
+            <div className={styles.text}>
+                <h2 className={styles.cardTitle}>{title}</h2>
+                <p className={styles.cardText}>{description}</p>
+            </div>
         </div>
     );
 }

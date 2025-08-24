@@ -5,16 +5,20 @@
 import styles from "./Button.module.css";
 import type { ReactNode } from "react";
 
-//rafce
 interface Props {
     children: ReactNode;
     color?: string;
-    onClick: () => void;
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const Button = ({ children, color = "red", onClick }: Props) => {
+const Button = ({ children, color = "var(--color-accent)", onClick }: Props) => {
     return (
-        <button type="button" className={styles.button} onClick={onClick}>
+        <button 
+            type="button" 
+            className= {styles.button} 
+            style={{background: color}}
+            onClick={onClick}
+        >
             {children}
         </button>
     );

@@ -1,10 +1,9 @@
-import './styles/App.css'
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
 
-import Header from './components/Header/Header'
-import Footer from './components/Footer/Footer'
-
-import Home from './pages/Home'
-
+import Layout from "./components/Layout/Layout";
+import Home from "./pages/Home/Home";
+import Pricing from "./pages/Pricing/Pricing";
 
 //import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //import Home from "./pages/Home";
@@ -12,12 +11,25 @@ import Home from './pages/Home'
 
 function App() {
     return (
-        <>
-            <Header />
-            <Home />
-            <Footer />
-        </>
+        <Routes>
+            <Route
+                path="/"
+                element={
+                    <Layout>
+                        <Home />
+                    </Layout>
+                }
+            />
+            <Route
+                path="/pricing"
+                element={
+                    <Layout>
+                        <Pricing />
+                    </Layout>
+                }
+            />
+        </Routes>
     );
 }
 
-export default App
+export default App;

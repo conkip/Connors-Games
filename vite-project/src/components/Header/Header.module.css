@@ -1,5 +1,4 @@
 .header {
-    
     display: flex;
     justify-content: space-between; /* logo left, nav right */
     align-items: center;
@@ -35,7 +34,7 @@
     cursor: pointer;
 }
 
-.caret{
+.icon{
     fill:var(--color-text);
     height:15px;
 }
@@ -45,3 +44,22 @@
     gap: 5px;
     align-items:center;
 }
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+  }
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+  }
+}
+
+
+/*------- DESKTOP HEADER -------*/
+
+
+
+/*------- MOBILE HEADER -------*/

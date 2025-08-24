@@ -14,10 +14,9 @@ interface Props {
 }
 
 const SquishyButton = ({children, color = "var(--color-accent)", onClick}: Props) => {
-    const handleClick = () => {
+    const handleMouseDown = () => {
         const audio = new Audio(squishSound);
         audio.play();
-        if(onClick){onClick()};
     }
 
     return (
@@ -25,7 +24,8 @@ const SquishyButton = ({children, color = "var(--color-accent)", onClick}: Props
             type="button" 
             className= {styles.button} 
             style={{background: color}}
-            onClick={handleClick}
+            onMouseDown={handleMouseDown}
+            onClick={onClick}
         >
             {children}
         </button>

@@ -70,7 +70,7 @@
 }
 
 .footer a {
-    color: white;
+    color: var(--color-text);
     text-decoration: none;
     transition: color 0.2s ease;
 }
