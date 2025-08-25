@@ -1,12 +1,12 @@
 /*
     Author: Connor Kippes
 */
-.card-container {
+.cardContainer {
     display:flex;
     align-items: center;
 }
 
-.bigButtonContainer {
+.funButtonContainer {
     display:flex;
     flex-direction: column;
     align-items: center;

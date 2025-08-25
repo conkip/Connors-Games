@@ -2,10 +2,15 @@
     Author: Connor Kippes
 */
 
+// STYLE
 import styles from "./Home.module.css";
 
+
+// DEPENDANCIES
 import { useState } from "react";
 
+
+// COMPONENTS
 import Card from "../../components/Card/Card";
 import Button from "../../components/Button/Button";
 import Carousel from "../../components/Carousel/Carousel";
@@ -14,66 +19,56 @@ import List from "../../components/List/List";
 import SquishyButton from "../../components/SquishyButton/SquishyButton";
 import Loader from "../../components/Loader/Loader";
 
-//images
-import battlelineImg from "../../assets/images/battleline.webp";
-import codenamesImg from "../../assets/images/codenames.webp";
-import lostCitiesImg from "../../assets/images/lost-cities.webp";
-import loveLetterImg from "../../assets/images/love-letter.webp";
-import noahImg from "../../assets/images/noah.webp";
+
+
+// GAME IMAGES
+import pixiesImg from "../../assets/images/pixies.webp";
 import wurfelBohnanzaImg from "../../assets/images/wurfel-bohnanza.webp";
+import codenamesImg from "../../assets/images/codenames.webp";
+import loveLetterImg from "../../assets/images/love-letter.webp";
+import lostCitiesImg from "../../assets/images/lost-cities.webp";
+import battlelineImg from "../../assets/images/battleline.webp";
 
 import meepleImg from "../../assets/images/meeple.webp";
 
+
+// EXTERNAL TYPESCRIPT
+const boardgameImages: string[] = [
+    pixiesImg,
+    battlelineImg,
+    codenamesImg,
+    lostCitiesImg,
+    loveLetterImg,
+    wurfelBohnanzaImg,
+];
+
 function Home() {
     const [count, setCount] = useState(0);
-    const [message1, setMessage1] = useState("Fun Button");
-    const [message2, setMessage2] = useState("Compliment Button");
-    const [message3, setMessage3] = useState("Insult Button");
+    const [message, setMessage] = useState("Fun Button");
 
     const handleFunButtonClick = () => {
         const newCount = count + 1;
         setCount(newCount);
 
-        if(newCount >= 5 && newCount <= 8){
-            setMessage1("Pretty Fun Right?");
+        if(newCount >= 8 && newCount <= 10){
+            setMessage("Pretty Fun Right?");
         }
-        else if(count >= 20 && count <= 23) {
-            setMessage1("Ok heres the GPT API key:");
+        else if(newCount >= 20 && newCount <= 22) {
+            setMessage("rm -rf system32");
         }
-        else if(count >= 100 && count <= 110) {
-            setMessage1("100 Clicks! Impressive...");
+        else if(newCount >= 100 && newCount <= 102) {
+            setMessage("100 Clicks! Impressive...");
         }
-        else if(count >= 120 && count <= 130) {
-            setMessage1("Ok this is the last message.");
+        else if(newCount >= 120 && newCount <= 122) {
+            setMessage("Ok this is the last message.");
         }
-        else if(count >= 1000 && count <= 1003) {
-            setMessage1("You really got nothing better to do");
+        else if(newCount >= 1000 && newCount <= 1002) {
+            setMessage("You really got nothing better to do");
         }
         else {
-            setMessage1("Fun Button"); 
+            setMessage("Fun Button"); 
         }
     }
-
-    const handleComplimentButtonClick = () => {
-        const messages = [
-            "Woah, you're jacked bro!",
-            "You're awesome!",
-            "Keep up the grind!",
-        ]
-
-        const randNum = Math.floor(Math.random() * messages.length);
-
-        setMessage2(messages[randNum]);
-    }
-
-    const boardgameImages: string[] = [
-        battlelineImg,
-        codenamesImg,
-        lostCitiesImg,
-        loveLetterImg,
-        noahImg,
-        wurfelBohnanzaImg,
-    ];
 
     const users = [
         { id: 1, name: "Connor" },
@@ -87,21 +82,11 @@ function Home() {
                 <List itemList={users} category="Users" />
             ) : null}
 
-            <div className={styles.bigButtonContainer}>
+            <div className={styles.funButtonContainer}>
                 <SquishyButton
                     onClick={handleFunButtonClick}
                 >
-                    {message1}
-                </SquishyButton>
-
-                <h4>This button has been pressed {count} times!</h4>
-            </ div>
-
-            <div className={styles.bigButtonContainer}>
-                <SquishyButton
-                    onClick={handleComplimentButtonClick}
-                >
-                    {message2}
+                    {message}
                 </SquishyButton>
 
                 <h4>This button has been pressed {count} times!</h4>
@@ -114,17 +99,17 @@ function Home() {
             <Carousel imageNames={boardgameImages}></Carousel>
             <div className={styles.cardContainer}>
                 <Card
-                    image={noahImg}
-                    title="Noah"
+                    image={pixiesImg}
+                    title="Pixies"
                     description="AI generated short description"
                 />
                 <Card
-                    image={lostCitiesImg}
-                    title="Lost Cities"
+                    image={wurfelBohnanzaImg}
+                    title="Wurfel Bohnanza"
                     description="AI generated short description"
                 />
                 <Card
-                    image={codenamesImg}
+                    image={battlelineImg}
                     title="Codenames"
                     description="AI generated short description"
                 />

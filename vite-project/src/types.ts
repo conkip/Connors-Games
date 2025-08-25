@@ -1,4 +1,15 @@
 export type User = {
-  id: number;
-  name: string;
+  _id: number,
+  name: string,
+  email?: string,
+  pass?: string,
+  isLoggedIn?: boolean,
+  creditCard?: CreditCard
 };
+
+export type CreditCard = {
+  type: string,
+  number: string,
+  exprDate: string,
+  cvv: string
+}

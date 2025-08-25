@@ -39,6 +39,10 @@
     height:15px;
 }
 
+.icon:hover{
+    transform: scaleX(-1);
+}
+
 .dropdown{
     display:flex;
     gap: 5px;
