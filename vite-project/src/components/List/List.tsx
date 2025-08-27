@@ -19,10 +19,8 @@ const List = ({category, itemList}: Props) => {
     //const lowID = itemList.filter(item => item.id < 100); // FILTER BELOW
     //const highID = itemList.filter(item => item.id >= 100); // FILTER ABOVE
 
-    const listItems = itemList.map(item => <li key={item.id}>
-                                            {item.name}: &nbsp;
-                                            <b>{item.id}</b>
-                                            </li>);
+    const listItems = itemList.map(item => <li key={item._id}>
+                                            {item.name}</li>);
     return (
         <>
             <h3 className={styles.listCategory}>{category}</h3>

@@ -8,6 +8,10 @@
     cursor:pointer;
 }
 
+.title {
+    text-wrap: nowrap;
+}
+
 .title:hover {
     cursor: pointer;
 }

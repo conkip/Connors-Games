@@ -2,53 +2,28 @@
     Author: Connor Kippes
 */
 
-import styles from "./Header.module.css"
-import WebsiteTitle from "../WebsiteTitle/WebsiteTitle";
-import SquishyButton from "../SquishyButton/SquishyButton"
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-function Header () {
-    return (
+import DesktopHeader from "./DesktopHeader";
+import MobileHeader from "./MobileHeader";
 
-        <header className={styles.header}>
-            <>
-                <ol className={styles.nav}>
-                    <li><a href = "#">About</a></li>
-                    <li><a href = "#">Games</a></li>
-                    <li>
-                        <div className={styles.dropdown}>
-                            <a href = "#">Tools</a>
-                            {/* down caret
+function useWindowWidth() {
+  const [width, setWidth] = useState(window.innerWidth);
 
-                            <?xml version="1.0" encoding="utf-8"?>
-                            <!-- License: MIT. Made by phosphor: https://github.com/phosphor-icons/phosphor-icons -->*/}
-                            <svg className={`${styles.icon} ${styles.caretDown}`} fill="#000000" width="20px" height="20px" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M128,188a11.96187,11.96187,0,0,1-8.48535-3.51465l-80-80a12.0001,12.0001,0,0,1,16.9707-16.9707L128,159.0293l71.51465-71.51465a12.0001,12.0001,0,0,1,16.9707,16.9707l-80,80A11.96187,11.96187,0,0,1,128,188Z"/>
-                            </svg>
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-                            {/* up caret
-                            
-                            <?xml version="1.0" encoding="utf-8"?>
-                            <!-- License: MIT. Made by phosphor: https://github.com/phosphor-icons/phosphor-icons -->*/}
-                            <svg className={`${styles.icon} ${styles.caretDown}`} fill="#000000" width="20px" height="20px" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M208,172a11.96187,11.96187,0,0,1-8.48535-3.51465L128,96.9707,56.48535,168.48535a12.0001,12.0001,0,0,1-16.9707-16.9707l80-80a11.99975,11.99975,0,0,1,16.9707,0l80,80A12,12,0,0,1,208,172Z"/>
-                            </svg>
-                        </div>
-                    </li>
-                    <li><a href = "#">Contact</a></li>
-                    <li><Link to="/pricing">Pricing</Link></li>
-                </ol>
+  return width;
+}
 
-                <WebsiteTitle />
+function Header() {
+  const width = useWindowWidth();
+  const isMobile = width < 1024;
 
-                <ol className={styles.nav}>
-                    <li><a>Login</a></li>
-                    <li><SquishyButton>Get Started</SquishyButton></li>
-                </ol>
-            </>
-
-        </header>
-    );
+  return isMobile ? <MobileHeader /> : <DesktopHeader />;
 }
 
 export default Header

@@ -8,15 +8,13 @@
     border-radius: 10px;
     box-shadow: 7px 7px 5px hsla(0, 0%, 0%, 0.35);
     margin: 10px;
-    text-align:center;
-    max-width: 250px;
+    max-width: 325px;
+    height:auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    max-height:7500px;
-    min-height:550px;
 }
 
 .card img{
@@ -25,17 +23,63 @@
     object-fit: cover;      /* crops to fill while preserving aspect ratio */
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    margin-bottom: 10px;
 }
 
-.cardTitle {
+.text{
+    padding:10px;
+}
+
+.title {
+    text-align:center;
     font-family: Arial, sans-serif;
     margin: 0;
     color: var(--color-text);
 }
 
-.cardText {
+.desc {
     font-family: Arial, sans-serif;
     margin: 0;
     color: var(--color-subtext);
+}
+
+.desc.clamped {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.toggle{
+    color: var(--color-sub-subtext);
+    text-align:left;
+    margin-top:5px;
+}
+.toggle:hover{
+    cursor: pointer;
+}
+
+.playButton {
+    margin-bottom: 20px;
+}
+
+.playButton:hover {
+    cursor:pointer;
+}
+
+.playButton {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-text);
+  background: linear-gradient(to right, var(--color-accent) 0%, var(--color-accent) 100%);
+  background-size: 0% 100%;  /* start empty */
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: background-size 0.5s ease;
+}
+
+.playButton:hover {
+    color:transparent;
+    background-size: 100% 100%; /* fill from left to right */
 }

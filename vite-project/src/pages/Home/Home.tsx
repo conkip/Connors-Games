@@ -12,12 +12,9 @@ import { useState } from "react";
 
 // COMPONENTS
 import Card from "../../components/Card/Card";
-import Button from "../../components/Button/Button";
 import Carousel from "../../components/Carousel/Carousel";
-import UserGreeting from "../../components/UserGreeting/UserGreeting";
-import List from "../../components/List/List";
 import SquishyButton from "../../components/SquishyButton/SquishyButton";
-import Loader from "../../components/Loader/Loader";
+import List from "../../components/List/List"
 
 
 
@@ -25,9 +22,6 @@ import Loader from "../../components/Loader/Loader";
 import pixiesImg from "../../assets/images/pixies.webp";
 import wurfelBohnanzaImg from "../../assets/images/wurfel-bohnanza.webp";
 import codenamesImg from "../../assets/images/codenames.webp";
-import loveLetterImg from "../../assets/images/love-letter.webp";
-import lostCitiesImg from "../../assets/images/lost-cities.webp";
-import battlelineImg from "../../assets/images/battleline.webp";
 
 import meepleImg from "../../assets/images/meeple.webp";
 
@@ -35,10 +29,7 @@ import meepleImg from "../../assets/images/meeple.webp";
 // EXTERNAL TYPESCRIPT
 const boardgameImages: string[] = [
     pixiesImg,
-    battlelineImg,
     codenamesImg,
-    lostCitiesImg,
-    loveLetterImg,
     wurfelBohnanzaImg,
 ];
 
@@ -70,48 +61,34 @@ function Home() {
         }
     }
 
-    const users = [
-        { id: 1, name: "Connor" },
-        { id: 2, name: "Luke" },
-    ];
     return (
         <>
-            <Loader type="b"/>
-            <Loader type="a"/>
-            {users.length > 0 ? (
-                <List itemList={users} category="Users" />
-            ) : null}
-
             <div className={styles.funButtonContainer}>
                 <SquishyButton
                     onClick={handleFunButtonClick}
                 >
                     {message}
                 </SquishyButton>
-
-                <h4>This button has been pressed {count} times!</h4>
             </ div>
 
-            
-
-            <UserGreeting isLoggedIn={true} username="connor" />
-            <Button onClick={() => console.log("hello")}>Name</Button>
-            <Carousel imageNames={boardgameImages}></Carousel>
+            {/*<Carousel imageNames={boardgameImages}></Carousel>*/}
+            <List category="Tools" itemList={[{name:"Score Keeper"}, {name:"Coin Flip"}, {name:"First Play Picker"}, {name:"Dice Roll"}, {name:"Timer"}]}></List>
+            <List category="Games" itemList={[]}></List>
             <div className={styles.cardContainer}>
                 <Card
                     image={pixiesImg}
                     title="Pixies"
-                    description="AI generated short description"
+                    desc="2–5 players | ~30 minutes. A light, beautiful, and strategic card game about placing cute pixie cards in a 3×3 grid to score points across three rounds."
                 />
                 <Card
                     image={wurfelBohnanzaImg}
                     title="Wurfel Bohnanza"
-                    description="AI generated short description"
+                    desc="2–5 players | ~30 minutes. A quick, push-your-luck dice game where players complete bean orders for coins, while everyone gets to profit from each roll."
                 />
                 <Card
-                    image={battlelineImg}
+                    image={codenamesImg}
                     title="Codenames"
-                    description="AI generated short description"
+                    desc="2–5 players | ~30 minutes. A clever word-association party game where spymasters give one-word clues to help their team find secret agents on the board—while avoiding the deadly assassin."
                 />
             </div>
         </>
