@@ -41,6 +41,11 @@
     --font-weight-bold: 700;
 }
 
+/*-------DEBUGGING--------*/
+/* * {
+  outline: 1px solid red;
+} */
+
 /* Global page container (wraps all content) */
 * {
     margin: 0;
@@ -94,6 +99,12 @@ h6 {
 
 html {
     font-size: 100%; /* 16px default */
+}
+
+@media (max-width: 1024px) {
+    html {
+        font-size: 15px; /* smaller base font on mobile */
+    }
 }
 
 @media (max-width: 768px) {

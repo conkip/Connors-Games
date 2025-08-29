@@ -81,23 +81,6 @@ a {
     fill:var(--color-accent);
 }
 
-
-
-
-
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-  }
-  .desktop-nav {
-    display: none;
-  }
-  .mobile-nav {
-    display: block;
-  }
-}
-
-
 /*------- DESKTOP HEADER -------*/
 
 

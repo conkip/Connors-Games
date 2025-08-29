@@ -4,7 +4,6 @@
 
 import styles from "./Card.module.css"
 import { useState } from "react"
-import Button from '../Button/Button'
 
 interface Props {
     image: string;

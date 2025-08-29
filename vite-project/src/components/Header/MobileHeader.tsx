@@ -4,8 +4,6 @@
 
 import styles from "./Header.module.css"
 import WebsiteTitle from "../WebsiteTitle/WebsiteTitle";
-import SquishyButton from "../SquishyButton/SquishyButton"
-import { Link } from "react-router-dom";
 
 function Header () {
     return (

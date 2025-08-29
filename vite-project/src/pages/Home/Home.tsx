@@ -12,7 +12,7 @@ import { useState } from "react";
 
 // COMPONENTS
 import Card from "../../components/Card/Card";
-import Carousel from "../../components/Carousel/Carousel";
+//import Carousel from "../../components/Carousel/Carousel";
 import SquishyButton from "../../components/SquishyButton/SquishyButton";
 import List from "../../components/List/List"
 
@@ -23,15 +23,15 @@ import pixiesImg from "../../assets/images/pixies.webp";
 import wurfelBohnanzaImg from "../../assets/images/wurfel-bohnanza.webp";
 import codenamesImg from "../../assets/images/codenames.webp";
 
-import meepleImg from "../../assets/images/meeple.webp";
+//import meepleImg from "../../assets/images/meeple.webp";
 
 
 // EXTERNAL TYPESCRIPT
-const boardgameImages: string[] = [
+/*const boardgameImages: string[] = [
     pixiesImg,
     codenamesImg,
     wurfelBohnanzaImg,
-];
+];*/
 
 function Home() {
     const [count, setCount] = useState(0);
@@ -72,7 +72,7 @@ function Home() {
             </ div>
 
             {/*<Carousel imageNames={boardgameImages}></Carousel>*/}
-            <List category="Tools" itemList={[{name:"Score Keeper"}, {name:"Coin Flip"}, {name:"First Play Picker"}, {name:"Dice Roll"}, {name:"Timer"}]}></List>
+            <List category="Tools" itemList={[{_id: 1, name:"Score Keeper"}, {_id: 2, name:"Coin Flip"}, {_id: 3, name:"First Play Picker"}, {_id: 4, name:"Dice Roll"}, {_id: 5, name:"Timer"}]}></List>
             <List category="Games" itemList={[]}></List>
             <div className={styles.cardContainer}>
                 <Card
