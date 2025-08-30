@@ -8,6 +8,7 @@ import styles from "./Home.module.css";
 
 // DEPENDANCIES
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 // COMPONENTS
@@ -63,6 +64,7 @@ function Home() {
 
     return (
         <>
+            <Link to="/tools/boardmanager">Board Manager</Link>
             <div className={styles.funButtonContainer}>
                 <SquishyButton
                     onClick={handleFunButtonClick}

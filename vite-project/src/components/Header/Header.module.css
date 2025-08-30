@@ -10,12 +10,19 @@
     padding: 1rem 2rem;
     background-color: var(--color-secondary); /* dark background */
     border-bottom: 1px solid #242424;; /* optional, nice touch */
-    width: 100%;
     justify-self: center;
     border-radius: 50px;
     margin: 1rem auto;
-    opacity: 90%;
+    opacity: 95%;
     flex-wrap: nowrap;
+    position: sticky;
+    top: 0.5rem;
+    z-index: 1000;
+    width:100%;
+    /* position: fixed;
+    left: 50%;
+    transform: translateX(-50%); */
+    
 }
 
 .header ol {
