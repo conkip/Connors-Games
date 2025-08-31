@@ -2,14 +2,11 @@
     Author: Connor Kippes
 */
 
-/*------ GENERAL -----*/
 .header {
     display: flex;
-    justify-content: space-between; /* logo left, nav right */
-    align-items: center;
+    flex-direction:column;
     padding: 1rem 2rem;
     background-color: var(--color-secondary); /* dark background */
-    border-bottom: 1px solid #242424;; /* optional, nice touch */
     justify-self: center;
     border-radius: 50px;
     margin: 1rem auto;
@@ -18,78 +15,12 @@
     position: sticky;
     top: 0.5rem;
     z-index: 1000;
-    width:100%;
-    /* position: fixed;
-    left: 50%;
-    transform: translateX(-50%); */
-    
+    width:100%; 
 }
 
-.header ol {
-    list-style: none; /* remove bullets */
+.navbar{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
 }
-
-a {
-    text-decoration: none;
-    color: var(--color-text);
-}
-
-
-/* ------ DESKTOP HEADER ------*/
-.nav {
-    display:flex;
-    gap: 1rem;
-    align-items:center
-}
-
-.header .navItem {
-    font-weight: 500;
-    transition: color 0.2s ease;
-}
-
-.header .navItem:hover {
-    color: var(--color-accent);
-    cursor: pointer;
-}
-
-.dropdown{
-    display:flex;
-    gap: 3px;
-    align-items:center;
-}
-
-.dropdown:hover .navItem{
-    color: var(--color-accent);
-}
-
-.dropdown:hover {
-    cursor: pointer;
-}
-
-.dropdown .caret{
-    fill:var(--color-text);
-    height:15px;
-    transition: transform .4s ease;
-}
-
-.dropdown:hover .caret{
-    transform: scaleY(-1);
-    fill:var(--color-accent);
-}
-
-
-/*------MOBILE HEADER --------*/
-.menuIcon{
-    fill:var(--color-text);
-    height:35px;
-}
-
-.menuIcon:hover {
-    fill:var(--color-accent);
-}
-
-/*------- DESKTOP HEADER -------*/
-
-
-
-/*------- MOBILE HEADER -------*/

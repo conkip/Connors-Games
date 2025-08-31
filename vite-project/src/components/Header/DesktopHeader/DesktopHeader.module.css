@@ -1,0 +1,20 @@
+/*
+    Author: Connor Kippes
+*/
+.list {
+    list-style: none;
+    display:flex;
+    gap: 1rem;
+    align-items:center
+}
+
+.listItem {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.listItem:hover {
+    color: var(--color-accent);
+}

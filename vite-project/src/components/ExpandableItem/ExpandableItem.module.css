@@ -1,0 +1,24 @@
+.container{
+    display:flex;
+    gap: 3px;
+    align-items:center;
+}
+
+.caret{
+    fill:var(--color-text);
+    height:15px;
+    transition: transform .4s ease;
+}
+
+.container:hover {
+    cursor: pointer;
+}
+
+.container:hover .listItem{
+    color: var(--color-accent);
+}
+
+.container:hover .caret{
+    transform: scaleY(-1);
+    fill:var(--color-accent);
+}

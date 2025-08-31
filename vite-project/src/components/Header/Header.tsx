@@ -4,26 +4,26 @@
 
 import { useState, useEffect } from "react";
 
-import DesktopHeader from "./DesktopHeader";
-import MobileHeader from "./MobileHeader";
+import DesktopHeader from "./DesktopHeader/DesktopHeader";
+import MobileHeader from "./MobileHeader/MobileHeader";
 
 function useWindowWidth() {
-  const [width, setWidth] = useState(window.innerWidth);
+    const [width, setWidth] = useState(window.innerWidth);
 
-  useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    useEffect(() => {
+        const handleResize = () => setWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
-  return width;
+    return width;
 }
 
 function Header() {
-  const width = useWindowWidth();
-  const isMobile = width < 1024;
+    const width = useWindowWidth();
+    const isMobile = width < 1024;
 
-  return isMobile ? <MobileHeader /> : <DesktopHeader />;
+    return isMobile ? <MobileHeader /> : <DesktopHeader />;
 }
 
-export default Header
+export default Header;

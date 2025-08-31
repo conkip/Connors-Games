@@ -10,14 +10,14 @@
     background-color:var(--color-secondary);
     padding:.5rem 1rem;
     border-radius:1rem;
+    position:sticky;
 }
 
 .menu {
-    position:relative;
     right: 0;
     top: 0;
     background-color: var(--color-tertiary);
-    padding:2rem 8rem 8rem 2rem;
+    padding:2rem 7rem 7rem 2rem;
     width:fit-content;
 }
 

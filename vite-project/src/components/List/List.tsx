@@ -2,13 +2,16 @@
     Author: Connor Kippes
 */
 
-
 import styles from "./List.module.css"
-import type { User } from "../../types";
+
+type Item = {
+  _id: number;
+  name: string;
+}
 
 interface Props {
     category: string,
-    itemList: User[],
+    itemList: Item[],
 }
 
 const List = ({category, itemList}: Props) => {

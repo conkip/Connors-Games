@@ -1,6 +1,14 @@
-function Dropdown() {
+import styles from './Dropdown.module.css'
+
+interface Props{
+    children: React.ReactNode;
+    //hi
+}
+const Dropdown = ({children}: Props) => {
     return (
-        <div>Dropdown</div>
+        <div className={styles.dropdown}>
+            {children}
+        </div>
     )
 }
 
