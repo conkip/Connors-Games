@@ -1,0 +1,50 @@
+/*
+    Author: Connor Kippes
+*/
+
+/*------TOP------*/
+.navbar {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    background-color:var(--color-secondary);
+    padding:.5rem 1rem;
+    border-radius:1rem;
+}
+
+.menu {
+    position:relative;
+    right: 0;
+    top: 0;
+    background-color: var(--color-tertiary);
+    padding:2rem 8rem 8rem 2rem;
+    width:fit-content;
+}
+
+.list {
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    padding:1rem;
+    gap:2rem;
+}
+
+.button {
+    all: unset;
+    cursor: pointer;
+}
+
+.button:hover{
+    color: var(--color-accent)
+}
+
+.icon {
+    width: 2rem;
+    height: 2rem;
+    fill:white;
+}
+
+.icon:hover {
+    cursor: pointer;
+    fill: var(--color-accent);
+}

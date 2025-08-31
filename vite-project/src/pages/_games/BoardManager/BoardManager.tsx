@@ -27,7 +27,7 @@ function BoardManager() {
 
             <div className={styles.boardContianer}>
                 {/*maybe have a preview board thing here and then make and attach the score board element when chosen*/}
-                <ScoreBoard name="someBoard"></ScoreBoard>
+                <ScoreBoard></ScoreBoard>
             </div>
         </>
     );
