@@ -1,6 +1,11 @@
-import "./App.css";
+/*
+    Author: Connor Kippes
+*/
 
-import Layout from "./components/Layout/Layout";
+import './App.css';
+
+import Layout from './components/Layout/Layout'
+import ScrollToTop from './ScrollToTop'
 import Home from "./pages/Home/Home";
 import Pricing from "./pages/Pricing/Pricing";
 import BoardManager from "./components/_tools/BoardManager/BoardManager";
@@ -14,6 +19,8 @@ import { Routes, Route } from "react-router-dom";
 
 function App() {
     return (
+        <>
+        <ScrollToTop />
         <Routes>
             <Route
                 path="/"
@@ -72,6 +79,7 @@ function App() {
 
             <Route path="/signup" element={<SignUp />} />
         </Routes>
+        </>
     );
 }
 

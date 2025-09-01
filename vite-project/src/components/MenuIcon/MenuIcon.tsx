@@ -7,20 +7,16 @@ import { useState } from 'react'
 
 interface Props {
     onClick: () => void;
+    isOpen: boolean;
 }
 
-const MenuIcon = ({onClick}:Props) => {
-
-    const [open, setOpen] = useState(false);
+const MenuIcon = ({onClick, isOpen}:Props) => {
 
     return (
         <div 
             id={styles.menuIcon}
-            className={open ? styles.open : ""}
-            onClick={() => {
-                setOpen(!open);
-                onClick();
-            }}
+            className={isOpen ? styles.open : ""}
+            onClick={() => onClick()}
         >
             <span></span>
             <span></span>

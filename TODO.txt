@@ -1,0 +1,18 @@
+fix dropdowns on header for computer version
+
+*****finish BoardManager
+
+add logins
+add json saving of boardmanager stuff
+build entire backend in java springboot
+add turn based multiplayer
+add gpt wrapper to play against AI
+
+****tools bar
+*Timer
+**Coin Flip
+***Dice Roll
+
+Pixies
+WurfelBohnanza
+Codenames

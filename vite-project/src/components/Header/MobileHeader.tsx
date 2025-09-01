@@ -27,12 +27,14 @@ function Header() {
             <div className={styles.navbar}>
                 <WebsiteTitle />
 
-                <MenuIcon onClick={() => handleOpen()} />
+                <MenuIcon isOpen={open} onClick={() => handleOpen()} />
             </div>
 
             {open && (
+                <>
+                <div className={styles.spacer}></div>
                 <Dropdown>
-                    <HeaderItems />
+                    <HeaderItems onClick={() => setOpen(false)}/>
                     <Link className={styles.link} to="/login">
                         <NavItem text="Login"></NavItem>
                     </Link>
@@ -40,6 +42,7 @@ function Header() {
                         <NavItem text="Signup"></NavItem>
                     </Link>
                 </Dropdown>
+                </>
             )}
         </header>
     );

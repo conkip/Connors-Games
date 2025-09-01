@@ -2,6 +2,7 @@
     display:flex;
     gap: 3px;
     align-items:center;
+    cursor:pointer
 }
 
 .name {
@@ -18,15 +19,19 @@
     transition: transform .4s ease;
 }
 
-.container:hover {
-    cursor: pointer;
-}
-
-.container:hover .name{
+.name:hover{
     color: var(--color-accent);
 }
 
-.container:hover .caret{
+.active {
+    cursor: pointer;
+}
+
+.active .name{
+    color: var(--color-accent);
+}
+
+.active .caret{
     transform: scaleY(-1);
     fill:var(--color-accent);
 }
