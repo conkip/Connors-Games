@@ -3,14 +3,20 @@
 */
 
 /*------TOP------*/
+.navbarContainer {
+    display:flex;
+    flex-direction:column;
+    background-color:var(--color-secondary);
+    position:sticky;
+}
+
 .navbar {
     display:flex;
     flex-direction:row;
     justify-content: space-between;
-    background-color:var(--color-secondary);
     padding:.5rem 1rem;
     border-radius:1rem;
-    position:sticky;
+    align-items:center;
 }
 
 .menu {

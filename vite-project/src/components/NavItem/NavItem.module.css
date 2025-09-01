@@ -19,8 +19,11 @@
     transition: transform .4s ease;
 }
 
-.name:hover{
+.container:hover .name{
     color: var(--color-accent);
+}
+.container:hover .caret{
+    fill:var(--color-accent);
 }
 
 .active {

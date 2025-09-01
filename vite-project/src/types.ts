@@ -1,45 +1,36 @@
-interface ScoreHistoryItem {
-  score: number;
-  color: string;
-}
-
-interface ScoreKeeper {
-  name: string;
-  color: string;
-  totalScore: number;
-  history: ScoreHistoryItem[];
-}
-
-interface Board {
-  name: string;
-  color: string;
-  increments: [number, number, number]; // three-number increments
-  scoreKeepers: ScoreKeeper[];
-}
-
-interface UserPreferences {
-  boards: Board[];
-}
-
-interface User {
-  _id: string; // or number, unique identifier
-  name: string;
-  username: string;
-  password: string; // hashed password
-  preferences: UserPreferences;
-}
-
-interface CreditCard {
-    type: string;
-    number: string;
-    exprDate: string;
-    cvv: string;
+export type ScoreHistoryItem = {
+    score: number;
+    color: string;
 };
 
-export type UserType = User;
+export type PlayerScore = {
+    name: string;
+    color: string;
+    totalScore: number;
+    history: ScoreHistoryItem[];
+};
+
+export type Board = {
+    name: string;
+    increments: [number, number, number]; // three-number increments
+    scoreKeepers: PlayerScore[];
+};
+
+export type UserPreferences = {
+    boards: Board[];
+}
+
+export type User = {
+    _id: string; // or number, unique identifier
+    name: string;
+    username: string;
+    password: string; // hashed password
+    preferences: UserPreferences;
+}
+
 
 /*
-    firebase for the database
+    mongoDB or mySQL for the database
 
     USER DATA:
 

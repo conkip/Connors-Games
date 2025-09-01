@@ -2,7 +2,7 @@
     Author: Connor Kippes
 */
 
-import styles from "./ScoreKeeper.module.css";
+import styles from "./PlayerScore.module.css";
 import { useState, useEffect, useRef } from "react";
 
 interface Props {
@@ -19,7 +19,8 @@ const ScoreKeeper = ({
     initialScore = 0,
     initialHistory = [],
 }: Props) => {
-    const [playerName, setName] = useState(name);
+    const [pColor, setColor] = useState(color);
+    const [pName, setName] = useState(name);
     const [totalScore, setTotalScore] = useState(initialScore);
     const [history, setHistory] = useState(initialHistory);
     const [curScore, setCurScore] = useState(0);
@@ -73,9 +74,10 @@ const ScoreKeeper = ({
     }
 
     return (
-        <div className={styles.container} style={{ backgroundColor: color }}>
+        <div className={styles.container} style={{ backgroundColor: pColor }}>
             <div className={styles.topContainer}>
-                <input className={styles.name} maxLength={13} onChange={(e) => setName(e.target.value)} />
+                <input className={styles.colorInput} style={{ backgroundColor: pColor }} type="color" value={pColor} onChange={(e) => setColor(e.target.value)}></input>
+                <input className={styles.name} maxLength={13} value ={pName} onChange={(e) => setName(e.target.value)} />
                 {/*<input type="text" placeholder="Enter name:"></input>*/}
                 <div className={styles.turnNumber}>{history.length}</div>
             </div>
