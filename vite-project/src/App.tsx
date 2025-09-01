@@ -1,14 +1,16 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
 
 import Layout from "./components/Layout/Layout";
 import Home from "./pages/Home/Home";
 import Pricing from "./pages/Pricing/Pricing";
-import BoardManager from "./pages/_games/BoardManager/BoardManager";
+import BoardManager from "./components/_tools/BoardManager/BoardManager";
+import Pixies from "./pages/_games/Pixies/Pixies";
+import WurfelBohnanza from "./pages/_games/WurfelBohnanza/WurfelBohnanza";
+import Codenames from "./pages/_games/Codenames/Codenames";
+import Login from "./pages/Login/Login";
+import SignUp from "./pages/SignUp/SignUp";
 
-//import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-//import Home from "./pages/Home";
-//import About from "./pages/About";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
     return (
@@ -38,6 +40,37 @@ function App() {
                     </Layout>
                 }
             />
+
+            <Route
+                path="/games/pixies"
+                element={
+                    <Layout>
+                        <Pixies />
+                    </Layout>
+                }
+            />
+
+            <Route
+                path="/games/wurfelbohnanza"
+                element={
+                    <Layout>
+                        <WurfelBohnanza />
+                    </Layout>
+                }
+            />
+
+            <Route
+                path="/games/codenames"
+                element={
+                    <Layout>
+                        <Codenames />
+                    </Layout>
+                }
+            />
+
+            <Route path="/login" element={<Login />} />
+
+            <Route path="/signup" element={<SignUp />} />
         </Routes>
     );
 }

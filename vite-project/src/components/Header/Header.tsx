@@ -4,8 +4,8 @@
 
 import { useState, useEffect } from "react";
 
-import DesktopHeader from "./DesktopHeader/DesktopHeader";
-import MobileHeader from "./MobileHeader/MobileHeader";
+import DesktopHeader from "./DesktopHeader";
+import MobileHeader from "./MobileHeader";
 
 function useWindowWidth() {
     const [width, setWidth] = useState(window.innerWidth);

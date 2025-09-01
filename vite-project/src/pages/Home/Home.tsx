@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 // COMPONENTS
 import Card from "../../components/Card/Card";
 //import Carousel from "../../components/Carousel/Carousel";
-import SquishyButton from "../../components/SquishyButton/SquishyButton";
+import Button from "../../components/Button/Button";
 import List from "../../components/List/List"
 
 
@@ -66,11 +66,12 @@ function Home() {
         <>
             <Link to="/tools/boardmanager">Board Manager</Link>
             <div className={styles.funButtonContainer}>
-                <SquishyButton
+                <Button
+                    squishy = {true}
                     onClick={handleFunButtonClick}
                 >
                     {message}
-                </SquishyButton>
+                </Button>
             </ div>
 
             {/*<Carousel imageNames={boardgameImages}></Carousel>*/}

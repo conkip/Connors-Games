@@ -4,6 +4,14 @@
     align-items:center;
 }
 
+.name {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+
 .caret{
     fill:var(--color-text);
     height:15px;
@@ -14,7 +22,7 @@
     cursor: pointer;
 }
 
-.container:hover .listItem{
+.container:hover .name{
     color: var(--color-accent);
 }
 

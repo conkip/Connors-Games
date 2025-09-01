@@ -3,6 +3,5 @@
     flex-direction:column;
     gap:2rem;
     padding:1rem;
-    border-top: 1px var(--color-text) solid;
-    margin-top:1rem;
+    margin-top:.5rem;
 }

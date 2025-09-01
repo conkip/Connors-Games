@@ -1,3 +1,7 @@
+/*
+    Author: Connor Kippes
+*/
+
 import styles from "./ScoreKeeper.module.css";
 import { useState, useEffect, useRef } from "react";
 
@@ -185,25 +189,3 @@ const ScoreKeeper = ({
 };
 
 export default ScoreKeeper;
-
-/*
-    ideas:
-
-    layout:
-
-            name on top 100% width
-    
-    sidebar    middle with total pts     sidebar    rightbar displaying
-     ex- 
-                                                        4
-        -1                                  +1          8 (green)
-        -5              36                  +5          15 (red)
-        -10                                 +10         7 (green)
-                                                        6 (green) (can scroll further to see all scores, but only this scrolls)
-                        
-
-    customizable increments (smallIncre: int, medIncr: int, largeIncr: int)
-    customizable name (string)
-    customizable color (string)
-
-*/

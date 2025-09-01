@@ -2,18 +2,18 @@
     Author: Connor Kippes
 */
 
-import styles from './BoardManager.module.css'
+import styles from "./BoardManager.module.css";
 
-import ScoreBoard from '../ScoreBoard/ScoreBoard'
-import Button from "../../../components/Button/Button"
+import ScoreBoard from "../ScoreBoard/ScoreBoard";
+import Button from "../../Button/Button";
 
-import { useState } from 'react'
+import { useState } from "react";
 
 function BoardManager() {
     const [message, setMessage] = useState("No Boards");
 
     //check if there is a user logged in and change to their preferences
-    
+
     return (
         <>
             <div className={styles.options}>
