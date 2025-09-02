@@ -15,8 +15,13 @@ phases:
       - cd vite-project
       - npm run build
 
+  post_build:
+    commands:
+      - echo Deploying to S3...
+      - aws s3 sync frontend/dist s3://your-s3-bucket-name --delete
+
 artifacts:
   files:
     - '**/*'
-  base-directory: dist
+  base-directory: vite-project/dist
   discard-paths: no
