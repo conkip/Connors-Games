@@ -1,6 +1,12 @@
 /*
     Author: Connor Kippes
 */
-.title {
+.center {
     text-align:center;
+}
+
+.link {
+    text-decoration: none;
+    color: var(--color-accent);
+    font-weight:bold;
 }

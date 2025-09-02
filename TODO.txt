@@ -1,5 +1,9 @@
 fix dropdowns on header for computer version
 
+make dropdowns trigger on hover for desktop version
+
+add color picker to score keeper
+
 *****finish BoardManager
 
 add logins
