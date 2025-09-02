@@ -35,45 +35,8 @@ import codenamesImg from "../../assets/images/codenames.webp";
 ];*/
 
 function Home() {
-    const [count, setCount] = useState(0);
-    const [message, setMessage] = useState("Fun Button");
-
-    const handleFunButtonClick = () => {
-        const newCount = count + 1;
-        setCount(newCount);
-
-        if(newCount >= 8 && newCount <= 10){
-            setMessage("Pretty Fun Right?");
-        }
-        else if(newCount >= 20 && newCount <= 22) {
-            setMessage("rm -rf system32");
-        }
-        else if(newCount >= 100 && newCount <= 102) {
-            setMessage("100 Clicks! Impressive...");
-        }
-        else if(newCount >= 120 && newCount <= 122) {
-            setMessage("Ok this is the last message.");
-        }
-        else if(newCount >= 1000 && newCount <= 1002) {
-            setMessage("You really got nothing better to do");
-        }
-        else {
-            setMessage("Fun Button"); 
-        }
-    }
-
     return (
         <>
-            <Link to="/tools/boardmanager">Board Manager</Link>
-            <div className={styles.funButtonContainer}>
-                <Button
-                    squishy = {true}
-                    onClick={handleFunButtonClick}
-                >
-                    {message}
-                </Button>
-            </ div>
-
             {/*<Carousel imageNames={boardgameImages}></Carousel>*/}
             <List category="Tools" itemList={[{_id: 1, name:"Score Keeper"}, {_id: 2, name:"Coin Flip"}, {_id: 3, name:"First Play Picker"}, {_id: 4, name:"Dice Roll"}, {_id: 5, name:"Timer"}]}></List>
             <List category="Games" itemList={[]}></List>

@@ -72,7 +72,7 @@ function BoardManager() {
             <p className={styles.message}>{message}</p>
 
             <div className={styles.boardContianer}>
-                <BoardPreview players={players}></BoardPreview>
+                <BoardPreview players={players} name="board"></BoardPreview>
                 <ScoreBoard></ScoreBoard>
             </div>
         </>

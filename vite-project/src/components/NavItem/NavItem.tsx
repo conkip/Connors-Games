@@ -18,7 +18,7 @@ const NavItem = ({ text, expandable = false, onClick}: Props) => {
 
     return (
         <div
-            className={`${styles.container} ${active ? styles.active : ""}`}
+            className={`${styles.container} ${active && expandable ? styles.active : ""}`}
             onClick={handleClick}
         >
             <div className={styles.name}>{text}</div>

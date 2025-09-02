@@ -43,7 +43,7 @@ const HeaderItems = ({onClick}: Props) => {
                             <Link
                                 onClick={onClick}
                                 className={styles.link}
-                                to="/games/wurfelbohnanza"
+                                to="/games/wurfel-bohnanza"
                             >
                                 <NavItem text="Wurfel Bohnanza" />
                             </Link>
@@ -63,7 +63,7 @@ const HeaderItems = ({onClick}: Props) => {
                             <Link
                                 onClick={onClick}
                                 className={styles.link}
-                                to="/tools/boardmanager"
+                                to="/tools/board-manager"
                             >
                                 <NavItem text="Score Keeper" />
                             </Link>

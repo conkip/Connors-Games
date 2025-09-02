@@ -1,3 +1,7 @@
+/*
+    Author: Connor Kippes
+*/
+
 import styles from './Pricing.module.css'
 
 function Pricing() {

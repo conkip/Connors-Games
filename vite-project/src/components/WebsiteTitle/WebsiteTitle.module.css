@@ -1,6 +1,6 @@
 .titleContainer {
     display: flex;
-    gap: 1rem;
+    gap: .5rem;
     font-weight: bold;
 }
 
@@ -17,5 +17,5 @@
 }
 
 .logo{
-    height: 2.8rem;
+    height: 2.75rem;
 }

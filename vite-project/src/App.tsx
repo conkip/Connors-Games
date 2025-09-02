@@ -12,10 +12,10 @@ import BoardManager from './components/_tools/ScoreKeeper/BoardManager/BoardMana
 import Pixies from './pages/_games/Pixies/Pixies'
 import WurfelBohnanza from './pages/_games/WurfelBohnanza/WurfelBohnanza'
 import Codenames from './pages/_games/Codenames/Codenames'
+import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy'
+import TermsOfUse from './pages/TermsOfUse/TermsOfUse'
 import Login from './pages/Login/Login'
 import SignUp from './pages/SignUp/SignUp'
-
-import type * as Types from './types'
 
 import { Routes, Route } from 'react-router-dom'
 
@@ -42,7 +42,7 @@ function App() {
                 />
 
                 <Route
-                    path="/tools/boardmanager"
+                    path="/tools/board-manager"
                     element={
                         <Layout>
                             <BoardManager />
@@ -60,7 +60,7 @@ function App() {
                 />
 
                 <Route
-                    path="/games/wurfelbohnanza"
+                    path="/games/wurfel-bohnanza"
                     element={
                         <Layout>
                             <WurfelBohnanza />
@@ -73,6 +73,24 @@ function App() {
                     element={
                         <Layout>
                             <Codenames />
+                        </Layout>
+                    }
+                />
+
+                <Route
+                    path="/privacy-policy"
+                    element={
+                        <Layout>
+                            <PrivacyPolicy />
+                        </Layout>
+                    }
+                />
+
+                <Route
+                    path="/terms-of-use"
+                    element={
+                        <Layout>
+                            <TermsOfUse />
                         </Layout>
                     }
                 />

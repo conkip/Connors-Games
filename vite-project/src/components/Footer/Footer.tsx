@@ -5,6 +5,8 @@
 import styles from "./Footer.module.css"
 import WebsiteTitle from "../WebsiteTitle/WebsiteTitle";
 
+import { Link } from 'react-router-dom'
+
 function Footer () {
     return (
         <footer className={styles.footer}>
@@ -40,7 +42,8 @@ function Footer () {
 
                     <ol>
                         <li><h2>Company</h2></li>
-                        <li><a>About</a></li>
+                        <li>About</li>
+                        <li>Customers</li>
                     </ol>
                 </div>
             </div>
@@ -51,8 +54,8 @@ function Footer () {
                 <p className={styles.copyright}>&copy; {new Date().getFullYear()} Connor's Games. All rights reserved.</p>
                 
                 <div className={styles.rightBottom}>
-                    <a>Privacy Policy</a>
-                    <a>Terms of Use</a>
+                    <Link to='/privacy-policy'>Privacy Policy</Link>
+                    <Link to='/terms-of-use'>Terms of Use</Link>
                 </div>
             </div>
         </footer>
