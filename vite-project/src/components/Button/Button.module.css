@@ -13,6 +13,7 @@
     transition: transform .05s ease;
     text-wrap: nowrap;
     height:fit-content;
+    width:fit-content;
 }
 .squishyButton:active {
     transform: scaleY(0.8) scaleX(1.2);

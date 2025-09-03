@@ -6,28 +6,15 @@ phases:
       nodejs: 20
     commands:
       - echo Installing dependencies...
-      - ls -al
-      - echo Listing files in current dir
-      - ls -al vite-project || echo "vite-project folder not found"
-      - cd vite-project
       - npm ci --legacy-peer-deps
   
   build:
     commands:
-      - ls -al
-      - echo Listing files in current dir
-      - ls -al vite-project || echo "vite-project folder not found"
-      - cd vite-project
       - echo Building the React app...
-      - cd vite-project
       - npm run build
 
   post_build:
     commands:
-      - ls -al
-      - echo Listing files in current dir
-      - ls -al vite-project || echo "vite-project folder not found"
-      - cd vite-project
       - echo Deploying to S3...
       - aws s3 sync frontend/dist s3://your-s3-bucket-name --delete
 
