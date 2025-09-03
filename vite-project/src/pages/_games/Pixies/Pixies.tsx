@@ -22,7 +22,7 @@ function Pixies() {
             <p>Year <b>2024</b></p>
             <p>Bombyx <a className={styles.link} href="https://studiobombyx.com/en/jeu/pixies/">Link</a></p>
 
-            <h2>How to play:</h2>
+            <h2>How to pla:</h2>
             <Button onClick={() => setOpen(!open)}>Open Rules</Button>
             {open && <img className={styles.ruleBook} src={pixiesRules}></img>}
             <a className={styles.link} href="https://www.youtube.com/watch?v=Md3J335rZWM">Video Link</a>
