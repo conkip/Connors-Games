@@ -37,7 +37,6 @@ import codenamesImg from "../../assets/images/codenames.webp";
 function Home() {
     return (
         <>
-            <p>watch this luke</p>
             {/*<Carousel imageNames={boardgameImages}></Carousel>*/}
             <List category="Tools" itemList={[{_id: 1, name:"Score Keeper"}, {_id: 2, name:"Coin Flip"}, {_id: 3, name:"First Play Picker"}, {_id: 4, name:"Dice Roll"}, {_id: 5, name:"Timer"}]}></List>
             <List category="Games" itemList={[]}></List>

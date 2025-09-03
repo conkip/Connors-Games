@@ -4,7 +4,7 @@
 
 import styles from './Pixies.module.css'
 
-import pixiesRules from '../../../assets/images/PIXIES_rulebook_EN.webp'
+import pixiesRules from '../../../assets/images/Pixies-rules-EN.webp'
 
 import Button from '../../../components/Button/Button'
 
@@ -23,9 +23,9 @@ function Pixies() {
             <p>Bombyx <a className={styles.link} href="https://studiobombyx.com/en/jeu/pixies/">Link</a></p>
 
             <h2>How to play:</h2>
+            <a className={styles.link} href="https://www.youtube.com/watch?v=Md3J335rZWM">Video Link</a>
             <Button onClick={() => setOpen(!open)}>Open Rules</Button>
             {open && <img className={styles.ruleBook} src={pixiesRules}></img>}
-            <a className={styles.link} href="https://www.youtube.com/watch?v=Md3J335rZWM">Video Link</a>
         </div>
     )
 }
