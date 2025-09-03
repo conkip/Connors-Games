@@ -18,7 +18,7 @@ phases:
     commands:
       - echo Deploying to S3...
       - ls -al
-      - aws s3 sync dist s3://www.connorgames.com --delete --region us-east-2
+      - aws s3 sync vite-project/dist s3://www.connorgames.com --delete --region us-east-2
       - echo Invalidating CloudFront cache...
       - aws cloudfront create-invalidation --distribution-id E32R0XQN7T0LPK --paths "/*"
 
