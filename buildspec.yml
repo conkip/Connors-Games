@@ -17,7 +17,7 @@ phases:
   post_build:
     commands:
       - echo Deploying to S3...
-      - aws s3 sync frontend/dist s3://your-s3-bucket-name --delete
+      - aws s3 sync vite-project/dist s3://www.connorsgames.com --delete
 
 artifacts:
   files:

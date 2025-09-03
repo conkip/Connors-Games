@@ -15,8 +15,6 @@ import { Link } from "react-router-dom";
 
 function Header() {
     const [open, setOpen] = useState(false);
-    const [item1Open, setItem1Open] = useState(false);
-
 
     function handleOpen() {
         setOpen(!open);
