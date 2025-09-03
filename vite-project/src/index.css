@@ -121,12 +121,12 @@ html {
 
 @media (max-width: 1024px) {
     html {
-        font-size: 13px; /* smaller base font on mobile */
+        font-size: 14px; /* smaller base font on mobile */
     }
 }
 
 @media (max-width: 768px) {
     html {
-        font-size: 11px; /* smaller base font on mobile */
+        font-size: 12px; /* smaller base font on mobile */
     }
 }
