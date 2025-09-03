@@ -23,8 +23,6 @@ phases:
   post_build:
     commands:
       - echo Deploying to S3...
-      - echo "Checking bucket..."
-      - aws s3 ls --region us-east-2
       - aws s3 sync dist s3://$S3_BUCKET --delete
       - echo Invalidating CloudFront cache...
       - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
