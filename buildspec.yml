@@ -4,7 +4,7 @@ env:
   variables:
     AWS_DEFAULT_REGION: us-east-2
     S3_BUCKET: www.connorsgames.com
-    CLOUDFRONT_DISTRIBUTION_ID: YE32R0XQN7T0LPK
+    CLOUDFRONT_DISTRIBUTION_ID: E32R0XQN7T0LPK
 
 phases:
   install:
