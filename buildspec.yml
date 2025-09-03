@@ -1,5 +1,11 @@
 version: 0.2
 
+env:
+  variables:
+    AWS_DEFAULT_REGION: us-east-2
+    S3_BUCKET: www.connorsgames.com
+    CLOUDFRONT_DISTRIBUTION_ID: YE32R0XQN7T0LPK
+
 phases:
   install:
     runtime-versions:
@@ -19,9 +25,9 @@ phases:
       - echo Deploying to S3...
       - echo "Checking bucket..."
       - aws s3 ls --region us-east-2
-      - aws s3 sync dist s3://www.connorgames.com --delete --region us-east-2
+      - aws s3 sync dist s3://$S3_BUCKET --delete
       - echo Invalidating CloudFront cache...
-      - aws cloudfront create-invalidation --distribution-id E32R0XQN7T0LPK --paths "/*"
+      - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
 
 artifacts:
   files:
