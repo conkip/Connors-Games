@@ -14,10 +14,10 @@ phases:
       - echo Building the React app...
       - npm run build
 
-  post_build:
-    commands:
-      - echo Deploying to S3...
-      - aws s3 sync vite-project/dist s3://www.connorsgames.com --delete
+  # post_build:
+  #   commands:
+  #     - echo Deploying to S3...
+  #     - aws s3 sync vite-project/dist s3://www.connorsgames.com --delete
 
 artifacts:
   files:
