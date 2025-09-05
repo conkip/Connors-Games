@@ -71,11 +71,18 @@ const ScoreBoard = ({ name = "New Game" }: Props) => {
                     </li>
                 </ol>
             </div>
-            <ScoreKeeper
-                name="connor"
-                color="#FF0000"
-                increments={[smallIncr, medIncr, largeIncr]}
-            ></ScoreKeeper>
+            <div className={styles.boardContainer}>
+                <ScoreKeeper
+                    name="connor"
+                    color="#FF0000"
+                    increments={[smallIncr, medIncr, largeIncr]}
+                ></ScoreKeeper>
+                <ScoreKeeper
+                    name="connor"
+                    color="#FF0000"
+                    increments={[smallIncr, medIncr, largeIncr]}
+                ></ScoreKeeper>
+            </div>
         </>
     );
 };

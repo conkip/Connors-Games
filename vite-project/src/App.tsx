@@ -14,6 +14,8 @@ import WurfelBohnanza from './pages/_games/WurfelBohnanza/WurfelBohnanza'
 import Codenames from './pages/_games/Codenames/Codenames'
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy'
 import TermsOfUse from './pages/TermsOfUse/TermsOfUse'
+import Customers from './pages/Customers/Customers'
+import About from './pages/About/About'
 import Login from './pages/Login/Login'
 import SignUp from './pages/SignUp/SignUp'
 
@@ -91,6 +93,24 @@ function App() {
                     element={
                         <Layout>
                             <TermsOfUse />
+                        </Layout>
+                    }
+                />
+
+                <Route
+                    path="/customers"
+                    element={
+                        <Layout>
+                            <Customers />
+                        </Layout>
+                    }
+                />
+
+                <Route
+                    path="/about"
+                    element={
+                        <Layout>
+                            <About />
                         </Layout>
                     }
                 />

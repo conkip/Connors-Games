@@ -33,18 +33,18 @@ function Footer () {
                 </div>
 
                 <div className={styles.topRight}>
-                    <ol>
+                    <ul>
                         <li><h2>Contact</h2></li>
                         <li><a href="tel:+1-480-465-3241">(480) 465-3241</a></li>
                         <li><a href="mailto:connorkippes1@gmail.com">connorkippes1@gmail.com</a></li>
-                    </ol>
+                    </ul>
                     
 
-                    <ol>
+                    <ul>
                         <li><h2>Company</h2></li>
-                        <li>About</li>
-                        <li>Customers</li>
-                    </ol>
+                        <li><Link to='/about'>About</Link></li>
+                        <li><Link to='/customers'>Customers</Link></li>
+                    </ul>
                 </div>
             </div>
 

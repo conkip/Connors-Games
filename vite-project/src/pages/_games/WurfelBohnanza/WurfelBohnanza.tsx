@@ -21,10 +21,10 @@ function WurfelBohnanza() {
             <p>Art by Björn <b>Pertoft</b></p>
             <p>Published by <b>999 Games, AMIGO</b></p>
             <p>Year <b>2012</b></p>
-            <p>Bombyx <a className={styles.link} href="https://studiobombyx.com/en/jeu/pixies/">Link</a></p>
+            <p>AMIGO <a className={styles.link} href="https://www.amigo-spiele.de/kartenspiele/bohnanza-das-wuerfelspiel_2253_1194" target="_blank">Link</a></p>
 
             <h2>How to play:</h2>
-            <a className={styles.link} href="https://www.youtube.com/watch?v=Md3J335rZWM">Video Link</a>
+            <a className={styles.link} href="https://www.youtube.com/watch?v=Md3J335rZWM" target="_blank">Video Link</a>
             <Button onClick={() => setOpen(!open)}>Open Rules</Button>
             {open && 
                 <div>

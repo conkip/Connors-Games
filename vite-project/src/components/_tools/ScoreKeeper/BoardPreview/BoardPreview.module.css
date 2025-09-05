@@ -57,4 +57,9 @@
     justify-content: space-between;
 }
 
+.button {
+    all:unset;
+    cursor:pointer;
+}
+
 

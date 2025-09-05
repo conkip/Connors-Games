@@ -8,12 +8,13 @@ import ScoreBoard from '../ScoreBoard/ScoreBoard'
 import BoardPreview from '../BoardPreview/BoardPreview'
 import Button from '../../../Button/Button'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import type * as Types from '../../../../types'
 let players: Types.PlayerScore[] = []
 
 let player1: Types.PlayerScore = {
+    id: 1,
     name:"Connor",
     color:"#FF0000",
     totalScore:10,
@@ -21,6 +22,7 @@ let player1: Types.PlayerScore = {
 }
 
 let player2: Types.PlayerScore = {
+    id: 2,
     name:"Connor",
     color:"#FF0000",
     totalScore:10,
@@ -47,16 +49,27 @@ let board2: Types.Board = {
     scoreKeepers: players
 }
 
-let boards: Types.UserPreferences = {
+let userBoards: Types.UserPreferences = {
     boards: []
 }
 
-boards.boards.push(board1);
-boards.boards.push(board2);
+userBoards.boards.push(board1);
+userBoards.boards.push(board2);
+let previewList = userBoards.boards.map((board) => {return <BoardPreview players={board.scoreKeepers} name={board.name}></BoardPreview>});
 
 function BoardManager() {
-    
     const [message, setMessage] = useState("No Boards");
+    const [stateBoards, setStateBoards] = useState(userBoards);
+
+    useEffect(() => {
+        if(stateBoards.boards.length === 0) {
+            setMessage("");
+        }
+        else {
+            setMessage("No Boards");
+        }
+        // also update database userboards
+    }, [stateBoards]);
 
     //check if there is a user logged in and change to their preferences
 
@@ -69,12 +82,12 @@ function BoardManager() {
                 <Button>Delete Player</Button>
             </div>
 
-            <p className={styles.message}>{message}</p>
+            <h2 className={styles.message}>{message}</h2>
 
-            <div className={styles.boardContianer}>
-                <BoardPreview players={players} name="board"></BoardPreview>
-                <ScoreBoard></ScoreBoard>
+            <div className={styles.boardContainer}>
+                {previewList}
             </div>
+            <ScoreBoard></ScoreBoard>
         </>
     );
 }

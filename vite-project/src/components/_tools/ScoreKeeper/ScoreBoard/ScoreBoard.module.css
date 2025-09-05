@@ -54,3 +54,9 @@
     cursor: pointer;
     fill: var(--color-accent);
 }
+
+.boardContainer{
+    display:flex;
+    flex-direction:row;
+    gap:.5rem;
+}

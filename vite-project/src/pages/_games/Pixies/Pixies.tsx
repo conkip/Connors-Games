@@ -20,10 +20,10 @@ function Pixies() {
             <p>Art by <b>Sylvain Trabut</b></p>
             <p>Published by <b>Bombyx</b></p>
             <p>Year <b>2024</b></p>
-            <p>Bombyx <a className={styles.link} href="https://studiobombyx.com/en/jeu/pixies/">Link</a></p>
+            <p>Bombyx <a className={styles.link} href="https://studiobombyx.com/en/jeu/pixies/" target="_blank">Link</a></p>
 
             <h2>How to play:</h2>
-            <a className={styles.link} href="https://www.youtube.com/watch?v=Md3J335rZWM">Video Link</a>
+            <a className={styles.link} href="https://www.youtube.com/watch?v=Md3J335rZWM" target="_blank">Video Link</a>
             <Button onClick={() => setOpen(!open)}>Open Rules</Button>
             {open && <img className={styles.ruleBook} src={pixiesRules}></img>}
         </div>

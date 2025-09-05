@@ -23,7 +23,7 @@
     fill: var(--color-accent);
 }
 
-.footer ol{
+.footer ul{
     list-style:none;
 }
 .footer li{

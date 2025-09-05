@@ -4,6 +4,7 @@ export type ScoreHistoryItem = {
 };
 
 export type PlayerScore = {
+    id:number;
     name: string;
     color: string;
     totalScore: number;
@@ -21,7 +22,7 @@ export type UserPreferences = {
 }
 
 export type User = {
-    _id: string; // or number, unique identifier
+    id: number;
     name: string;
     username: string;
     password: string; // hashed password
