@@ -117,10 +117,12 @@ function DesktopHeader() {
                 <WebsiteTitle />
 
                 <div className={styles.headerItems}>
-                    <Link className={styles.link} to="/login">
+                    <Link onClick={handleCloseDropdowns} className={styles.link} to="/login" >
                         <NavItem text="Login"></NavItem>
                     </Link>
-                    <Button squishy={true}>Get Started</Button>
+                    <Link className={styles.link} to="/signup">
+                        <Button isSquishy={true} onClick={handleCloseDropdowns}>Get Started</Button>
+                    </Link>
                 </div>
             </div>
         </header>

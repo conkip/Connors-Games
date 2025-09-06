@@ -9,36 +9,64 @@ import { useState, useEffect, useRef } from 'react'
 
 function Timer() {
     const [isRunning, setIsRunning] = useState(false);
-    const [time, setTime] = useState(0);
+    const [curTime, setCurTime] = useState(0);
 
-    const intervalIdRef = useRef(null);
+    const intervalIdRef = useRef(0);
     const startTimeRef = useRef(0);
 
     useEffect(() => {
+        if(isRunning) {
+            intervalIdRef.current = setInterval(() => {
+                setCurTime((c) => Math.max(c-1, 0));
+            }, 10);
+        }
+
+        return () => {
+            clearInterval(intervalIdRef.current);
+        }
     }, [isRunning]);
 
     function start(){
-        
-    }
-
-    function reset() {
-
+        setIsRunning(true);
+        startTimeRef.current = Date.now() - curTime;
     }
 
     function stop(){
-
+        setIsRunning(false);
     }
 
-    function set(){
-
+    function reset() {
+        setIsRunning(false);
+        if(isRunning){
+            setCurTime(startTimeRef.current);
+        }
+        else {
+            setCurTime(0);
+            startTimeRef.current = 0;
+        }
     }
 
     function formatTime() {
-        return `00:00:00`;
+        let minutes: string | number = Math.floor(curTime / (1000 * 60) % 60);
+        let seconds: string | number = Math.floor(curTime / (1000) % 60);
+        let milliseconds: string | number = Math.floor(curTime % 1000 / 10);
+
+        minutes = String(minutes).padStart(2, "0");
+        seconds = String(seconds).padStart(2, "0");
+        milliseconds = String(milliseconds).padStart(2, "0");
+
+        return `${minutes}:${seconds}:${milliseconds}`;
+
     }
 
     function addTime(time:number) {
-        setTime((t) => t + time);
+        if(isRunning){
+            setCurTime((t) => t + time);
+        }
+        else {
+            startTimeRef.current = startTimeRef.current + time;
+            setCurTime(startTimeRef.current);
+        }
     }
 
     return (
@@ -50,9 +78,9 @@ function Timer() {
                 <button className={styles.button} onClick={() => addTime(5)}>+5.00</button>
             </div>
             <div className={styles.controls}>
-                <Button color="var(--color-green)" onClick={start}>Start</Button>
-                <Button color="var(--color-red)" onClick={stop}>Stop</Button>
-                <Button color="var(--color-orange)" onClick={reset}>Reset</Button>
+                <Button isSquishy={true} color="var(--color-green)" onClick={start}>Start</Button>
+                <Button isSquishy={true} color="var(--color-red)" onClick={stop}>Stop</Button>
+                <Button isSquishy={true} color="var(--color-orange)" onClick={reset}>Reset</Button>
             </div>
         </div>
     )

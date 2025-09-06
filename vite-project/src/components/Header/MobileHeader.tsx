@@ -20,12 +20,21 @@ function Header() {
     const [open2, setOpen2] = useState(false);
     const [open3, setOpen3] = useState(false);
 
+    function handleCloseDropdowns(){
+        setOpen1(false);
+        setOpen11(false);
+        setOpen12(false);
+        setOpen2(false);
+        setOpen2(false);
+        setOpen3(false);
+    }
+
     return (
         <header className={styles.header}>
             <div className={styles.navbar}>
                 <WebsiteTitle />
 
-                <MenuIcon isOpen={open} onClick={() => setOpen(!open)} />
+                <MenuIcon isOpen={open} onClick={() => {setOpen(!open); handleCloseDropdowns()}} />
             </div>
 
             {open && (
@@ -46,17 +55,17 @@ function Header() {
                             />
                             {open11 && (
                                 <Dropdown>
-                                    <Link onClick={() => setOpen(false)} className={styles.link} to="/games/pixies">
+                                    <Link onClick={() => {setOpen(false); handleCloseDropdowns();}} className={styles.link} to="/games/pixies">
                                         <NavItem text="Pixies" />
                                     </Link>
                                     <Link
-                                        onClick={() => setOpen(false)}
+                                        onClick={() => {setOpen(false); handleCloseDropdowns();}}
                                         className={styles.link}
                                         to="/games/wurfel-bohnanza"
                                     >
                                         <NavItem text="Wurfel Bohnanza" />
                                     </Link>
-                                    <Link onClick={() => setOpen(false)} className={styles.link} to="/games/codenames">
+                                    <Link onClick={() => {setOpen(false); handleCloseDropdowns();}} className={styles.link} to="/games/codenames">
                                         <NavItem text="Codenames" />
                                     </Link>
                                 </Dropdown>
@@ -70,11 +79,19 @@ function Header() {
                             {open12 && (
                                 <Dropdown>
                                     <Link
-                                        onClick={() => setOpen(false)}
+                                        onClick={() => {setOpen(false); handleCloseDropdowns();}}
                                         className={styles.link}
                                         to="/tools/board-manager"
                                     >
                                         <NavItem text="Score Keeper" />
+                                    </Link>
+
+                                    <Link
+                                        onClick={() => {setOpen(false); handleCloseDropdowns();}}
+                                        className={styles.link}
+                                        to="/tools/tools-bar"
+                                    >
+                                        <NavItem text="Tools Bar" />
                                     </Link>
                                 </Dropdown>
                             )}
@@ -103,13 +120,13 @@ function Header() {
                         </Dropdown>
                     )}
 
-                    <Link onClick={() => setOpen(false)} className={styles.link} to="/pricing">
+                    <Link className={styles.link} to="/pricing" onClick={() => {setOpen(false); handleCloseDropdowns();}}>
                         <NavItem text="Pricing" />
                     </Link>
-                    <Link className={styles.link} to="/login">
+                    <Link className={styles.link} to="/login" onClick={() => {setOpen(false); handleCloseDropdowns();}}>
                         <NavItem text="Login"></NavItem>
                     </Link>
-                    <Link className={styles.link} to="/signup">
+                    <Link className={styles.link} to="/signup" onClick={() => {setOpen(false); handleCloseDropdowns();}}>
                         <NavItem text="Signup"></NavItem>
                     </Link>
                 </Dropdown>
