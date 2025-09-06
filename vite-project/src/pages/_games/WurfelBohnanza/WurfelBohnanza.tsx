@@ -24,7 +24,7 @@ function WurfelBohnanza() {
             <p>AMIGO <a className={styles.link} href="https://www.amigo-spiele.de/kartenspiele/bohnanza-das-wuerfelspiel_2253_1194" target="_blank">Link</a></p>
 
             <h2>How to play:</h2>
-            <a className={styles.link} href="https://www.youtube.com/watch?v=Md3J335rZWM" target="_blank">Video Link</a>
+            <a className={styles.link} href="https://www.youtube.com/watch?v=MdvqgBNVmHo" target="_blank">Video Link</a>
             <Button onClick={() => setOpen(!open)}>Open Rules</Button>
             {open && 
                 <div>

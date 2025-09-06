@@ -2,8 +2,9 @@
     Author: Connor Kippes
 */
 
-.boardContainer{
+.previewContainer{
     display:flex;
     flex-direction:row;
     gap:.5rem;
+    flex-wrap:wrap;
 }

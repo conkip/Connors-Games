@@ -8,9 +8,12 @@ import ScoreBoard from '../ScoreBoard/ScoreBoard'
 import BoardPreview from '../BoardPreview/BoardPreview'
 import Button from '../../../Button/Button'
 
-import { useState, useEffect } from 'react'
+import { createContext, useState, useEffect } from 'react'
 
 import type * as Types from '../../../../types'
+
+//export const UserContext = createContext();
+
 let players: Types.PlayerScore[] = []
 
 let player1: Types.PlayerScore = {
@@ -38,12 +41,14 @@ let player1History:Types.ScoreHistoryItem = {
 };
 
 let board1: Types.Board = {
+    id: 1,
     name: "board1",
     increments: [1,5,10],
     scoreKeepers: players
 }
 
 let board2: Types.Board = {
+    id: 2,
     name: "board2",
     increments: [1,5,10],
     scoreKeepers: players
@@ -55,11 +60,12 @@ let userBoards: Types.UserPreferences = {
 
 userBoards.boards.push(board1);
 userBoards.boards.push(board2);
-let previewList = userBoards.boards.map((board) => {return <BoardPreview players={board.scoreKeepers} name={board.name}></BoardPreview>});
+let previewList = userBoards.boards.map((board) => {return <BoardPreview players={board.scoreKeepers} name={board.name} key={board.id}></BoardPreview>});
 
 function BoardManager() {
     const [message, setMessage] = useState("No Boards");
     const [stateBoards, setStateBoards] = useState(userBoards);
+
 
     useEffect(() => {
         if(stateBoards.boards.length === 0) {
@@ -84,7 +90,7 @@ function BoardManager() {
 
             <h2 className={styles.message}>{message}</h2>
 
-            <div className={styles.boardContainer}>
+            <div className={styles.previewContainer}>
                 {previewList}
             </div>
             <ScoreBoard></ScoreBoard>

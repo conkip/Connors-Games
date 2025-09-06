@@ -1,15 +1,15 @@
 /*
     Author: Connor Kippes
 */
-import styles from './Timer.module.css'
+import styles from './Stopwatch.module.css'
 
 import Button from '../../Button/Button'
 
 import { useState, useEffect, useRef } from 'react'
 
-function Timer() {
+function Stopwatch() {
     const [isRunning, setIsRunning] = useState(false);
-    const [time, setTime] = useState(0);
+    const [elapsedTime, setElapsedTime] = useState(0);
 
     const intervalIdRef = useRef(null);
     const startTimeRef = useRef(0);
@@ -29,26 +29,14 @@ function Timer() {
 
     }
 
-    function set(){
-
-    }
-
     function formatTime() {
         return `00:00:00`;
-    }
 
-    function addTime(time:number) {
-        setTime((t) => t + time);
     }
 
     return (
         <div className={styles.stopwatch}>
             <div className={styles.display}>{formatTime()}</div>
-            <div className={styles.increments}>
-                <button className={styles.button} onClick={() => addTime(.5)}>+0.30</button>
-                <button className={styles.button} onClick={() => addTime(1)}>+1.00</button>
-                <button className={styles.button} onClick={() => addTime(5)}>+5.00</button>
-            </div>
             <div className={styles.controls}>
                 <Button color="var(--color-green)" onClick={start}>Start</Button>
                 <Button color="var(--color-red)" onClick={stop}>Stop</Button>
@@ -58,4 +46,4 @@ function Timer() {
     )
 }
 
-export default Timer
+export default Stopwatch

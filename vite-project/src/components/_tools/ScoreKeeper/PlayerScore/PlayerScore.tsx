@@ -25,25 +25,28 @@ const ScoreKeeper = ({
     const [history, setHistory] = useState(initialHistory);
     const [curScore, setCurScore] = useState(0);
 
-    const [filling, setFilling] = useState(false);
+    const circumference = 2 * Math.PI * 300;
+    const [dashOffset, setDashOffset] = useState(circumference);
+    const [duration, setDuration] = useState(3000);
+    const [isIncrementing, setIsIncrementing] = useState(false);
     const [resetKey, setResetKey] = useState(0); // used to force animation reset
 
     function resetBoard() {
         setTotalScore(0);
         setHistory([]);
-        setFilling(false);
+        setIsIncrementing(false);
         setCurScore(0);
     }
 
     function handleIncrement(amount: number) {
         setCurScore((c) => c + amount);
         setResetKey((prev) => prev + 1);
-        setFilling(true);
+        setIsIncrementing(true);
     }
 
     function handleCancel() {
         setCurScore(0);
-        setFilling(false);
+        setIsIncrementing(false);
     }
 
     useEffect(() => {
@@ -53,7 +56,18 @@ const ScoreKeeper = ({
     }, [history])
 
     useEffect(() => {
-        if (!filling) {
+        if(isIncrementing) {
+            setDashOffset(circumference); // Start empty
+            setTimeout(() => setDashOffset(0), 1000); // Animate to full
+            const timer = setTimeout(() => {
+      setDashOffset(0); // Animate to full
+    }, 1000); // 1 second delay
+    //return () => clearTimeout(timer);
+        } else {
+            setDashOffset(circumference);
+        }
+
+        if (!isIncrementing) {
             if (curScore != 0) {
                 setTotalScore((t) => t + curScore);
                 setHistory((h) => [...h, curScore]);
@@ -61,17 +75,12 @@ const ScoreKeeper = ({
             }
         }
 
-        const duration = 2500; // 2.5 seconds
         const timeout = setTimeout(() => {
-            setFilling(false);
+            setIsIncrementing(false);
         }, duration);
 
         return () => clearTimeout(timeout);
-    }, [filling, resetKey]);
-
-    function handleFilling(bool: boolean) {
-        setFilling(bool);
-    }
+    }, [isIncrementing, resetKey]);
 
     return (
         <div className={styles.container} style={{ backgroundColor: pColor }}>
@@ -104,53 +113,79 @@ const ScoreKeeper = ({
                     </button>
                 </div>
 
-                {!filling ? (
+                {!isIncrementing ? (
                     <>
                         <h1 className={styles.middleContainer}>{totalScore}</h1>
                     </>
                 ) : (
                     <div className={styles.middleContainer}>
                         <div className={styles.scoringContainer}>
-                            <svg
-                                className={`${styles.icon} ${styles.cancelIcon}`}
-                                onClick={() => handleCancel()}
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 640 640"
-                            >
-                                {/* Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. */}
-                                <path
-                                    d="M504.6 148.5C515.9 134.9 514.1 114.7 500.5 103.4C486.9 92.1 466.7 93.9 
-                                455.4 107.5L320 270L184.6 107.5C173.3 93.9 153.1 92.1 139.5 103.4C125.9 114.7 
-                                124.1 134.9 135.4 148.5L278.3 320L135.4 491.5C124.1 505.1 125.9 525.3 139.5 
-                                536.6C153.1 547.9 173.3 546.1 184.6 532.5L320 370L455.4 532.5C466.7 546.1 486.9 
-                                547.9 500.5 536.6C514.1 525.3 515.9 505.1 504.6 491.5L361.7 320L504.6 148.5z"
-                                />
-                            </svg>
+                            <button className={`${styles.button} ${styles.cancelButton}`}>
+                                {/* X Icon */}
+                                <svg
+                                    className={styles.svg}
+                                    onClick={() => handleCancel()}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 640 640"
+                                >
+                                    {/* Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. */}
+                                    <path
+                                        fill="currentColor"
+                                        d="M504.6 148.5C515.9 134.9 514.1 114.7 500.5 103.4C486.9 92.1 466.7 93.9 
+                                        455.4 107.5L320 270L184.6 107.5C173.3 93.9 153.1 92.1 139.5 103.4C125.9 114.7 
+                                        124.1 134.9 135.4 148.5L278.3 320L135.4 491.5C124.1 505.1 125.9 525.3 139.5 
+                                        536.6C153.1 547.9 173.3 546.1 184.6 532.5L320 370L455.4 532.5C466.7 546.1 486.9 
+                                        547.9 500.5 536.6C514.1 525.3 515.9 505.1 504.6 491.5L361.7 320L504.6 148.5z"
+                                    />
+                                </svg>
+                            </button>
 
-                            <h6>{curScore}</h6>
+                            <h6 className={styles.incrementedScore}>{curScore}</h6>
 
-                            <svg
-                                className={`${styles.icon} ${
-                                    styles.checkIcon
-                                } ${filling ? styles.circleSvg : ""}`}
-                                onClick={() => handleFilling(false)}
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 640 640"
-                            >
-                                {/* Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. */}
-                                <path
-                                    d="M530.8 134.1C545.1 144.5 548.3 164.5 537.9 178.8L281.9 530.8C276.4 
-                                538.4 267.9 543.1 258.5 543.9C249.1 544.7 240 541.2 233.4 534.6L105.4 
-                                406.6C92.9 394.1 92.9 373.8 105.4 361.3C117.9 348.8 138.2 348.8 150.7 
-                                361.3L252.2 462.8L486.2 141.1C496.6 126.8 516.6 123.6 530.9 134z"
-                                />
-                            </svg>
-                            
-                            <svg className={styles.circleSvg} viewBox="0 0 20 20">
-                                <circle
-                                    className={styles.circleBorder}
-                                />
-                            </svg>
+                            <button className={`${styles.button} ${styles.confirmButton}`}>
+                                {/* Loading border circle */}
+                                <svg
+                                    className={styles.borderSvg}
+                                    viewBox="0 0 50 50"
+                                >
+                                    <circle
+                                        className={styles.loadingBorder}
+                                        cx="24.8px"
+                                        cy="24.8px"
+                                        r="24px"
+                                        fill="none"
+                                        stroke="var(--color-accent)"
+                                        strokeWidth="2.88px"
+                                        strokeDasharray={circumference}
+                                        strokeDashoffset={dashOffset}
+                                        style={{
+                                            transition: isIncrementing
+                                                ? `stroke-dashoffset ${duration-1100}ms linear`
+                                                : "none",
+                                            position: "absolute",
+                                            zIndex: 0,
+                                        }}
+                                    />
+                                </svg>
+
+                                {/* Checkmark Icon */}
+                                <svg
+                                    key={resetKey}
+                                    className={styles.svg}
+                                    onClick={() => setIsIncrementing(false)}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 640 640"
+                                >
+                                    {/* Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. */}
+                                    <path
+                                        fill="currentColor"
+                                        d="M530.8 134.1C545.1 144.5 548.3 164.5 537.9 178.8L281.9 530.8C276.4 
+                                        538.4 267.9 543.1 258.5 543.9C249.1 544.7 240 541.2 233.4 534.6L105.4 
+                                        406.6C92.9 394.1 92.9 373.8 105.4 361.3C117.9 348.8 138.2 348.8 150.7 
+                                        361.3L252.2 462.8L486.2 141.1C496.6 126.8 516.6 123.6 530.9 134z"
+                                    />
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 )}

@@ -12,6 +12,7 @@ export type PlayerScore = {
 };
 
 export type Board = {
+    id:number;
     name: string;
     increments: [number, number, number]; // three-number increments
     scoreKeepers: PlayerScore[];

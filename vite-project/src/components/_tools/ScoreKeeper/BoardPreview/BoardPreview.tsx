@@ -26,33 +26,36 @@ const BoardPreview = ({name, players}:Props) => {
         );
     });
 
-    const [popupPos, setPopupPos] = useState<{ top: number; left: number } | null>(null);
-    const buttonRef = useRef<HTMLButtonElement>(null);
+    const [dropdownPos, setDropdownPos] = useState<{ top: number; left: number } | null>(null);
+
+    const inputRef = useRef(null);
+
+    const buttonRef = useRef<HTMLButtonElement | null>(null);
 
     const handleClick = () => {
         if (buttonRef.current) {
         const rect = buttonRef.current.getBoundingClientRect();
-        setPopupPos({
-            top: rect.bottom, // place below the element
-            left: rect.right, // align to right edge
+        setDropdownPos({
+            top: rect.bottom + window.scrollY,
+            left: rect.right + window.scrollX,
         });
         }
     };
 
-    // Close popup when clicking outside
+    // close popup when clicking outside
     useEffect(() => {
         const handleOutsideClick = (e: MouseEvent) => {
         if (
-            popupPos &&
+            dropdownPos &&
             buttonRef.current &&
             !buttonRef.current.contains(e.target as Node)
         ) {
-            setPopupPos(null);
+            setDropdownPos(null);
         }
         };
         document.addEventListener("click", handleOutsideClick);
         return () => document.removeEventListener("click", handleOutsideClick);
-    }, [popupPos]);
+    }, [dropdownPos]);
 
     return (
         <div className={styles.container}>
@@ -60,7 +63,7 @@ const BoardPreview = ({name, players}:Props) => {
                 <div>{name}</div>
 
                 {/* 3 dots icon*/}
-                <button className={styles.button} onClick={handleClick}>
+                <button className={styles.button} ref={buttonRef} onClick={handleClick}>
                     <svg className={styles.dots} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                         {/*Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - 
                         https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.*/}
@@ -72,22 +75,16 @@ const BoardPreview = ({name, players}:Props) => {
                     </svg>
                 </button>
 
-                {popupPos && (
-                    <div
-                    style={{
-                        position: "absolute",
-                        top: popupPos.top,
-                        left: popupPos.left,
-                        transform: "translate(-100%, 0)", // shift so it aligns bottom-right
-                        background: "white",
-                        border: "1px solid #ddd",
-                        boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-                        padding: "8px 12px",
-                        borderRadius: "8px",
-                        zIndex: 1000,
-                    }}
+                {dropdownPos && (
+                    <div className={styles.dropdown}
+                        style={{
+                            top: dropdownPos.top + 3,
+                            left: dropdownPos.left,
+                        }}
                     >
-                    I am a popup!
+                        <p>Delete</p>
+                        <p>Resume</p>
+                        <p>Create a Copy</p>
                     </div>
                 )}
             </div>

@@ -8,20 +8,19 @@
 
 /* COLORS */
 :root {
-    --color-primary: #131313;
-    --color-secondary: #2b2b2b;
-    --color-tertiary:#202020;
+    --color-primary: rgb(19, 19, 19);
+    --color-secondary: rgb(43, 43, 43);
+    --color-tertiary:rgb(32, 32, 32);
 
-    --color-text: #ffffff;
-    --color-subtext: #8b8b8b;
-    --color-sub-subtext: #6d6d6d;
+    --color-text: rgb(255, 255, 255);
+    --color-subtext: rgb(139, 139, 139);
+    --color-sub-subtext: rgb(109, 109, 109);
 
-    --color-accent: #00aeff;
+    --color-accent: rgb(0, 174, 255);
 
-    /* Feedback */
-    --color-success: #16a34a;
-    --color-warning: #eab308;
-    --color-error: #dc2626;
+    --color-green: #16a34a;
+    --color-orange: #eab308;
+    --color-red: #dc2626;
 
     --h1: bold 54px/64px var(--ff);
     --h2: bold 36px/45px var(--ff);

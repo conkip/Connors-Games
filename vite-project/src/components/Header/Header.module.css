@@ -14,7 +14,7 @@
     flex-wrap: nowrap;
     position: sticky;
     top: 0.5rem;
-    z-index: 1000;
+    z-index: 9999;
     width:100%; 
 }
 
@@ -23,6 +23,9 @@
     flex-direction:row;
     justify-content: space-between;
     align-items:center;
+}
+.link {
+    text-decoration:none;
 }
 
 
@@ -40,8 +43,9 @@
 .login{
     padding-top:.5px;
 }
-.link {
-    text-decoration:none;
+
+.dropdown{
+    
 }
 
 /*---MOBILE HEADER--*/

@@ -8,14 +8,19 @@ import Layout from './components/Layout/Layout'
 import ScrollToTop from './ScrollToTop'
 import Home from './pages/Home/Home'
 import Pricing from './pages/Pricing/Pricing'
-import BoardManager from './components/_tools/ScoreKeeper/BoardManager/BoardManager'
+
 import Pixies from './pages/_games/Pixies/Pixies'
 import WurfelBohnanza from './pages/_games/WurfelBohnanza/WurfelBohnanza'
 import Codenames from './pages/_games/Codenames/Codenames'
+
+import BoardManager from './components/_tools/ScoreKeeper/BoardManager/BoardManager'
+import ToolsBar from './components/_tools/ToolsBar/ToolsBar'
+
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy'
 import TermsOfUse from './pages/TermsOfUse/TermsOfUse'
 import Customers from './pages/Customers/Customers'
 import About from './pages/About/About'
+
 import Login from './pages/Login/Login'
 import SignUp from './pages/SignUp/SignUp'
 
@@ -48,6 +53,15 @@ function App() {
                     element={
                         <Layout>
                             <BoardManager />
+                        </Layout>
+                    }
+                />
+
+                <Route
+                    path="/tools/tools-bar"
+                    element={
+                        <Layout>
+                            <ToolsBar />
                         </Layout>
                     }
                 />
