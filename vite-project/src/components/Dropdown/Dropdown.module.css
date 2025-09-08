@@ -3,9 +3,12 @@
 */
 
 .dropdown{
-    display:flex;
-    flex-direction:column;
-    gap:2rem;
-    padding:0 2rem 1rem 2rem;
-    width:100%;
+    position: absolute;
+    transform: translate(-100%, 0);
+    background: var(--color-tertiary);
+    color: var(--color-text);
+    padding: 8px 12px;
+    border-radius: 1rem;
+    border-top-right-radius: 0;
+    z-index: 1000;
 }

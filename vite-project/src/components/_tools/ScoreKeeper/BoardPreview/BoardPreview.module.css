@@ -19,12 +19,13 @@
     width:250px;
     background-color:var(--color-secondary);
     border-radius: 10px;
+    cursor:pointer;
 }
 
 .top {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px var(--color-subtext) solid;
+    border-bottom: 1px var(--color-text) solid;
     padding:1rem;
     align-items:center;
 }

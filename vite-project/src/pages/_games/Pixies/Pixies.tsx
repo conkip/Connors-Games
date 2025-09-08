@@ -24,7 +24,7 @@ function Pixies() {
 
             <h2>How to play:</h2>
             <a className={styles.link} href="https://www.youtube.com/watch?v=Md3J335rZWM" target="_blank">Video Link</a>
-            <Button onClick={() => setOpen(!open)}>Open Rules</Button>
+            <Button onClick={() => setOpen(!open)}>{open ? "Close Rules" : "Open Rules"}</Button>
             {open && <img className={styles.ruleBook} src={pixiesRules}></img>}
         </div>
     )

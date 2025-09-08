@@ -4,6 +4,8 @@
 
 import styles from './BoardPreview.module.css'
 
+import Dropdown from '../../../Dropdown/Dropdown'
+
 import { useState, useRef, useEffect } from 'react'
 
 import type * as Types from '../../../../types'
@@ -27,9 +29,6 @@ const BoardPreview = ({name, players}:Props) => {
     });
 
     const [dropdownPos, setDropdownPos] = useState<{ top: number; left: number } | null>(null);
-
-    const inputRef = useRef(null);
-
     const buttonRef = useRef<HTMLButtonElement | null>(null);
 
     const handleClick = () => {
@@ -76,16 +75,11 @@ const BoardPreview = ({name, players}:Props) => {
                 </button>
 
                 {dropdownPos && (
-                    <div className={styles.dropdown}
-                        style={{
-                            top: dropdownPos.top + 3,
-                            left: dropdownPos.left,
-                        }}
-                    >
+                    <Dropdown top={dropdownPos.top + 3} left={dropdownPos.left}>
                         <p>Delete</p>
                         <p>Resume</p>
                         <p>Create a Copy</p>
-                    </div>
+                    </Dropdown>
                 )}
             </div>
 

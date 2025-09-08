@@ -25,7 +25,7 @@ function WurfelBohnanza() {
 
             <h2>How to play:</h2>
             <a className={styles.link} href="https://www.youtube.com/watch?v=MdvqgBNVmHo" target="_blank">Video Link</a>
-            <Button onClick={() => setOpen(!open)}>Open Rules</Button>
+            <Button onClick={() => setOpen(!open)}>{open ? "Close Rules" : "Open Rules"}</Button>
             {open && 
                 <div>
                     <img className={styles.ruleBook} src={wurfelRules1}></img>

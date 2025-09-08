@@ -3,7 +3,7 @@
 */
 
 import styles from "./PlayerScore.module.css";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 interface Props {
     name: string;
@@ -12,6 +12,7 @@ interface Props {
     initialScore?: number;
     initialHistory?: number[];
 }
+
 const ScoreKeeper = ({
     name,
     color,
@@ -25,9 +26,9 @@ const ScoreKeeper = ({
     const [history, setHistory] = useState(initialHistory);
     const [curScore, setCurScore] = useState(0);
 
-    const circumference = 2 * Math.PI * 300;
+    const duration =3000;
+    const circumference = 2 * Math.PI * 24;
     const [dashOffset, setDashOffset] = useState(circumference);
-    const [duration, setDuration] = useState(3000);
     const [isIncrementing, setIsIncrementing] = useState(false);
     const [resetKey, setResetKey] = useState(0); // used to force animation reset
 
@@ -41,6 +42,7 @@ const ScoreKeeper = ({
     function handleIncrement(amount: number) {
         setCurScore((c) => c + amount);
         setResetKey((prev) => prev + 1);
+        setIsIncrementing(false);
         setIsIncrementing(true);
     }
 
@@ -57,12 +59,8 @@ const ScoreKeeper = ({
 
     useEffect(() => {
         if(isIncrementing) {
-            setDashOffset(circumference); // Start empty
-            setTimeout(() => setDashOffset(0), 1000); // Animate to full
-            const timer = setTimeout(() => {
-      setDashOffset(0); // Animate to full
-    }, 1000); // 1 second delay
-    //return () => clearTimeout(timer);
+            setDashOffset(circumference); // start empty
+            setTimeout(() => setDashOffset(0), 1000); // animate to full
         } else {
             setDashOffset(circumference);
         }
@@ -87,7 +85,6 @@ const ScoreKeeper = ({
             <div className={styles.topContainer}>
                 <input className={styles.colorInput} style={{ backgroundColor: pColor }} type="color" value={pColor} onChange={(e) => setColor(e.target.value)}></input>
                 <input className={styles.name} maxLength={13} value ={pName} onChange={(e) => setName(e.target.value)} />
-                {/*<input type="text" placeholder="Enter name:"></input>*/}
                 <div className={styles.turnNumber}>{history.length}</div>
             </div>
 
@@ -149,7 +146,6 @@ const ScoreKeeper = ({
                                     viewBox="0 0 50 50"
                                 >
                                     <circle
-                                        className={styles.loadingBorder}
                                         cx="24.8px"
                                         cy="24.8px"
                                         r="24px"
@@ -160,10 +156,8 @@ const ScoreKeeper = ({
                                         strokeDashoffset={dashOffset}
                                         style={{
                                             transition: isIncrementing
-                                                ? `stroke-dashoffset ${duration-1100}ms linear`
+                                                ? `stroke-dashoffset ${duration-1050}ms linear`
                                                 : "none",
-                                            position: "absolute",
-                                            zIndex: 0,
                                         }}
                                     />
                                 </svg>
@@ -211,15 +205,15 @@ const ScoreKeeper = ({
                     </button>
                 </div>
 
-                <ol id="scrollContainer" className={styles.historyContainer}>
-                    {history.map((item) => {
+                <ul id="scrollContainer" className={styles.historyContainer}>
+                    {history.map((elem, index) => {
                         return (
-                            <li style={{ color: item < 0 ? "red" : "green" }}>
-                                {item < 0 ? item *-1: item}
+                            <li key={index} style={{ color: elem < 0 ? "red" : "green" }}>
+                                {elem < 0 ? elem *-1: elem}
                             </li>
                         );
                     })}
-                </ol>
+                </ul>
             </div>
         </div>
     );

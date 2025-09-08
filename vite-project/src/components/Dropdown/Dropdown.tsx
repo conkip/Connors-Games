@@ -1,12 +1,24 @@
+/*
+    Author: Connor Kippes
+*/
 import styles from './Dropdown.module.css'
 
-interface Props{
-    children: React.ReactNode;
-    //hi
+import type { ReactNode } from "react"
+
+interface Props {
+    children: ReactNode;
+    top: number;
+    left: number;
 }
-const Dropdown = ({children}: Props) => {
+
+const Dropdown = ({children, top, left}:Props) => {
     return (
-        <div className={styles.dropdown}>
+        <div className={styles.dropdown}
+            style={{
+                top: top,
+                left: left,
+            }}
+        >
             {children}
         </div>
     )

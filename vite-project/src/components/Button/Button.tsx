@@ -6,7 +6,6 @@ import styles from './Button.module.css'
 import squishSound from '../../assets/audio/squish.mp3'
 import type { ReactNode } from "react"
 
-//rafce
 interface Props {
     children: ReactNode;
     color?: string;

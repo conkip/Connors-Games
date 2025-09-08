@@ -5,7 +5,7 @@ import styles from "./ScoreBoard.module.css";
 
 import ScoreKeeper from "../PlayerScore/PlayerScore";
 import MenuIcon from "../../../MenuIcon/MenuIcon";
-import Dropdown from "../../../Dropdown/Dropdown";
+import Dropdown from "../../../MenuSection/MenuSection";
 
 import { useRef, useState } from "react";
 
@@ -14,7 +14,6 @@ interface Props {
 }
 
 const ScoreBoard = ({ name = "New Game" }: Props) => {
-
     // check user logged in in the database and checks for information on that name
     let loggedIn = false;
 
