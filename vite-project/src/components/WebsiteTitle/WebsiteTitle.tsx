@@ -24,12 +24,12 @@ function WebsiteTitle() {
                 onClick={handleClick}
             ></img>
 
-            <h1
+            <h2
                 className={styles.title}
                 onClick={handleClick}
             >
                 Connor's Games
-            </h1>
+            </h2>
         </div>
     );
 }

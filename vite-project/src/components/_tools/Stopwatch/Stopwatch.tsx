@@ -57,9 +57,9 @@ function Stopwatch() {
         <div className={styles.stopwatch}>
             <div className={styles.display}>{formatTime()}</div>
             <div className={styles.controls}>
-                <Button color="var(--color-green)" onClick={start}>Start</Button>
-                <Button color="var(--color-red)" onClick={stop}>Stop</Button>
-                <Button color="var(--color-orange)" onClick={reset}>Reset</Button>
+                <Button isSquishy={true} color="var(--color-green)" onClick={start}>Start</Button>
+                <Button isSquishy={true} color="var(--color-red)" onClick={stop}>Stop</Button>
+                <Button isSquishy={true} color="var(--color-orange)" onClick={reset}>Reset</Button>
             </div>
         </div>
     )
