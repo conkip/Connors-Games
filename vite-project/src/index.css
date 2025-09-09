@@ -29,6 +29,8 @@
     --p: 18px/30px var(--ff);
     --button-text: 24px/24px var(--ff);
     --subtext: 13.5px/20px var(--ff);
+
+    --box-shadow: 5px 5px 10px rgba(0, 0, 0, 1);
 }
 
 /* TYPOGRAPHY */

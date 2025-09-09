@@ -20,12 +20,14 @@
     background-color:var(--color-secondary);
     border-radius: 10px;
     cursor:pointer;
+    border: 2px rgba(255, 255, 255, 0.1) solid;
+    box-shadow: var(--box-shadow);
 }
 
 .top {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px var(--color-text) solid;
+    border-bottom: 2px rgba(255, 255, 255, 0.1) solid;
     padding:1rem;
     align-items:center;
 }

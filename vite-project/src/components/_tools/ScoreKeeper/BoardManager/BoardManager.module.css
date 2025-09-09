@@ -5,6 +5,6 @@
 .previewContainer{
     display:flex;
     flex-direction:row;
-    gap:.5rem;
+    gap:1rem;
     flex-wrap:wrap;
 }

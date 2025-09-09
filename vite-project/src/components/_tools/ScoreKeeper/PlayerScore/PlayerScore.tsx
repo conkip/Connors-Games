@@ -155,9 +155,7 @@ const ScoreKeeper = ({
                                         strokeDasharray={circumference}
                                         strokeDashoffset={dashOffset}
                                         style={{
-                                            transition: isIncrementing
-                                                ? `stroke-dashoffset ${duration-1050}ms linear`
-                                                : "none",
+                                            transition: dashOffset === circumference ? "none" : `stroke-dashoffset ${duration-1050}ms linear`,
                                         }}
                                     />
                                 </svg>
