@@ -7,9 +7,10 @@ import styles from "./Header.module.css";
 import WebsiteTitle from "../WebsiteTitle/WebsiteTitle";
 import MenuIcon from "../MenuIcon/MenuIcon";
 import MenuSection from "../MenuSection/MenuSection";
+import Navbar from '../Navbar/Navbar'
 import NavItem from "../NavItem/NavItem";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -29,9 +30,21 @@ function Header() {
         setOpen3(false);
     }
 
+    useEffect(() => {
+        if (open) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        // clean up in case the component unmounts while menu is open
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [open]);
+
     return (
-        <header className={styles.header}>
-            <div className={styles.navbar}>
+        <>
+            <Navbar>
                 <WebsiteTitle />
 
                 <MenuIcon
@@ -41,8 +54,9 @@ function Header() {
                         handleCloseDropdowns();
                     }}
                 />
-            </div>
+            </Navbar>
 
+            <div className={styles.menu} style={{display: `${open ? "block" : "none"}`}}>
             {open && (
                 <>
                     <div className={styles.spacer}></div>
@@ -186,7 +200,8 @@ function Header() {
                     </MenuSection>
                 </>
             )}
-        </header>
+            </div>
+        </>
     );
 }
 

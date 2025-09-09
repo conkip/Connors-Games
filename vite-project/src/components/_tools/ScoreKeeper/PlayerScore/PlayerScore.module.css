@@ -9,6 +9,7 @@
     width: 250px;
     border-radius:10px;
     box-shadow: var(--box-shadow);
+    margin:1rem;
 }
 
 /*-----TOP-----*/

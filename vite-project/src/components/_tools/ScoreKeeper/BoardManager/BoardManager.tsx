@@ -6,7 +6,9 @@ import styles from './BoardManager.module.css'
 
 import ScoreBoard from '../ScoreBoard/ScoreBoard'
 import BoardPreview from '../BoardPreview/BoardPreview'
-import Button from '../../../Button/Button'
+import Navbar from '../../../Navbar/Navbar'
+import NavItem from '../../../NavItem/NavItem'
+import MenuIcon from '../../../MenuIcon/MenuIcon'
 
 import { createContext, useState, useEffect } from 'react'
 
@@ -63,6 +65,7 @@ userBoards.boards.push(board2);
 let previewList = userBoards.boards.map((board) => {return <BoardPreview players={board.scoreKeepers} name={board.name} key={board.id}></BoardPreview>});
 
 function BoardManager() {
+    const [open, setOpen] = useState(false);
     const [message, setMessage] = useState("No Boards");
     const [stateBoards, setStateBoards] = useState(userBoards);
 
@@ -81,14 +84,20 @@ function BoardManager() {
 
     return (
         <>
-            <div className={styles.options}>
-                <Button>Add Board</Button>
-                <Button>Delete Board</Button>
-                <Button>Add Player</Button>
-                <Button>Delete Player</Button>
-            </div>
+            <Navbar top={6}>
+                <h3 className={styles.title}>Board Manager</h3>
+                <MenuIcon onClick={()=> setOpen(!open)} isOpen={open} />
+            </Navbar>
 
-            <h2 className={styles.message}>{message}</h2>
+            { open &&
+                <div className={styles.navItems}>
+                    <button className={styles.button}><NavItem text="Add Board" /></button>
+                    <button className={styles.button}><NavItem text="Delete Board" /></button>
+                    <button className={styles.button}><NavItem text="Add Player" /></button>
+                    <button className={styles.button}><NavItem text="Delete Player" /></button>
+                </div>
+            }
+            { previewList.length < 1 && <h2 className={styles.message}>{message}</h2>}
 
             <div className={styles.previewContainer}>
                 {previewList}

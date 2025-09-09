@@ -8,6 +8,7 @@ import Button from '../Button/Button'
 import NavItem from '../NavItem/NavItem'
 import MenuSection from '../MenuSection/MenuSection'
 import Dropdown from '../Dropdown/Dropdown'
+import Navbar from '../Navbar/Navbar'
 
 import { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
@@ -61,129 +62,127 @@ function DesktopHeader() {
     }, [dropdownPos]);
 
     return (
-        <header className={styles.header}>
-            <div className={styles.navbar}>
-                <div className={styles.headerItems}>
-                    <button className={styles.button} ref={button1Ref} onClick={() => handleClick(button1Ref)}>
+        <Navbar>
+            <div className={styles.headerItems}>
+                <button className={styles.button} ref={button1Ref} onClick={() => handleClick(button1Ref)}>
+                    <NavItem
+                        text="Products"
+                        expandable={true}
+                        onClick={() => {
+                            setOpen1(!open1);
+                            setOpen11(false);
+                            setOpen12(false);
+                        }}
+                    />
+                </button>
+                {open1 && dropdownPos && (
+                    <Dropdown top={dropdownPos.top} left={dropdownPos.left}>
                         <NavItem
-                            text="Products"
+                            text="Games"
                             expandable={true}
-                            onClick={() => {
-                                setOpen1(!open1);
-                                setOpen11(false);
-                                setOpen12(false);
-                            }}
+                            onClick={() => setOpen11(!open11)}
                         />
-                    </button>
-                    {open1 && dropdownPos && (
-                        <Dropdown top={dropdownPos.top} left={dropdownPos.left}>
-                            <NavItem
-                                text="Games"
-                                expandable={true}
-                                onClick={() => setOpen11(!open11)}
-                            />
-                            {open11 && (
-                                <MenuSection>
-                                    <Link
-                                        onClick={handleCloseDropdowns}
-                                        className={styles.link}
-                                        to="/games/pixies"
-                                    >
-                                        <NavItem text="Pixies" />
-                                    </Link>
-                                    <Link
-                                        onClick={handleCloseDropdowns}
-                                        className={styles.link}
-                                        to="/games/wurfel-bohnanza"
-                                    >
-                                        <NavItem text="Wurfel Bohnanza" />
-                                    </Link>
-                                    <Link
-                                        onClick={handleCloseDropdowns}
-                                        className={styles.link}
-                                        to="/games/codenames"
-                                    >
-                                        <NavItem text="Codenames" />
-                                    </Link>
-                                </MenuSection>
-                            )}
+                        {open11 && (
+                            <MenuSection>
+                                <Link
+                                    onClick={handleCloseDropdowns}
+                                    className={styles.link}
+                                    to="/games/pixies"
+                                >
+                                    <NavItem text="Pixies" />
+                                </Link>
+                                <Link
+                                    onClick={handleCloseDropdowns}
+                                    className={styles.link}
+                                    to="/games/wurfel-bohnanza"
+                                >
+                                    <NavItem text="Wurfel Bohnanza" />
+                                </Link>
+                                <Link
+                                    onClick={handleCloseDropdowns}
+                                    className={styles.link}
+                                    to="/games/codenames"
+                                >
+                                    <NavItem text="Codenames" />
+                                </Link>
+                            </MenuSection>
+                        )}
 
-                            <NavItem
-                                text="Tools"
-                                expandable={true}
-                                onClick={() => setOpen12(!open12)}
-                            />
-                            {open12 && (
-                                <MenuSection>
-                                    <Link
-                                        onClick={handleCloseDropdowns}
-                                        className={styles.link}
-                                        to="/tools/board-manager"
-                                    >
-                                        <NavItem text="Score Keeper" />
-                                    </Link>
+                        <NavItem
+                            text="Tools"
+                            expandable={true}
+                            onClick={() => setOpen12(!open12)}
+                        />
+                        {open12 && (
+                            <MenuSection>
+                                <Link
+                                    onClick={handleCloseDropdowns}
+                                    className={styles.link}
+                                    to="/tools/board-manager"
+                                >
+                                    <NavItem text="Score Keeper" />
+                                </Link>
 
-                                    <Link
-                                        onClick={handleCloseDropdowns}
-                                        className={styles.link}
-                                        to="/tools/tools-bar"
-                                    >
-                                        <NavItem text="Tools Bar" />
-                                    </Link>
-                                </MenuSection>
-                            )}
-                        </Dropdown>
-                    )}
+                                <Link
+                                    onClick={handleCloseDropdowns}
+                                    className={styles.link}
+                                    to="/tools/tools-bar"
+                                >
+                                    <NavItem text="Tools Bar" />
+                                </Link>
+                            </MenuSection>
+                        )}
+                    </Dropdown>
+                )}
 
-                    <NavItem
-                        text="Solutions"
-                        expandable={true}
-                        onClick={() => setOpen2(!open2)}
-                    />
-                    {open2 && (
-                        <MenuSection>
-                            <div>Multiplayer</div>
-                        </MenuSection>
-                    )}
+                <NavItem
+                    text="Solutions"
+                    expandable={true}
+                    onClick={() => setOpen2(!open2)}
+                />
+                {open2 && (
+                    <MenuSection>
+                        <div>Multiplayer</div>
+                    </MenuSection>
+                )}
 
-                    <NavItem
-                        text="Resources"
-                        expandable={true}
-                        onClick={() => setOpen3(!open3)}
-                    />
-                    {open3 && (
-                        <MenuSection>
-                            <div>Contact</div>
-                        </MenuSection>
-                    )}
+                <NavItem
+                    text="Resources"
+                    expandable={true}
+                    onClick={() => setOpen3(!open3)}
+                />
+                {open3 && (
+                    <MenuSection>
+                        <div>Contact</div>
+                    </MenuSection>
+                )}
 
-                    <Link
-                        onClick={handleCloseDropdowns}
-                        className={styles.link}
-                        to="/pricing"
-                    >
-                        <NavItem text="Pricing" />
-                    </Link>
-                </div>
-
-                <WebsiteTitle />
-
-                <div className={styles.headerItems}>
-                    <Link
-                        onClick={handleCloseDropdowns}
-                        className={styles.link}
-                        to="/login"
-                    >
-                        <NavItem text="Login"></NavItem>
-                    </Link>
-                    <Link className={styles.link} to="/signup">
-                        <Button isSquishy={true} onClick={handleCloseDropdowns}>
-                            Get Started
-                        </Button>
-                    </Link>
-                </div>
+                <Link
+                    onClick={handleCloseDropdowns}
+                    className={styles.link}
+                    to="/pricing"
+                >
+                    <NavItem text="Pricing" />
+                </Link>
             </div>
-        </header>
+
+            <WebsiteTitle />
+
+            <div className={styles.headerItems}>
+                <Link
+                    onClick={handleCloseDropdowns}
+                    className={styles.link}
+                    to="/login"
+                >
+                    <NavItem text="Login"></NavItem>
+                </Link>
+                <Link className={styles.link} to="/signup">
+                    <Button isSquishy={true} onClick={handleCloseDropdowns}>
+                        Get Started
+                    </Button>
+                </Link>
+            </div>
+        </Navbar>
     );
 }
 

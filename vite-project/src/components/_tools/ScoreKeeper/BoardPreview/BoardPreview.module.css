@@ -20,14 +20,15 @@
     background-color:var(--color-secondary);
     border-radius: 10px;
     cursor:pointer;
-    border: 2px rgba(255, 255, 255, 0.1) solid;
+    border: var(--border);
     box-shadow: var(--box-shadow);
+    margin:1rem;
 }
 
 .top {
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px rgba(255, 255, 255, 0.1) solid;
+    border-bottom: var(--border);
     padding:1rem;
     align-items:center;
 }

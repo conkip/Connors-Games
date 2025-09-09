@@ -2,37 +2,10 @@
     Author: Connor Kippes
 */
 
-/*------TOP------*/
-.navbarContainer {
+.leftNav{
     display:flex;
-    flex-direction:column;
-    background-color:var(--color-secondary);
-    position:sticky;
-}
-
-.navbar {
-    display:flex;
-    flex-direction:row;
-    justify-content: space-between;
-    padding:.5rem 1rem;
-    border-radius:1rem;
+    gap:1rem;
     align-items:center;
-}
-
-.menu {
-    right: 0;
-    top: 0;
-    background-color: var(--color-tertiary);
-    padding:2rem 7rem 7rem 2rem;
-    width:fit-content;
-}
-
-.list {
-    list-style:none;
-    display:flex;
-    flex-direction:column;
-    padding:1rem;
-    gap:2rem;
 }
 
 .button {
@@ -58,6 +31,9 @@
 .boardContainer{
     display:flex;
     flex-direction:row;
-    gap:1rem;
     flex-wrap:wrap;
+}
+
+.spacer{
+    margin-bottom:30rem;
 }

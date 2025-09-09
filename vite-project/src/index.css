@@ -31,6 +31,7 @@
     --subtext: 13.5px/20px var(--ff);
 
     --box-shadow: 5px 5px 10px rgba(0, 0, 0, 1);
+    --border: 2px rgba(0, 0, 0, 0.2) solid;
 }
 
 /* TYPOGRAPHY */
@@ -119,6 +120,20 @@ h6 {
 html {
     font-size: 100%; /* 16px default */
 }
+
+::-webkit-scrollbar {
+    background: var(--color-secondary);
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-subtext); /* or transparent to hide thumb */
+    border-radius: 8px;
+}
+
 
 @media (max-width: 1024px) {
     html {
