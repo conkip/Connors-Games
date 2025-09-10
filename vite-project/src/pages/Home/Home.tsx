@@ -41,7 +41,7 @@ function Home() {
                     </div>
 
                     <div className={styles.toolsItem}>
-                        <Link className={styles.link} to="/tools/coin">Timer</Link>
+                        <Link className={styles.link} to="/tools/timer">Timer</Link>
                         {/* Hourglass Icon */}
                         <svg className={styles.timerIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                             {/* Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com 
@@ -57,7 +57,7 @@ function Home() {
                     </div>
 
                     <div className={styles.toolsItem}>
-                        <Link className={styles.link} to="/tools/coin">Stopwatch</Link>
+                        <Link className={styles.link} to="/tools/stopwatch">Stopwatch</Link>
                         {/* Stopwtach Icon */}
                         <svg className={styles.stopwatchIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                             {/* Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com 

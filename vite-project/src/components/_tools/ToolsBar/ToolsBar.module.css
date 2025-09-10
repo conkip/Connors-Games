@@ -1,6 +1,10 @@
 /*
     Author: Connor Kippes
 */
+.toolsNav{
+    display:flex;
+    gap:1rem;
+}
 
 .container{
     display:flex;

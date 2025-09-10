@@ -1,7 +1,7 @@
 /*
     Author: Connor Kippes
 */
-import styles from './CoinFlip.module.css'
+import styles from './CoinUI.module.css'
 
 import Coin from '../Coin/Coin'
 import Button from '../../../Button/Button'

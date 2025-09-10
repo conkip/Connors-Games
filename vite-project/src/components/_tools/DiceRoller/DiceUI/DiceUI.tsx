@@ -2,7 +2,7 @@
     Author: Connor Kippes
 */
 
-import styles from './DiceRoll.module.css'
+import styles from './DiceUI.module.css'
 
 import Dice from '../Dice/Dice'
 import Button from '../../../Button/Button'
