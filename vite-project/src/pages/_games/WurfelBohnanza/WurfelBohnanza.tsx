@@ -4,8 +4,8 @@
 
 import styles from './WurfelBohnanza.module.css'
 
-import wurfelRules1 from '../../../assets/images/Wurfel-Bohnanza-rules1-EN.webp'
-import wurfelRules2 from '../../../assets/images/Wurfel-Bohnanza-rules2-EN.webp'
+import wurfelRules1 from '../../../assets/images/wurfel/Wurfel-Bohnanza-rules1-EN.webp'
+import wurfelRules2 from '../../../assets/images/wurfel/Wurfel-Bohnanza-rules2-EN.webp'
 
 import Button from '../../../components/Button/Button'
 

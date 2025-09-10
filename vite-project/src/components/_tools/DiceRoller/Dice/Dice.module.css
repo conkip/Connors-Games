@@ -1,0 +1,83 @@
+/*
+    Author: Connor Kippes
+*/
+
+.overallContainer {
+    height:fit-content;
+    width:fit-content;
+    border-radius:calc(var(--coin-size) * (1/8));
+}
+
+.container {
+    height:var(--coin-size);
+    width:var(--coin-size);
+    background:white;
+    border-radius:calc(var(--coin-size) * (1/8));
+    border: 1px black solid;
+    padding: calc(var(--coin-size) * (1/16));
+}
+
+.circle {
+    width: calc(var(--coin-size) * (.25));
+    height: calc(var(--coin-size) * (.25));
+    background: black;
+    border-radius: 50%;
+}
+
+/*----DICE 1-----*/
+.d1 {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/*----DICE 2-----*/
+.d2 {
+    display:flex;
+    justify-content:space-between;
+}
+
+.d2d1{
+    align-self:start;
+}
+
+.d2d2{
+    align-self: end;
+}
+
+
+/*----DICE 3-----*/
+.d3 {
+    display:flex;
+    justify-content:space-between;
+}
+
+.d3d1{
+    align-self:start;
+}
+
+.d3d2{
+    align-self: center;
+}
+.d3d3{
+    align-self: end;
+}
+
+
+/*----DICE 4----*/
+.d4{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.d4Pair{
+    display:flex;
+    justify-content:space-between;
+}
+
+/*----DICE 5----*/
+
+.d5Mid{
+    align-self:center;
+}

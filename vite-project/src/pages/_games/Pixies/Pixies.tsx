@@ -4,7 +4,7 @@
 
 import styles from './Pixies.module.css'
 
-import pixiesRules from '../../../assets/images/Pixies-rules-EN.webp'
+import pixiesRules from '../../../assets/images/pixies/Pixies-rules-EN.webp'
 
 import Button from '../../../components/Button/Button'
 
