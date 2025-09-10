@@ -97,6 +97,10 @@
     transform: rotate(360deg);
 }
 
+.stopwatchIcon:hover{
+    transform: rotate(360deg);
+}
+
 .timerIcon {
     height:2rem;
     fill:var(--color-text);
@@ -105,5 +109,23 @@
 
 .timerIcon:active {
     transform: rotateX(180deg);
+}
+
+.timerIcon:hover {
+    transform: rotateX(180deg);
+}
+
+.toolBarIcon {
+    height:2rem;
+    fill:var(--color-text);
+    transition: transform .25s ease;
+}
+
+.toolBarIcon:active {
+    transform: translatey(-10px);
+}
+
+.toolBarIcon:hover {
+    transform: translatey(-10px);
 }
 

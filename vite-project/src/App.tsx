@@ -15,6 +15,7 @@ import WurfelBohnanza from "./pages/_games/WurfelBohnanza/WurfelBohnanza";
 import Codenames from "./pages/_games/Codenames/Codenames";
 
 import BoardManager from "./components/_tools/ScoreKeeper/BoardManager/BoardManager";
+import ToolsBar from './components/_tools/ToolsBar/ToolsBar'
 import DiceUI from "./components/_tools/DiceRoller/DiceUI/DiceUI";
 import CoinUI from "./components/_tools/CoinFlipper/CoinUI/CoinUI";
 import Timer from './components/_tools/Timer/Timer'
@@ -57,6 +58,15 @@ function App() {
                     element={
                         <Layout>
                             <BoardManager />
+                        </Layout>
+                    }
+                />
+
+                <Route
+                    path="/tools/tool-bar"
+                    element={
+                        <Layout>
+                            <ToolsBar />
                         </Layout>
                     }
                 />
