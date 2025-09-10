@@ -13,22 +13,34 @@ function Timer() {
 
     const intervalIdRef = useRef(0);
     const startTimeRef = useRef(0);
+    const isFresh = useRef(true);
 
     useEffect(() => {
         if(isRunning) {
             intervalIdRef.current = setInterval(() => {
-                setCurTime((c) => Math.max(c-1, 0));
-            }, 10);
+                setCurTime((c) => {
+                    if (c <= 0.1) {
+                        clearInterval(intervalIdRef.current);
+                        setIsRunning(false);
+                        startTimeRef.current = 0;
+                        isFresh.current = true;
+                        return 0; // snap to 0
+                    }
+                    return c - 0.05;
+                });
+            }, 50);
         }
 
-        return () => {
-            clearInterval(intervalIdRef.current);
-        }
-    }, [isRunning]);
+        return () => clearInterval(intervalIdRef.current);
+    }, [isRunning, curTime]);
 
     function start(){
-        setIsRunning(true);
-        startTimeRef.current = Date.now() - curTime;
+        if(!isRunning) {
+            if(isFresh.current)
+                startTimeRef.current = curTime;
+            setIsRunning(true);
+            isFresh.current = false;
+        }
     }
 
     function stop(){
@@ -36,20 +48,21 @@ function Timer() {
     }
 
     function reset() {
-        setIsRunning(false);
-        if(isRunning){
-            setCurTime(startTimeRef.current);
-        }
-        else {
+        if(curTime === startTimeRef.current){
             setCurTime(0);
             startTimeRef.current = 0;
+            isFresh.current = true;
         }
+        else {
+            setCurTime(startTimeRef.current);
+        }
+        setIsRunning(false);
     }
 
     function formatTime() {
-        let minutes: string | number = Math.floor(curTime / (1000 * 60) % 60);
-        let seconds: string | number = Math.floor(curTime / (1000) % 60);
-        let milliseconds: string | number = Math.floor(curTime % 1000 / 10);
+        let minutes: string | number = Math.floor(curTime / 60 % 60);
+        let seconds: string | number = Math.floor(curTime % 60);
+        let milliseconds: string | number = Math.floor(curTime * 100 % 100 * 60 / 100);
 
         minutes = String(minutes).padStart(2, "0");
         seconds = String(seconds).padStart(2, "0");
@@ -73,9 +86,9 @@ function Timer() {
         <div className={styles.stopwatch}>
             <div className={styles.display}>{formatTime()}</div>
             <div className={styles.increments}>
-                <button className={styles.button} onClick={() => addTime(.5)}>+0.30</button>
-                <button className={styles.button} onClick={() => addTime(1)}>+1.00</button>
-                <button className={styles.button} onClick={() => addTime(5)}>+5.00</button>
+                <button className={styles.button} onClick={() => addTime(1)}>+1s</button>
+                <button className={styles.button} onClick={() => addTime(5)}>+5s</button>
+                <button className={styles.button} onClick={() => addTime(30)}>+30s</button>
             </div>
             <div className={styles.controls}>
                 <Button isSquishy={true} color="var(--color-green)" onClick={start}>Start</Button>
