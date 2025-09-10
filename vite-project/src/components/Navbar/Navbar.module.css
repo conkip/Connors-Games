@@ -4,9 +4,9 @@
 
 .navbar {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     justify-content: space-between;
-    align-items:center;
+    align-items: center;
     padding: 1rem 2.5rem;
     background-color: var(--color-secondary); /* dark background */
     justify-self: center;
@@ -16,8 +16,14 @@
     position: sticky;
     top: 0.5rem;
     z-index: 9999;
-    width:100%;
+    width: 100%;
     border: var(--border);
     box-shadow: var(--box-shadow);
-    white-space:nowrap;
+    white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 1rem 1rem;
+    }
 }

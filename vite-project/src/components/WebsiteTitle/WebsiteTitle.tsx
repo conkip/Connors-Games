@@ -1,8 +1,8 @@
 import styles from "./WebsiteTitle.module.css";
 import logo from "../../assets/images/logo.svg";
 
-import { useLocation, useNavigate } from "react-router-dom";
-
+import { useLocation, useNavigate } from 'react-router-dom'
+    
 function WebsiteTitle() {
     const location = useLocation();
     const navigate = useNavigate();
@@ -16,6 +16,7 @@ function WebsiteTitle() {
             navigate("/");
         }
     }
+
     return (
         <div className={styles.titleContainer}>
             <img
