@@ -37,7 +37,7 @@ function Home() {
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                             <g id="SVGRepo_iconCarrier">
-                                <path fill="#ffffff" fill-rule="evenodd" 
+                                <path className={styles.toolBarIconFill} fill="#ffffff" fill-rule="evenodd" 
                                     d="M5 3v-.75A2.25 2.25 0 017.25 0h1.5A2.25 2.25 0 0111 2.25V3h.79a2.25 2.25 0 011.609.678l1.96 
                                     2.007c.411.42.641.985.641 1.573v5.492A2.25 2.25 0 0113.75 15H2.25A2.25 2.25 0 010 
                                     12.75V7.258c0-.588.23-1.152.64-1.573l1.961-2.007A2.25 2.25 0 014.211 3H5zm1.5-.75a.75.75 

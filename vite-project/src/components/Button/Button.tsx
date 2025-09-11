@@ -15,7 +15,11 @@ interface Props {
 
 const Button = ({children, color = "var(--color-accent)", onClick, isSquishy=false}: Props) => {
     const handleMouseDown = () => {
-        isSquishy && new Audio(squishSound).play();
+        if(isSquishy) {
+            const sound = new Audio(squishSound);
+            sound.volume = 0.2;
+            sound.play();
+        }
     }
 
     return (

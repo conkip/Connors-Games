@@ -64,7 +64,10 @@
     -ms-user-select: none;      /* IE/Edge */
 }
 .incrementor:active{
-    transform: scale(1.1);
+    transform: scale(1.15);
+}
+.incrementor:hover{
+    transform: scale(1.15);
 }
 
 .score{
@@ -95,10 +98,12 @@
 }
 .stopwatchIcon:active{
     transform: rotate(360deg);
+    fill:var(--color-accent);
 }
 
 .stopwatchIcon:hover{
     transform: rotate(360deg);
+    fill:var(--color-accent);
 }
 
 .timerIcon {
@@ -109,10 +114,12 @@
 
 .timerIcon:active {
     transform: rotateX(180deg);
+    fill:var(--color-accent);
 }
 
 .timerIcon:hover {
     transform: rotateX(180deg);
+    fill:var(--color-accent);
 }
 
 .toolBarIcon {
@@ -127,5 +134,13 @@
 
 .toolBarIcon:hover {
     transform: translatey(-10px);
+}
+
+.toolBarIcon:active  .toolBarIconFill {
+    fill:var(--color-accent);
+}
+
+.toolBarIcon:hover .toolBarIconFill {
+    fill:var(--color-accent);
 }
 

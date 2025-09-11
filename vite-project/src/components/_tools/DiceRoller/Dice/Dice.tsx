@@ -10,9 +10,10 @@ interface Props {
     color?:string;
     size?:number;
     setFaceState?: (f:number) => void;
+    setIsDone?: (f:boolean) => void;
 }
 
-const Dice = ({color="white", size=4, setFaceState}:Props)=> {
+const Dice = ({color="white", size=4, setFaceState, setIsDone}:Props)=> {
 
     const [face, setFace]= useState(6);
     const [rotation, setRotation] = useState(0);
@@ -20,6 +21,8 @@ const Dice = ({color="white", size=4, setFaceState}:Props)=> {
     const rollsRemaining = useRef(0);
 
     function handleClick() {
+        if(setIsDone)
+            setIsDone(false);
         const endFace = Math.floor(Math.random() * 3);
         rollsRemaining.current = 3 + endFace;
         startHalfRoll();
@@ -49,6 +52,9 @@ const Dice = ({color="white", size=4, setFaceState}:Props)=> {
             rollsRemaining.current -= 1;
             startHalfRoll();
         } else if(setFaceState) {
+            if(setIsDone) {
+                setTimeout(() => setIsDone(true), 100);
+            }
             setFaceState(face);
         }
     }

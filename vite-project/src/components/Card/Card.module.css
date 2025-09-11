@@ -8,7 +8,7 @@
     border-radius: 10px;
     box-shadow: 7px 7px 5px hsla(0, 0%, 0%, 0.35);
     margin: 10px;
-    max-width: 325px;
+    max-width: 20rem;
     height:auto;
     display: flex;
     flex-direction: column;

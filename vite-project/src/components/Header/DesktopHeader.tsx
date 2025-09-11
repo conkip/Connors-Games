@@ -66,22 +66,20 @@ function DesktopHeader() {
             <div className={styles.headerItems}>
                 <button className={styles.button} ref={button1Ref} onClick={() => handleClick(button1Ref)}>
                     <NavItem
-                        text="Products"
                         expandable={true}
                         onClick={() => {
                             setOpen1(!open1);
                             setOpen11(false);
                             setOpen12(false);
                         }}
-                    />
+                    >Products</NavItem>
                 </button>
                 {open1 && dropdownPos && (
                     <Dropdown top={dropdownPos.top} left={dropdownPos.left}>
                         <NavItem
-                            text="Games"
                             expandable={true}
                             onClick={() => setOpen11(!open11)}
-                        />
+                        >Games</NavItem>
                         {open11 && (
                             <MenuSection>
                                 <Link
@@ -89,30 +87,29 @@ function DesktopHeader() {
                                     className={styles.link}
                                     to="/games/pixies"
                                 >
-                                    <NavItem text="Pixies" />
+                                    <NavItem>Pixies</NavItem>
                                 </Link>
                                 <Link
                                     onClick={handleCloseDropdowns}
                                     className={styles.link}
                                     to="/games/wurfel-bohnanza"
                                 >
-                                    <NavItem text="Wurfel Bohnanza" />
+                                    <NavItem>Wurfel Bohnanza</NavItem>
                                 </Link>
                                 <Link
                                     onClick={handleCloseDropdowns}
                                     className={styles.link}
                                     to="/games/codenames"
                                 >
-                                    <NavItem text="Codenames" />
+                                    <NavItem>Codenames</NavItem>
                                 </Link>
                             </MenuSection>
                         )}
 
                         <NavItem
-                            text="Tools"
                             expandable={true}
                             onClick={() => setOpen12(!open12)}
-                        />
+                        >Tools</NavItem>
                         {open12 && (
                             <MenuSection>
                                 <Link
@@ -120,7 +117,7 @@ function DesktopHeader() {
                                     className={styles.link}
                                     to="/tools/board-manager"
                                 >
-                                    <NavItem text="Score Keeper" />
+                                    <NavItem>Score Keeper</NavItem>
                                 </Link>
 
                                 <Link
@@ -128,7 +125,7 @@ function DesktopHeader() {
                                     className={styles.link}
                                     to="/tools/tools-bar"
                                 >
-                                    <NavItem text="Tools Bar" />
+                                    <NavItem>Tool Bar</NavItem>
                                 </Link>
                             </MenuSection>
                         )}
@@ -136,10 +133,9 @@ function DesktopHeader() {
                 )}
 
                 <NavItem
-                    text="Solutions"
                     expandable={true}
                     onClick={() => setOpen2(!open2)}
-                />
+                >Solutions</NavItem>
                 {open2 && (
                     <MenuSection>
                         <div>Multiplayer</div>
@@ -147,10 +143,9 @@ function DesktopHeader() {
                 )}
 
                 <NavItem
-                    text="Resources"
                     expandable={true}
                     onClick={() => setOpen3(!open3)}
-                />
+                >Resources</NavItem>
                 {open3 && (
                     <MenuSection>
                         <div>Contact</div>
@@ -162,7 +157,7 @@ function DesktopHeader() {
                     className={styles.link}
                     to="/pricing"
                 >
-                    <NavItem text="Pricing" />
+                    <NavItem>Pricing</NavItem>
                 </Link>
             </div>
 
@@ -174,7 +169,7 @@ function DesktopHeader() {
                     className={styles.link}
                     to="/login"
                 >
-                    <NavItem text="Login"></NavItem>
+                    <NavItem>Login</NavItem>
                 </Link>
                 <Link className={styles.link} to="/signup">
                     <Button isSquishy={true} onClick={handleCloseDropdowns}>

@@ -3,7 +3,7 @@
 */
 .toolsNav{
     display:flex;
-    gap:1rem;
+    gap:1.5rem;
 }
 
 .container{
@@ -17,5 +17,8 @@
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:1rem;
+    gap:1.5rem;
+    background-color: var(--color-secondary);
+    border-radius:1rem;
+    padding:2rem;
 }

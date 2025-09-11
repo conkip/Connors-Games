@@ -62,21 +62,19 @@ function Header() {
                     <div className={styles.spacer}></div>
                     <MenuSection>
                         <NavItem
-                            text="Products"
                             expandable={true}
                             onClick={() => {
                                 setOpen1(!open1);
                                 setOpen11(false);
                                 setOpen12(false);
                             }}
-                        />
+                        >Products</NavItem>
                         {open1 && (
                             <MenuSection>
                                 <NavItem
-                                    text="Games"
                                     expandable={true}
                                     onClick={() => setOpen11(!open11)}
-                                />
+                                >Games</NavItem>
                                 {open11 && (
                                     <MenuSection>
                                         <Link
@@ -87,7 +85,7 @@ function Header() {
                                             className={styles.link}
                                             to="/games/pixies"
                                         >
-                                            <NavItem text="Pixies" />
+                                            <NavItem>Pixies</NavItem>
                                         </Link>
                                         <Link
                                             onClick={() => {
@@ -97,7 +95,7 @@ function Header() {
                                             className={styles.link}
                                             to="/games/wurfel-bohnanza"
                                         >
-                                            <NavItem text="Wurfel Bohnanza" />
+                                            <NavItem>Wurfel Bohnanza</NavItem>
                                         </Link>
                                         <Link
                                             onClick={() => {
@@ -107,16 +105,15 @@ function Header() {
                                             className={styles.link}
                                             to="/games/codenames"
                                         >
-                                            <NavItem text="Codenames" />
+                                            <NavItem>Codenames</NavItem>
                                         </Link>
                                     </MenuSection>
                                 )}
 
                                 <NavItem
-                                    text="Tools"
                                     expandable={true}
                                     onClick={() => setOpen12(!open12)}
-                                />
+                                >Tools</NavItem>
                                 {open12 && (
                                     <MenuSection>
                                         <Link
@@ -127,7 +124,7 @@ function Header() {
                                             className={styles.link}
                                             to="/tools/board-manager"
                                         >
-                                            <NavItem text="Score Keeper" />
+                                            <NavItem>Score Keeper</NavItem>
                                         </Link>
 
                                         <Link
@@ -138,7 +135,7 @@ function Header() {
                                             className={styles.link}
                                             to="/tools/tools-bar"
                                         >
-                                            <NavItem text="Tools Bar" />
+                                            <NavItem>Tools Bar</NavItem>
                                         </Link>
                                     </MenuSection>
                                 )}
@@ -146,10 +143,9 @@ function Header() {
                         )}
 
                         <NavItem
-                            text="Solutions"
                             expandable={true}
                             onClick={() => setOpen2(!open2)}
-                        />
+                        >Solutions</NavItem>
                         {open2 && (
                             <MenuSection>
                                 <div>Multiplayer</div>
@@ -157,10 +153,9 @@ function Header() {
                         )}
 
                         <NavItem
-                            text="Resources"
                             expandable={true}
                             onClick={() => setOpen3(!open3)}
-                        />
+                        >Resources</NavItem>
                         {open3 && (
                             <MenuSection>
                                 <div>Contact</div>
@@ -175,7 +170,7 @@ function Header() {
                                 handleCloseDropdowns();
                             }}
                         >
-                            <NavItem text="Pricing" />
+                            <NavItem>Pricing</NavItem>
                         </Link>
                         <Link
                             className={styles.link}
@@ -185,7 +180,7 @@ function Header() {
                                 handleCloseDropdowns();
                             }}
                         >
-                            <NavItem text="Login"></NavItem>
+                            <NavItem>Login</NavItem>
                         </Link>
                         <Link
                             className={styles.link}
@@ -195,7 +190,7 @@ function Header() {
                                 handleCloseDropdowns();
                             }}
                         >
-                            <NavItem text="Signup"></NavItem>
+                            <NavItem>SignUp</NavItem>
                         </Link>
                     </MenuSection>
                 </>

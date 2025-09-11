@@ -10,11 +10,13 @@ import { useState } from 'react'
 
 function CoinFlip() {
     const [face, setFace]= useState("Heads");
+    const [isDone, setIsDone] = useState(true);
+
     return (
         <div className={styles.container}>
-            <Coin size={10} setIsHeadsState={setFace}></Coin>
-            <h2>{face}</h2>
-            <Button isSquishy={true}><h2>Flip Coin</h2></Button>
+            <Coin size={10} setFace={setFace} setIsDone={setIsDone}></Coin>
+            <h2>{isDone ? face : "..."}</h2>
+            <h5 className={styles.instructions}>Click on the coin to flip</h5>
         </div>
     )
 }

@@ -9,16 +9,19 @@ import { useState, useRef} from "react";
 
 interface Props {
     size?: number;
-    setIsHeadsState?: (f:string) => void;
+    setFace?: (f:string) => void;
+    setIsDone?: (f:boolean) => void;
 }
 
-const Coin = ({size = 5, setIsHeadsState}: Props) => {
+const Coin = ({size = 5, setFace, setIsDone}: Props) => {
     const [rotation, setRotation] = useState(0);
     const [isHeads, setIsHeads] = useState(true);
     const [isHalfFlipped, setIsHalfFlipped] = useState(false);
     const flipsRemaining = useRef(0);
 
     function handleClick() {
+        if(setIsDone)
+            setIsDone(false);
         const endFace = Math.floor(Math.random() * 2);
         flipsRemaining.current = 3 + endFace;
         startHalfFlip();
@@ -41,9 +44,12 @@ const Coin = ({size = 5, setIsHeadsState}: Props) => {
         } else {
             // normalize at the end
             flipsRemaining.current = 0;
+            if(setIsDone) {
+                setTimeout(() => setIsDone(true), 100);
+            }
             setRotation((r) => {
-                if(setIsHeadsState)
-                    setIsHeadsState(!isHeads ? "Heads" : "Tails");
+                if(setFace)
+                    setFace(!isHeads ? "Heads" : "Tails");
                 // snap rotation to nearest 360°
                 return Math.round(r / 360) * 360;
             });

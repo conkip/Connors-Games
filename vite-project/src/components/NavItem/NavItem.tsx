@@ -3,12 +3,12 @@ import styles from "./NavItem.module.css";
 import { useState } from "react";
 
 interface Props {
-    text: string;
+    children: React.ReactNode;
     expandable?: boolean;
     onClick?: () => void;
 }
 
-const NavItem = ({ text, expandable = false, onClick}: Props) => {
+const NavItem = ({ children, expandable = false, onClick}: Props) => {
     const [active, setActive] = useState(false);
 
     const handleClick = () => {
@@ -21,7 +21,7 @@ const NavItem = ({ text, expandable = false, onClick}: Props) => {
             className={`${styles.container} ${active && expandable ? styles.active : ""}`}
             onClick={handleClick}
         >
-            <div className={styles.name}>{text}</div>
+            <div className={styles.name}>{children}</div>
 
             {/* <?xml version="1.0" encoding="utf-8"?>      License: MIT. Made by phosphor: https://github.com/phosphor-icons/phosphor-icons*/}
             {expandable && (

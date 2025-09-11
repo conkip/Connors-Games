@@ -9,18 +9,19 @@ import Stopwatch from "../Stopwatch/Stopwatch";
 import DiceUI from "../DiceRoller/DiceUI/DiceUI";
 import CoinUI from "../CoinFlipper/CoinUI/CoinUI";
 import Navbar from "../../Navbar/Navbar";
+import NavItem from '../../NavItem/NavItem'
 
 function ToolsBar() {
     //add transparent x on corner of all elements to delete the component
     return (
         <>
             <Navbar>
-                <h1>Tools Bar</h1>
+                <h2>Tools Bar</h2>
                 <div className={styles.toolsNav}>
-                    <button>Add Dice</button>
-                    <button>Add Coin</button>
-                    <button>Add Stopwatch</button>
-                    <button>Add Timer</button>
+                    <NavItem>Add Dice</NavItem>
+                    <NavItem>Add Coin</NavItem>
+                    <NavItem>Add Stopwatch</NavItem>
+                    <NavItem>Add Timer</NavItem>
                 </div>
             </Navbar>
 
