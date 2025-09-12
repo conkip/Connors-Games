@@ -22,3 +22,12 @@
     border-radius:1rem;
     padding:2rem;
 }
+
+.icon{
+    fill:var(--color-subtext);
+    height:2rem;
+}
+
+.icon:hover{
+    filter:brightness(1.2);
+}

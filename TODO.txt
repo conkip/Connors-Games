@@ -20,3 +20,8 @@ add gpt wrapper to play against AI
 Pixies
 WurfelBohnanza
 Codenames
+
+
+fix mobile dropdown to spawn from where your screen is
+
+fix the translate of the tools bar and 

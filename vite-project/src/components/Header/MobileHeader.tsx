@@ -107,6 +107,8 @@ function Header() {
                                         >
                                             <NavItem>Codenames</NavItem>
                                         </Link>
+
+                                        <a className={styles.link} href="https://papasgamesfree.io/papas-freezeria"target="_blank"><NavItem>Papas Games</NavItem></a>
                                     </MenuSection>
                                 )}
 
