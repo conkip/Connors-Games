@@ -91,10 +91,10 @@ function BoardManager() {
 
             { open &&
                 <div className={styles.navItems}>
-                    <button className={styles.button}><NavItem text="Add Board" /></button>
-                    <button className={styles.button}><NavItem text="Delete Board" /></button>
-                    <button className={styles.button}><NavItem text="Add Player" /></button>
-                    <button className={styles.button}><NavItem text="Delete Player" /></button>
+                    <button className={styles.button}><NavItem>Add Board</NavItem></button>
+                    <button className={styles.button}><NavItem>Delete Board</NavItem></button>
+                    <button className={styles.button}><NavItem>Add Player</NavItem></button>
+                    <button className={styles.button}><NavItem>Delete Player</NavItem></button>
                 </div>
             }
             { previewList.length < 1 && <h2 className={styles.message}>{message}</h2>}

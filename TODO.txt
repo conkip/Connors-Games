@@ -25,3 +25,8 @@ Codenames
 fix mobile dropdown to spawn from where your screen is
 
 fix the translate of the tools bar and 
+
+add the add player, delete board funtionality etc. to board manager
+
+add tools bar functionality and start with nothing that says "No Tools" if there are no tools active and have a gray x in the corner thats semi transparent that they can click to delete a component
+
