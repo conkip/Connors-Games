@@ -15,10 +15,16 @@
     gap:20px;
 }
 
+.toolsContainerContainer {
+    display: flex;
+    gap:8rem;
+    flex-wrap:wrap;
+}
+
 .toolsContainer {
     display: flex;
     flex-direction: column;
-    gap:2rem;
+    gap:4rem;
 }
 .toolsItem{
     display:flex;
@@ -80,14 +86,14 @@
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:1.5rem;
+    gap:4rem;
 }
 .title{
     font-size:4rem;
 }
 
 .spacer{
-    margin-bottom:5rem;
+    margin-bottom:6rem;
 }
 
 
@@ -144,3 +150,18 @@
     fill:var(--color-accent);
 }
 
+
+.fillTextEffect {
+  color: var(--color-text);
+  background: linear-gradient(to right, var(--color-accent) 0%, var(--color-accent) 100%);
+  background-size: 0% 100%;  /* start empty */
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: background-size .75s ease;
+}
+
+.fillTextEffect:hover {
+    color:transparent;
+    background-size: 100% 100%; /* fill from left to right */
+}

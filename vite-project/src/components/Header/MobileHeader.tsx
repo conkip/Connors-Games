@@ -32,11 +32,13 @@ function Header() {
 
     useEffect(() => {
         if (open) {
+            // disable background scroll when menu is open
             document.body.style.overflow = "hidden";
         } else {
-            document.body.style.overflow = "";
+        // re-enable background scroll
+        document.body.style.overflow = "";
         }
-        // clean up in case the component unmounts while menu is open
+
         return () => {
             document.body.style.overflow = "";
         };
@@ -108,7 +110,7 @@ function Header() {
                                             <NavItem>Codenames</NavItem>
                                         </Link>
 
-                                        <a className={styles.link} href="https://papasgamesfree.io/papas-freezeria"target="_blank"><NavItem>Papas Games</NavItem></a>
+                                        {/*<a className={styles.link} href="https://papasgamesfree.io/papas-freezeria"target="_blank"><NavItem>Papas Games</NavItem></a>*/}
                                     </MenuSection>
                                 )}
 

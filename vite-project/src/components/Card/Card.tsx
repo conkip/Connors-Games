@@ -9,9 +9,10 @@ interface Props {
     image: string;
     title: string;
     desc: string;
+    onClick?: () =>void;
 }
 
-const Card = ({image, title, desc}: Props) => {
+const Card = ({image, title, desc, onClick}: Props) => {
     const [expanded, setExpanded] = useState(false);
     return (
         <div className={styles.card}>
@@ -21,7 +22,7 @@ const Card = ({image, title, desc}: Props) => {
                 <p className={expanded ? styles.desc : `${styles.desc} ${styles.clamped}`}>{desc}</p>
                 <p className={styles.toggle} onClick={() => setExpanded(!expanded)}>{expanded ? "Show less" : "Read more"}</p>
             </div>
-            <h3 className={styles.playButton}>Play Now</h3>
+            <h3 className={styles.playButton} onClick={onClick}>Play Now</h3>
         </div>
     );
 }

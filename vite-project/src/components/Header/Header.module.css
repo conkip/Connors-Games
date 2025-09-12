@@ -29,6 +29,8 @@
 
 /*---MOBILE HEADER--*/
 .menu{
+    position:sticky;
+    top:6rem;
     display:flex;
     flex-direction:column;
     background-color:var(--color-secondary);
@@ -39,7 +41,9 @@
     overflow: auto;
     max-height: 95vh;
     scrollbar-width: none;
-    -ms-overflow-style: none; 
+    -ms-overflow-style: none;
+    z-index:9998;
+    box-shadow: var(--box-shadow);
 }
 
 
