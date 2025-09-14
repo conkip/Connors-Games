@@ -7,7 +7,7 @@
     flex-direction: column;
     height: 300px;
     width: 375px;
-    border-radius:10px;
+    border-radius:15px;
     box-shadow: var(--box-shadow);
     margin:1rem;
 }
