@@ -1,0 +1,153 @@
+/*
+    Author: Connor Kippes
+*/
+.cardContainer {
+    display:flex;
+    align-items: flex-start;
+    flex-wrap:wrap;
+    justify-content: center; 
+}
+
+.link{
+    text-decoration:none;
+    color: var(--color-text);
+    font-size:1.5rem;
+    font-weight:500;
+}
+.link:hover {
+    color:var(--color-accent);
+}
+
+.title{
+    font-size:4rem;
+    text-align:center;
+}
+
+.spacer{
+    height: 4rem;
+}
+
+.toolsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 5rem;
+    max-width:900px;
+    margin: 0 auto;
+}
+
+.toolsItem{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:1rem;
+    cursor:pointer;
+    width:fit-content;
+}
+
+.scoreKeeperIcon{
+    height:2rem;
+    width:2rem;
+    background-color: red;
+    border-radius: 4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:.5rem;
+}
+
+.incrementor{
+    background-color: rgba(95, 95, 95, 0.7);
+    height:1.5rem;
+    width:1.5rem;
+    border-radius:4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:500;
+    user-select: none;          /* Standard */
+    -webkit-user-select: none;  /* Safari/Chrome */
+    -moz-user-select: none;     /* Firefox */
+    -ms-user-select: none;      /* IE/Edge */
+}
+.incrementor:active{
+    transform: scale(1.15);
+}
+.incrementor:hover{
+    transform: scale(1.15);
+}
+
+.score{
+    font-weight:600;
+    width:1.5rem;
+    text-align:center;
+}
+
+
+.stopwatchIcon{
+    height:2.5rem;
+    fill:var(--color-text);
+    transition: transform .5s ease;
+}
+.stopwatchIcon:active{
+    transform: rotate(360deg);
+    fill:var(--color-accent);
+}
+
+.stopwatchIcon:hover{
+    transform: rotate(360deg);
+    fill:var(--color-accent);
+}
+
+.timerIcon {
+    height:2.25rem;
+    fill:var(--color-text);
+    transition: transform .5s ease;
+}
+
+.timerIcon:active {
+    transform: rotateX(180deg);
+    fill:var(--color-accent);
+}
+
+.timerIcon:hover {
+    transform: rotateX(180deg);
+    fill:var(--color-accent);
+}
+
+.toolBarIcon {
+    height:2rem;
+    fill:var(--color-text);
+    transition: transform .25s ease;
+}
+
+.toolBarIcon:active {
+    transform: translatey(-10px);
+}
+
+.toolBarIcon:hover {
+    transform: translatey(-10px);
+}
+
+.toolBarIcon:active  .toolBarIconFill {
+    fill:var(--color-accent);
+}
+
+.toolBarIcon:hover .toolBarIconFill {
+    fill:var(--color-accent);
+}
+
+
+.fillTextEffect {
+  color: var(--color-text);
+  background: linear-gradient(to right, var(--color-accent) 0%, var(--color-accent) 100%);
+  background-size: 0% 100%;  /* start empty */
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: background-size .75s ease;
+}
+
+.fillTextEffect:hover {
+    color:transparent;
+    background-size: 100% 100%; /* fill from left to right */
+}

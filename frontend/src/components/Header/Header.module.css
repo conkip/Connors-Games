@@ -1,0 +1,60 @@
+/*
+    Author: Connor Kippes
+*/
+
+.link {
+    text-decoration:none;
+}
+
+
+
+/*--DESKTOP HEADER---*/
+.headerItems {
+    display:flex;
+    gap: 1rem;
+    align-items:center;
+}
+.loginItems {
+    display:flex;
+    gap: 1rem;
+}
+.login{
+    padding-top:.5px;
+}
+
+.button{
+    all:unset;
+    cursor:pointer;
+}
+
+/*---MOBILE HEADER--*/
+.menu{
+    position:sticky;
+    top:6rem;
+    display:flex;
+    flex-direction:column;
+    background-color:var(--color-secondary);
+    border-radius:50px;
+    padding:1rem;
+    transform:translateY(-5.5rem);
+    padding-top:5rem;
+    overflow: auto;
+    max-height: 95vh;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    z-index:9998;
+    box-shadow: var(--box-shadow);
+}
+
+
+.menu::-webkit-scrollbar {
+    display: none;
+}
+
+.spacer{
+    margin-top:2rem;
+}
+
+.link{
+    text-decoration:none;
+}
