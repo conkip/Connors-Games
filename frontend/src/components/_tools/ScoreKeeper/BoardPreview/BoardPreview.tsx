@@ -21,7 +21,7 @@ const BoardPreview = ({name, players}:Props) => {
             <div className={styles.playerRow} key={player.id}>
                 <div className={styles.namePair}>
                     <div className={styles.color} style={{ backgroundColor: player.color }}></div>
-                    <div>{player.name}</div>
+                    <div className={styles.playerName}>{player.name}</div>
                 </div>
                 <div className={styles.totalScore}>{player.totalScore}</div>
             </div>
@@ -59,7 +59,7 @@ const BoardPreview = ({name, players}:Props) => {
     return (
         <div className={styles.container}>
             <div className={styles.top}>
-                <div>{name}</div>
+                <div className={styles.name}>{name}</div>
 
                 {/* 3 dots icon*/}
                 <button className={styles.button} ref={buttonRef} onClick={handleClick}>

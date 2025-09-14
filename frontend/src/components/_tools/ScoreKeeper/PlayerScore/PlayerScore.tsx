@@ -112,7 +112,7 @@ const ScoreKeeper = ({
 
                 {!isIncrementing ? (
                     <>
-                        <h1 className={styles.middleContainer}>{totalScore}</h1>
+                        <p className={`${styles.middleContainer} ${styles.totalScore}`}>{totalScore}</p>
                     </>
                 ) : (
                     <div className={styles.middleContainer}>
@@ -137,7 +137,7 @@ const ScoreKeeper = ({
                                 </svg>
                             </button>
 
-                            <h6 className={styles.incrementedScore}>{curScore}</h6>
+                            <p className={styles.incrementedScore}>{curScore}</p>
 
                             <button className={`${styles.button} ${styles.confirmButton}`}>
                                 {/* Loading border circle */}
@@ -148,10 +148,10 @@ const ScoreKeeper = ({
                                     <circle
                                         cx="24.8px"
                                         cy="24.8px"
-                                        r="24px"
+                                        r="21px"
                                         fill="none"
                                         stroke="var(--color-accent)"
-                                        strokeWidth="2.88px"
+                                        strokeWidth="4px"
                                         strokeDasharray={circumference}
                                         strokeDashoffset={dashOffset}
                                         style={{
