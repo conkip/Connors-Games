@@ -87,12 +87,12 @@ function Home() {
 
                     <div className={styles.toolsItem}>
                         <Link className={styles.link} to="/tools/dice">Dice Roll</Link>
-                        <Dice size={2} />
+                        <Dice size={2.7} />
                     </div>
 
                     <div className={styles.toolsItem}>
                         <Link className={styles.link} to="/tools/coin">Coin Flip</Link>
-                        <Coin size={2.5}/>
+                        <Coin size={3.4}/>
                     </div>
 
                     <div className={styles.toolsItem}>

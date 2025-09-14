@@ -11,9 +11,10 @@
 .link{
     text-decoration:none;
     color: var(--color-text);
-    font-size:1.5rem;
+    font-size:2rem;
     font-weight:500;
 }
+
 .link:hover {
     color:var(--color-accent);
 }
@@ -29,41 +30,43 @@
 
 .toolsContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
     gap: 5rem;
     max-width:900px;
     margin: 0 auto;
+    place-items: center;
 }
 
 .toolsItem{
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:1rem;
+    gap:2rem;
     cursor:pointer;
     width:fit-content;
 }
 
 .scoreKeeperIcon{
-    height:2rem;
-    width:2rem;
+    height:2.7rem;
+    width:3.25rem;
     background-color: red;
     border-radius: 4px;
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:.5rem;
+    gap:1rem;
 }
 
 .incrementor{
     background-color: rgba(95, 95, 95, 0.7);
-    height:1.5rem;
-    width:1.5rem;
+    height:2rem;
+    width:2rem;
     border-radius:4px;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-weight:500;
+    font-weight:600;
+    font-size:1.25rem;
     user-select: none;          /* Standard */
     -webkit-user-select: none;  /* Safari/Chrome */
     -moz-user-select: none;     /* Firefox */
@@ -76,15 +79,9 @@
     transform: scale(1.15);
 }
 
-.score{
-    font-weight:600;
-    width:1.5rem;
-    text-align:center;
-}
-
 
 .stopwatchIcon{
-    height:2.5rem;
+    height:3.4rem;
     fill:var(--color-text);
     transition: transform .5s ease;
 }
@@ -99,7 +96,7 @@
 }
 
 .timerIcon {
-    height:2.25rem;
+    height:3rem;
     fill:var(--color-text);
     transition: transform .5s ease;
 }
@@ -115,7 +112,7 @@
 }
 
 .toolBarIcon {
-    height:2rem;
+    height:2.7rem;
     fill:var(--color-text);
     transition: transform .25s ease;
 }
