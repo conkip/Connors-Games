@@ -16,7 +16,7 @@ const Card = ({image, title, desc, onClick}: Props) => {
     const [expanded, setExpanded] = useState(false);
     return (
         <div className={styles.card}>
-            <img src={image} alt={title}></img>
+            <img className={styles.img} src={image} alt={title}></img>
             <div className={styles.text}>
                 <h2 className={styles.title}>{title}</h2>
                 <p className={expanded ? styles.desc : `${styles.desc} ${styles.clamped}`}>{desc}</p>

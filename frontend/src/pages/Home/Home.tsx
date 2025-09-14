@@ -7,6 +7,7 @@ import styles from './Home.module.css'
 import Card from '../../components/Card/Card'
 import Dice from '../../components/_tools/DiceRoller/Dice/Dice'
 import Coin from '../../components/_tools/CoinFlipper/Coin/Coin'
+import Blob from '../../components/Blob/Blob'
 
 
 import pixiesImg from '../../assets/images/pixies/pixies.webp'
@@ -20,8 +21,15 @@ function Home() {
     const [score, setScore] = useState(0);
     const navigate = useNavigate();
     return (
-        <>  
-            <h1 className={styles.title}>Games</h1>
+        <>
+            <div className={styles.spacer}></div>
+            
+            <div className={styles.blobContainer}>
+                <Blob h={9} w={18} blobStyle={3}>
+                    <h1 className={styles.title}>Games</h1>
+                </Blob>
+            </div>
+
             <div className={styles.spacer}></div>
             <div className={styles.cardContainer}>
                 <Card
@@ -51,7 +59,11 @@ function Home() {
 
 
             {/* ------ TOOLS SECTION ------*/}
-            <h1 className={styles.title}>Tools</h1>
+            <div className={styles.blobContainer}>
+                <Blob h={9} w={15} blobStyle={1}>
+                    <h1 className={styles.title}>Tools</h1>
+                </Blob>
+            </div>
 
             <div className={styles.spacer}></div>
 
