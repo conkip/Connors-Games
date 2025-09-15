@@ -1,13 +1,15 @@
 /*
     Author: Connor Kippes
 */
-import styles from "./ScoreBoard.module.css";
+import styles from "./ScoreBoard.module.css"
 
-import ScoreKeeper from "../PlayerScore/PlayerScore";
-import MenuIcon from "../../../MenuIcon/MenuIcon";
-import Navbar from '../../../Navbar/Navbar';
+import ScoreKeeper from "../PlayerScore/PlayerScore"
+import MenuIcon from "../../../MenuIcon/MenuIcon"
+import Navbar from '../../../Navbar/Navbar'
+import NavItem from '../../../NavItem/NavItem'
 
-import { useRef, useState } from "react";
+import type PlayerScore from '../../../'
+import { useState } from "react"
 
 interface Props {
     name?: string;
@@ -17,7 +19,10 @@ const ScoreBoard = ({ name = "New Game" }: Props) => {
     // check user logged in in the database and checks for information on that name
     let loggedIn = false;
 
-    const [open, setOpen] = useState(false);
+    const [players, setPlayers] = useState([]);
+
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [addPlayerOpen, setAddPlayerOpen] = useState(false);
 
     const [smallIncr, setSmallIncr] = useState(1);
     const [medIncr, setMedIncr] = useState(5);
@@ -27,8 +32,25 @@ const ScoreBoard = ({ name = "New Game" }: Props) => {
         document.getElementById("");
     }
 
+    function handleOpenAddPlayer(){
+        setAddPlayerOpen(!addPlayerOpen);
+    }
+    function addPlayer(newPlayer: PlayerScore) {
+        setPlayers((p) => [...p, ])
+    }
+
+    function handleOpenDeletePlayer(){
+        //hi
+    }
+
     return (
         <>
+            <div>
+                <h1>Add Player UI</h1>
+                <p>name: player </p>
+                <p>cancel</p>
+                <p>confirm</p>
+            </div>
             <Navbar top={6}>
                 <div className={styles.leftNav}>
                     {/*BACK ARROW*/}
@@ -47,11 +69,14 @@ const ScoreBoard = ({ name = "New Game" }: Props) => {
                     <h3>{name}</h3>
                 </div>
 
-                <MenuIcon onClick={() => setOpen(!open)} isOpen={open} />
+                <MenuIcon onClick={() => setMenuOpen(!menuOpen)} isOpen={menuOpen} />
             </Navbar>
 
-            {open && (
-                <div>stuff</div>
+            {menuOpen && (
+                <div>
+                    <NavItem>Add Player</NavItem>
+                    <NavItem>Delete Player</NavItem>
+                </div>
             )}
 
             <div className={styles.boardContainer}>

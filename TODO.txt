@@ -4,6 +4,8 @@ make dropdowns trigger on hover for desktop version
 
 add color picker to score keeper
 
+make tools bigger
+
 *****finish BoardManager
 
 add logins
