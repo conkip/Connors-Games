@@ -9,7 +9,6 @@
     width: 350px;
     border-radius:15px;
     box-shadow: var(--box-shadow);
-    margin:1rem;
 }
 
 /*-----TOP-----*/
@@ -24,7 +23,7 @@
     padding: 4.5px;
 }
 
-.name {
+.nameInput {
     all:unset;
     max-width:12rem;
     margin: 0 auto;

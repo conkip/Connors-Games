@@ -8,6 +8,12 @@
     align-items:center;
 }
 
+.rightNav{
+    display:flex;
+    gap:2rem;
+    align-items:center;
+}
+
 .button {
     all: unset;
     cursor: pointer;
@@ -32,8 +38,62 @@
     display:flex;
     flex-direction:row;
     flex-wrap:wrap;
+    margin:2rem;
+    gap:2rem;
 }
 
 .spacer{
     margin-bottom:30rem;
+}
+
+
+/*----ADD PLAYER UI----*/
+.bottom{
+    display:flex;
+    flex-direction:column;
+    gap:1.5rem;
+    width:fit-content;
+    align-self:center;
+    padding:1rem;
+}
+
+.addPlayerTitle{
+    border-bottom:var(--border);
+    text-align:center;
+    padding:1rem;
+}
+
+.addPlayerItem{
+    display:flex;
+    gap:1rem;
+}
+
+.nameInput {
+    all:unset;
+    max-width:10rem;
+    font-weight:600;
+    font-family: var(--ff);
+    font-size: 1.5rem;
+}
+
+.colorInput{
+    appearance:none;
+    -webkit-appearance:none;
+    border:none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    cursor:pointer;
+    transform: translateY(.25rem);
+}
+/* Chrome/Safari/iOS */
+.colorInput::-webkit-color-swatch-wrapper{ padding: 0px;}
+.colorInput::-webkit-color-swatch {
+    border:none;
+    border-radius:12px;
+}
+/* Firefox */
+.colorInput::-moz-color-swatch {
+    border:none;
+    border-radius: 12px;
 }

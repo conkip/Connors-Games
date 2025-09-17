@@ -16,31 +16,38 @@ import type * as Types from '../../../../types'
 
 //export const UserContext = createContext();
 
-let players: Types.PlayerScore[] = []
+const player1History: Types.ScoreHistoryItem[] = [
+{
+    score:10,
+    color:"red"
+},
+{
+    score:10,
+    color:"red"
+},]
 
-let player1: Types.PlayerScore = {
+const player1: Types.PlayerScore = {
     id: 1,
     name:"Connor",
     color:"#FF0000",
     totalScore:10,
-    history: []
+    history: player1History,
 }
 
-let player2: Types.PlayerScore = {
+const player2History: Types.ScoreHistoryItem[] = []
+
+const player2: Types.PlayerScore = {
     id: 2,
-    name:"Connor",
-    color:"#FF0000",
+    name:"Kippes",
+    color:"#0000FF",
     totalScore:10,
-    history:[]
+    history:player2History,
 }
 
+let players: Types.PlayerScore[] = []
 players.push(player1);
 players.push(player2);
 
-let player1History:Types.ScoreHistoryItem = {
-    score:10,
-    color:"red"
-};
 
 let board1: Types.Board = {
     id: 1,
@@ -56,31 +63,28 @@ let board2: Types.Board = {
     scoreKeepers: players
 }
 
-let userBoards: Types.UserPreferences = {
+let boards: Types.UserPreferences = {
     boards: []
 }
 
-userBoards.boards.push(board1);
-userBoards.boards.push(board2);
-let previewList = userBoards.boards.map((board) => {return <BoardPreview players={board.scoreKeepers} name={board.name} key={board.id}></BoardPreview>});
+boards.boards.push(board1);
+boards.boards.push(board2);
 
 function BoardManager() {
     const [open, setOpen] = useState(false);
     const [message, setMessage] = useState("No Boards");
-    const [stateBoards, setStateBoards] = useState(userBoards);
+    const [boardsState, setboardsState] = useState(boards);
 
 
     useEffect(() => {
-        if(stateBoards.boards.length === 0) {
+        if(boardsState.boards.length === 0) {
             setMessage("");
         }
         else {
             setMessage("No Boards");
         }
         // also update database userboards
-    }, [stateBoards]);
-
-    //check if there is a user logged in and change to their preferences
+    }, [boardsState]);
 
     return (
         <>
@@ -97,10 +101,16 @@ function BoardManager() {
                     <button className={styles.button}><NavItem>Delete Player</NavItem></button>
                 </div>
             }
-            { previewList.length < 1 && <h2 className={styles.message}>{message}</h2>}
+            { boardsState.boards.length < 1 && <h2 className={styles.message}>{message}</h2>}
 
             <div className={styles.previewContainer}>
-                {previewList}
+                {boardsState.boards.map((b) => 
+                    <BoardPreview 
+                        players={b.scoreKeepers} 
+                        name={b.name} 
+                        key={b.id} 
+                    />
+                )}
             </div>
             <ScoreBoard></ScoreBoard>
         </>

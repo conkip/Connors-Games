@@ -4,14 +4,14 @@
 
 .dropdown{
     position: absolute;
+    transform: translate(-100%, 0);
+    color: var(--color-text);
+    z-index: 1000;
+}
+
+.inside{
     display:flex;
     flex-direction:column;
     gap:.5rem;
-    transform: translate(-100%, 0);
-    background: var(--color-tertiary);
-    color: var(--color-text);
-    padding: 8px 12px;
-    border-radius: .5rem;
-    z-index: 1000;
-    border: 2px rgba(255, 255, 255, .2) solid;
+    padding: .5rem;
 }

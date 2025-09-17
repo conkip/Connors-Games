@@ -3,6 +3,7 @@
 */
 import styles from './Timer.module.css'
 
+import Card from './../../Card/Card'
 import Button from '../../Button/Button'
 
 import { useState, useEffect, useRef } from 'react'
@@ -79,19 +80,21 @@ function Timer() {
     }
 
     return (
-        <div className={styles.stopwatch}>
-            <div className={styles.display}>{formatTime()}</div>
-            <div className={styles.increments}>
-                <button className={styles.button} onClick={() => addTime(30)}>+0:30</button>
-                <button className={styles.button} onClick={() => addTime(60)}>+1:00</button>
-                <button className={styles.button} onClick={() => addTime(60*5)}>+5:00</button>
+        <Card>
+            <div className={styles.stopwatch}>
+                <div className={styles.display}>{formatTime()}</div>
+                <div className={styles.increments}>
+                    <button className={styles.button} onClick={() => addTime(30)}>+0:30</button>
+                    <button className={styles.button} onClick={() => addTime(60)}>+1:00</button>
+                    <button className={styles.button} onClick={() => addTime(60*5)}>+5:00</button>
+                </div>
+                <div className={styles.controls}>
+                    <Button isSquishy={true} color="var(--color-green)" onClick={start}>Start</Button>
+                    <Button isSquishy={true} color="var(--color-red)" onClick={stop}>Stop</Button>
+                    <Button isSquishy={true} color="var(--color-orange)" onClick={reset}>Reset</Button>
+                </div>
             </div>
-            <div className={styles.controls}>
-                <Button isSquishy={true} color="var(--color-green)" onClick={start}>Start</Button>
-                <Button isSquishy={true} color="var(--color-red)" onClick={stop}>Stop</Button>
-                <Button isSquishy={true} color="var(--color-orange)" onClick={reset}>Reset</Button>
-            </div>
-        </div>
+        </Card>
     )
 }
 

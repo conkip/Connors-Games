@@ -4,7 +4,7 @@ export type ScoreHistoryItem = {
 };
 
 export type PlayerScore = {
-    id:number;
+    id: number;
     name: string;
     color: string;
     totalScore: number;
@@ -12,7 +12,7 @@ export type PlayerScore = {
 };
 
 export type Board = {
-    id:number;
+    id: number;
     name: string;
     increments: [number, number, number]; // three-number increments
     scoreKeepers: PlayerScore[];

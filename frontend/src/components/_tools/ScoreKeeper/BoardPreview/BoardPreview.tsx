@@ -5,6 +5,7 @@
 import styles from './BoardPreview.module.css'
 
 import Dropdown from '../../../Dropdown/Dropdown'
+import Card from '../../../Card/Card'
 
 import { useState, useRef, useEffect } from 'react'
 
@@ -57,6 +58,7 @@ const BoardPreview = ({name, players}:Props) => {
     }, [dropdownPos]);
 
     return (
+        <Card>
         <div className={styles.container}>
             <div className={styles.top}>
                 <div className={styles.name}>{name}</div>
@@ -85,6 +87,7 @@ const BoardPreview = ({name, players}:Props) => {
 
             <div className={styles.bottom}>{playerRows}</div>
         </div>
+        </Card>
     )
 }
 

@@ -3,6 +3,8 @@
 */
 import styles from './Dropdown.module.css'
 
+import Card from '../Card/Card'
+
 import type { ReactNode } from "react"
 
 interface Props {
@@ -19,7 +21,11 @@ const Dropdown = ({children, top, left}:Props) => {
                 left: left,
             }}
         >
-            {children}
+            <Card>
+                <div className={styles.inside}>
+                    {children}
+                </div>
+            </Card>
         </div>
     )
 }

@@ -1,11 +1,12 @@
 /*
     Author: Connor Kippes
 */
-.cardContainer {
+.imageCardContainer {
     display:flex;
     align-items: flex-start;
     flex-wrap:wrap;
-    justify-content: center; 
+    justify-content: center;
+    gap:2rem;
 }
 
 .link{
@@ -23,11 +24,6 @@
 .title{
     font-size:4rem;
     text-align:center;
-}
-
-.blobContainer{
-    display:flex;
-    justify-content:center;
 }
 
 .spacer{

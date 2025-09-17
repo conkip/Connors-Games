@@ -66,11 +66,9 @@ const ScoreKeeper = ({
         }
 
         if (!isIncrementing) {
-            if (curScore != 0) {
-                setTotalScore((t) => t + curScore);
-                setHistory((h) => [...h, curScore]);
-                setCurScore(0);
-            }
+            setTotalScore((t) => t + curScore);
+            setHistory((h) => [...h, curScore]);
+            setCurScore(0);
         }
 
         const timeout = setTimeout(() => {
@@ -84,7 +82,7 @@ const ScoreKeeper = ({
         <div className={styles.container} style={{ backgroundColor: pColor }}>
             <div className={styles.topContainer}>
                 <input className={styles.colorInput} style={{ backgroundColor: pColor }} type="color" value={pColor} onChange={(e) => setColor(e.target.value)}></input>
-                <input className={styles.name} maxLength={13} value ={pName} onChange={(e) => setName(e.target.value)} />
+                <input className={styles.nameInput} maxLength={13} type="text" value ={pName} onChange={(e) => setName(e.target.value)} />
                 <div className={styles.turnNumber}>{history.length}</div>
             </div>
 

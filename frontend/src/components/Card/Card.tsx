@@ -2,29 +2,15 @@
     Author: Connor Kippes
 */
 
-import styles from "./Card.module.css"
-import { useState } from "react"
+import styles from './Card.module.css'
 
-interface Props {
-    image: string;
-    title: string;
-    desc: string;
-    onClick?: () =>void;
+interface Props{
+    children: React.ReactNode;
 }
-
-const Card = ({image, title, desc, onClick}: Props) => {
-    const [expanded, setExpanded] = useState(false);
-    return (
-        <div className={styles.card}>
-            <img className={styles.img} src={image} alt={title}></img>
-            <div className={styles.text}>
-                <h2 className={styles.title}>{title}</h2>
-                <p className={expanded ? styles.desc : `${styles.desc} ${styles.clamped}`}>{desc}</p>
-                <p className={styles.toggle} onClick={() => setExpanded(!expanded)}>{expanded ? "Show less" : "Read more"}</p>
-            </div>
-            <h3 className={styles.playButton} onClick={onClick}>Play Now</h3>
-        </div>
-    );
+const Card = ({children}:Props) =>{
+  return (
+    <div className={styles.card}>{children}</div>
+  )
 }
 
 export default Card

@@ -3,6 +3,7 @@
 */
 import styles from './Stopwatch.module.css'
 
+import Card from './../../Card/Card'
 import Button from '../../Button/Button'
 
 import { useState, useEffect, useRef } from 'react'
@@ -54,14 +55,16 @@ function Stopwatch() {
     }
 
     return (
-        <div className={styles.stopwatch}>
-            <div className={styles.display}>{formatTime()}</div>
-            <div className={styles.controls}>
-                <Button isSquishy={true} color="var(--color-green)" onClick={start}>Start</Button>
-                <Button isSquishy={true} color="var(--color-red)" onClick={stop}>Stop</Button>
-                <Button isSquishy={true} color="var(--color-orange)" onClick={reset}>Reset</Button>
+        <Card>
+            <div className={styles.stopwatch}>
+                <div className={styles.display}>{formatTime()}</div>
+                <div className={styles.controls}>
+                    <Button isSquishy={true} color="var(--color-green)" onClick={start}>Start</Button>
+                    <Button isSquishy={true} color="var(--color-red)" onClick={stop}>Stop</Button>
+                    <Button isSquishy={true} color="var(--color-orange)" onClick={reset}>Reset</Button>
+                </div>
             </div>
-        </div>
+        </Card>
     )
 }
 

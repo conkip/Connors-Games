@@ -7,22 +7,60 @@ import ScoreKeeper from "../PlayerScore/PlayerScore"
 import MenuIcon from "../../../MenuIcon/MenuIcon"
 import Navbar from '../../../Navbar/Navbar'
 import NavItem from '../../../NavItem/NavItem'
+import Button from '../../../Button/Button'
+import Card from '../../../Card/Card'
 
-import type PlayerScore from '../../../'
-import { useState } from "react"
+import type * as Types from '../../../../types'
+import { useState, useEffect} from "react"
 
 interface Props {
     name?: string;
 }
 
-const ScoreBoard = ({ name = "New Game" }: Props) => {
-    // check user logged in in the database and checks for information on that name
-    let loggedIn = false;
+// check user logged in in the database and checks for information on that name
+let loggedIn = false;
+const player1: Types.PlayerScore = {
+    id: 1,
+    name: "Connor",
+    color: "#FF0000",
+    totalScore: 0,
+    history: [],
+}
 
-    const [players, setPlayers] = useState([]);
+const player2: Types.PlayerScore = {
+    id: 2,
+    name: "Kippes",
+    color: "#0000FF",
+    totalScore: 0,
+    history: [],
+}
+
+const players: Types.PlayerScore[] = [];
+players.push(player1);
+players.push(player2);
+
+function useWindowWidth() {
+    const [width, setWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    return width;
+}
+
+const ScoreBoard = ({ name = "New Game" }: Props) => {
+    const width = useWindowWidth();
+    const isMobile = width < 768;
+
+    const [playersState, setPlayersState] = useState<Types.PlayerScore[]>(players);
 
     const [menuOpen, setMenuOpen] = useState(false);
-    const [addPlayerOpen, setAddPlayerOpen] = useState(false);
+    const [addPlayerOpen, setAddPlayerOpen] = useState(true);
+
+    const [curColor, setCurColor] = useState("#ff0000");
 
     const [smallIncr, setSmallIncr] = useState(1);
     const [medIncr, setMedIncr] = useState(5);
@@ -35,22 +73,47 @@ const ScoreBoard = ({ name = "New Game" }: Props) => {
     function handleOpenAddPlayer(){
         setAddPlayerOpen(!addPlayerOpen);
     }
-    function addPlayer(newPlayer: PlayerScore) {
-        setPlayers((p) => [...p, ])
+    function handleAddPlayer(name: string, color: string) {
+        const newPlayer: Types.PlayerScore = {
+            id: players.length,
+            name: name,
+            color: color,
+            totalScore: 0,
+            history: [],
+        }
+        setPlayersState((p) => [...p, newPlayer])
     }
 
     function handleOpenDeletePlayer(){
         //hi
     }
 
+    
+
     return (
         <>
-            <div>
-                <h1>Add Player UI</h1>
-                <p>name: player </p>
-                <p>cancel</p>
-                <p>confirm</p>
-            </div>
+            {addPlayerOpen &&
+                <Card>
+                    <h2 className={styles.addPlayerTitle}>Add Player:</h2>
+                    <div className={styles.bottom}>
+                        <div className={styles.addPlayerItem}>
+                            <h3>Name:</h3>
+                            <input className={styles.nameInput} type="text" placeholder={`Player ${players.length}`}/>
+                        </div>
+
+                        <div className={styles.addPlayerItem}>
+                            <h3>Color:</h3>
+                            <input className={styles.colorInput} style={{ backgroundColor: curColor }} type="color" value={curColor} onChange={(e) => setCurColor(e.target.value)} />
+                        </div>
+
+                        <div className = {styles.addPlayerItem}>
+                            <Button onClick={()=>{}} isSquishy={true} color="var(--color-green)">Confirm</Button>
+                            <Button onClick={()=>{}} isSquishy={true} color="var(--color-red)">Cancel</Button>
+                        </div>
+                    </div>
+                </Card>
+            }
+
             <Navbar top={6}>
                 <div className={styles.leftNav}>
                     {/*BACK ARROW*/}
@@ -69,7 +132,14 @@ const ScoreBoard = ({ name = "New Game" }: Props) => {
                     <h3>{name}</h3>
                 </div>
 
-                <MenuIcon onClick={() => setMenuOpen(!menuOpen)} isOpen={menuOpen} />
+                {isMobile ?
+                    <MenuIcon onClick={() => setMenuOpen(!menuOpen)} isOpen={menuOpen} />
+                    :
+                    <div className={styles.rightNav}>
+                        <NavItem onClick={handleOpenAddPlayer}>Add Player</NavItem>
+                        <NavItem onClick={handleOpenDeletePlayer}>Delete Player</NavItem>
+                    </div>
+                }
             </Navbar>
 
             {menuOpen && (
@@ -80,16 +150,13 @@ const ScoreBoard = ({ name = "New Game" }: Props) => {
             )}
 
             <div className={styles.boardContainer}>
-                <ScoreKeeper
-                    name="connor"
-                    color="#FF0000"
-                    increments={[smallIncr, medIncr, largeIncr]}
-                ></ScoreKeeper>
-                <ScoreKeeper
-                    name="connor"
-                    color="#FF0000"
-                    increments={[smallIncr, medIncr, largeIncr]}
-                ></ScoreKeeper>
+                {playersState.map(p =>
+                    <ScoreKeeper
+                        name={p.name}
+                        color={p.color}
+                        increments={[smallIncr, medIncr, largeIncr]}
+                    ></ScoreKeeper>
+                )}
             </div>
             <div className={styles.spacer}></div>
         </>
@@ -97,22 +164,3 @@ const ScoreBoard = ({ name = "New Game" }: Props) => {
 };
 
 export default ScoreBoard;
-
-/*
-    Preset tools are based on your login
-    
-    Ideas:
-    layout
-    - also can include as a component under any boardgame
-    - board games will only take up the viewheight
-    
-    home:
-        - menu: create board, delete bord, website title, add player, delete player
-        - under that are boards (will say no boards right now if empty)
-        - can click on a board to pull its view up
-
-    board:
-        - menu: clear scores, add player, delete player (only off of this board), first player picker
-            -can choose from some preset players or create new
-        - scoreboards in flexbox
-*/

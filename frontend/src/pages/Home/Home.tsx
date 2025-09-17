@@ -4,10 +4,9 @@
 
 import styles from './Home.module.css'
 
-import Card from '../../components/Card/Card'
+import ImageCard from '../../components/ImageCard/ImageCard'
 import Dice from '../../components/_tools/DiceRoller/Dice/Dice'
 import Coin from '../../components/_tools/CoinFlipper/Coin/Coin'
-import Blob from '../../components/Blob/Blob'
 
 
 import pixiesImg from '../../assets/images/pixies/pixies.webp'
@@ -23,28 +22,23 @@ function Home() {
     return (
         <>
             <div className={styles.spacer}></div>
-            
-            <div className={styles.blobContainer}>
-                <Blob h={9} w={18} blobStyle={3}>
-                    <h1 className={styles.title}>Games</h1>
-                </Blob>
-            </div>
-
+            <h1 className={styles.title}>Games</h1>
             <div className={styles.spacer}></div>
-            <div className={styles.cardContainer}>
-                <Card
+
+            <div className={styles.imageCardContainer}>
+                <ImageCard
                     image={pixiesImg}
                     title="Pixies"
                     desc="2–5 players | ~30 minutes. A light, beautiful, and strategic card game about placing cute pixie cards in a 3×3 grid to score points across three rounds."
                     onClick={() => navigate("/games/pixies")}
                 />
-                <Card
+                <ImageCard
                     image={wurfelBohnanzaImg}
                     title="Wurfel Bohnanza"
                     desc="2–5 players | ~30 minutes. A quick, push-your-luck dice game where players complete bean orders for coins, while everyone gets to profit from each roll."
                     onClick={() => navigate("/games/wurfel-bohnanza")}
                 />
-                <Card
+                <ImageCard
                     image={codenamesImg}
                     title="Codenames"
                     desc="2–5 players | ~30 minutes. A clever word-association party game where spymasters give one-word clues to help their team find secret agents on the board—while avoiding the deadly assassin."
@@ -59,11 +53,7 @@ function Home() {
 
 
             {/* ------ TOOLS SECTION ------*/}
-            <div className={styles.blobContainer}>
-                <Blob h={9} w={15} blobStyle={1}>
-                    <h1 className={styles.title}>Tools</h1>
-                </Blob>
-            </div>
+            <h1 className={styles.title}>Tools</h1>
 
             <div className={styles.spacer}></div>
 
