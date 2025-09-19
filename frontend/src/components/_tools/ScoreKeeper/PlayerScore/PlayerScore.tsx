@@ -3,7 +3,7 @@
 */
 
 import styles from "./PlayerScore.module.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface Props {
     name: string;
@@ -20,6 +20,8 @@ const ScoreKeeper = ({
     initialScore = 0,
     initialHistory = [],
 }: Props) => {
+    const mountCount = useRef(0);
+
     const [pColor, setColor] = useState(color);
     const [pName, setName] = useState(name);
     const [totalScore, setTotalScore] = useState(initialScore);
@@ -58,6 +60,11 @@ const ScoreKeeper = ({
     }, [history])
 
     useEffect(() => {
+        if (mountCount.current < 2) {
+            mountCount.current += 1;
+            return;
+        }
+
         if(isIncrementing) {
             setDashOffset(circumference); // start empty
             setTimeout(() => setDashOffset(0), 1000); // animate to full

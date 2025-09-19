@@ -16,32 +16,24 @@ import type * as Types from '../../../../types'
 
 //export const UserContext = createContext();
 
-const player1History: Types.ScoreHistoryItem[] = [
-{
-    score:10,
-    color:"red"
-},
-{
-    score:10,
-    color:"red"
-},]
+const player1History: number[] = [10, -10]
 
 const player1: Types.PlayerScore = {
-    id: 1,
+    id: "1",
     name:"Connor",
     color:"#FF0000",
     totalScore:10,
     history: player1History,
 }
 
-const player2History: Types.ScoreHistoryItem[] = []
+const player2History: number[] = []
 
 const player2: Types.PlayerScore = {
-    id: 2,
+    id: "2",
     name:"Kippes",
     color:"#0000FF",
     totalScore:10,
-    history:player2History,
+    history: player2History,
 }
 
 let players: Types.PlayerScore[] = []
@@ -50,14 +42,14 @@ players.push(player2);
 
 
 let board1: Types.Board = {
-    id: 1,
+    id: "1",
     name: "board1",
     increments: [1,5,10],
     scoreKeepers: players
 }
 
 let board2: Types.Board = {
-    id: 2,
+    id: "2",
     name: "board2",
     increments: [1,5,10],
     scoreKeepers: players

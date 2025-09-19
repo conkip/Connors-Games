@@ -2,14 +2,15 @@
     Author: Connor Kippes
 */
 
-import styles from "./ToolsBar.module.css";
+import styles from "./ToolsBar.module.css"
 
-import Timer from "../Timer/Timer";
-import Stopwatch from "../Stopwatch/Stopwatch";
-import DiceUI from "../DiceRoller/DiceUI/DiceUI";
-import CoinUI from "../CoinFlipper/CoinUI/CoinUI";
-import Navbar from "../../Navbar/Navbar";
+import Timer from "../Timer/Timer"
+import Stopwatch from "../Stopwatch/Stopwatch"
+import DiceUI from "../DiceRoller/DiceUI/DiceUI"
+import CoinUI from "../CoinFlipper/CoinUI/CoinUI"
+import Navbar from "../../Navbar/Navbar"
 import NavItem from '../../NavItem/NavItem'
+import Card from '../../Card/Card'
 
 import { useState } from "react"
 
@@ -51,25 +52,33 @@ function ToolsBar() {
 
             <div className={styles.container}>
                 {tools}
-                <div className={styles.item}>
-                    <h1>Timer</h1>
-                    <Timer />
-                </div>
+                <Card>
+                    <div className={styles.item}>
+                        <h1>Timer</h1>
+                        <Timer />
+                    </div>
+                </Card>
 
-                <div className={styles.item}>
-                    <h1>Stopwatch</h1>
-                    <Stopwatch />
-                </div>
+                <Card>
+                    <div className={styles.item}>
+                        <h1>Stopwatch</h1>
+                        <Stopwatch />
+                    </div>
+                </Card>
 
-                <div className={styles.item}>
-                    <h1>Dice Roller</h1>
-                    <DiceUI />
-                </div>
+                <Card>
+                    <div className={styles.item}>
+                        <h1>Dice Roller</h1>
+                        <DiceUI />
+                    </div>
+                </Card>
 
-                <div className={styles.item}>
-                    <h1>Coin Flip</h1>
-                    <CoinUI />
-                </div>
+                <Card>
+                    <div className={styles.item}>
+                        <h1>Coin Flip</h1>
+                        <CoinUI />
+                    </div>
+                </Card>
             </div>
         </>
     );

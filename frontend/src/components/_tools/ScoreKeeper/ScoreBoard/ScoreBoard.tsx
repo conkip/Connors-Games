@@ -1,43 +1,52 @@
 /*
     Author: Connor Kippes
 */
-import styles from "./ScoreBoard.module.css"
+import styles from "./ScoreBoard.module.css";
 
-import ScoreKeeper from "../PlayerScore/PlayerScore"
-import MenuIcon from "../../../MenuIcon/MenuIcon"
-import Navbar from '../../../Navbar/Navbar'
-import NavItem from '../../../NavItem/NavItem'
-import Button from '../../../Button/Button'
-import Card from '../../../Card/Card'
+import ScoreKeeper from "../PlayerScore/PlayerScore";
+import MenuIcon from "../../../MenuIcon/MenuIcon";
+import Navbar from "../../../Navbar/Navbar";
+import NavItem from "../../../NavItem/NavItem";
+import Button from "../../../Button/Button";
+import Card from "../../../Card/Card";
 
-import type * as Types from '../../../../types'
-import { useState, useEffect} from "react"
+import type * as Types from "../../../../types";
+import { useState, useEffect } from "react";
 
 interface Props {
-    name?: string;
+    boardName?: string;
 }
 
 // check user logged in in the database and checks for information on that name
 let loggedIn = false;
 const player1: Types.PlayerScore = {
-    id: 1,
+    id: "1",
     name: "Connor",
-    color: "#FF0000",
+    color: "#c2af00",
     totalScore: 0,
     history: [],
-}
+};
 
 const player2: Types.PlayerScore = {
-    id: 2,
-    name: "Kippes",
-    color: "#0000FF",
+    id: "2",
+    name: "Kyle",
+    color: "#0eac00",
     totalScore: 0,
     history: [],
-}
+};
+
+const player3: Types.PlayerScore = {
+    id: "3",
+    name: "Valerie",
+    color: "#9900ff",
+    totalScore: 0,
+    history: [],
+};
 
 const players: Types.PlayerScore[] = [];
 players.push(player1);
 players.push(player2);
+players.push(player3);
 
 function useWindowWidth() {
     const [width, setWidth] = useState(window.innerWidth);
@@ -51,16 +60,20 @@ function useWindowWidth() {
     return width;
 }
 
-const ScoreBoard = ({ name = "New Game" }: Props) => {
+const ScoreBoard = ({ boardName = "New Game" }: Props) => {
     const width = useWindowWidth();
     const isMobile = width < 768;
 
-    const [playersState, setPlayersState] = useState<Types.PlayerScore[]>(players);
+    const [playersState, setPlayersState] =
+        useState<Types.PlayerScore[]>(players);
 
     const [menuOpen, setMenuOpen] = useState(false);
-    const [addPlayerOpen, setAddPlayerOpen] = useState(true);
+    const [boardOpen, setBoardOpen] = useState(false);
+    const [addPlayerOpen, setAddPlayerOpen] = useState(false);
+    const [deletePlayerOpen, setDeletePlayerOpen] = useState(false);
 
-    const [curColor, setCurColor] = useState("#ff0000");
+    const [name, setName] = useState("");
+    const [color, setColor] = useState("#FF0000");
 
     const [smallIncr, setSmallIncr] = useState(1);
     const [medIncr, setMedIncr] = useState(5);
@@ -69,51 +82,55 @@ const ScoreBoard = ({ name = "New Game" }: Props) => {
     function openMenu() {
         document.getElementById("");
     }
-
-    function handleOpenAddPlayer(){
-        setAddPlayerOpen(!addPlayerOpen);
+    function handleCloseAll() {
+        setMenuOpen(false);
+        setAddPlayerOpen(false);
+        setDeletePlayerOpen(false);
+        setBoardOpen(false);
     }
-    function handleAddPlayer(name: string, color: string) {
+
+    function handleAddPlayer() {
         const newPlayer: Types.PlayerScore = {
-            id: players.length,
-            name: name,
+            id: crypto.randomUUID(),
+            name: name == "" ? `Player ${playersState.length}` : name,
             color: color,
             totalScore: 0,
             history: [],
+        };
+        setPlayersState((p) => [...p, newPlayer]);
+        setAddPlayerOpen(false);
+    }
+
+    function handleDeletePlayer(id: string) {
+        setPlayersState((p) => p.filter((e) => e.id !== id));
+    }
+
+    useEffect(() => {
+        if (addPlayerOpen) {
+            setDeletePlayerOpen(false);
         }
-        setPlayersState((p) => [...p, newPlayer])
-    }
+        if (!addPlayerOpen && !deletePlayerOpen) {
+            setBoardOpen(true);
+        }
+        if (!addPlayerOpen) {
+            closeAddPlayer();
+        }
+        if (deletePlayerOpen) {
+            closeAddPlayer();
+        }
+        if (!deletePlayerOpen) {
+            setDeletePlayerOpen(false);
+        }
 
-    function handleOpenDeletePlayer(){
-        //hi
-    }
-
-    
+        function closeAddPlayer() {
+            setAddPlayerOpen(false);
+            setName("");
+            setColor("#FF0000");
+        }
+    }, [addPlayerOpen, deletePlayerOpen]);
 
     return (
         <>
-            {addPlayerOpen &&
-                <Card>
-                    <h2 className={styles.addPlayerTitle}>Add Player:</h2>
-                    <div className={styles.bottom}>
-                        <div className={styles.addPlayerItem}>
-                            <h3>Name:</h3>
-                            <input className={styles.nameInput} type="text" placeholder={`Player ${players.length}`}/>
-                        </div>
-
-                        <div className={styles.addPlayerItem}>
-                            <h3>Color:</h3>
-                            <input className={styles.colorInput} style={{ backgroundColor: curColor }} type="color" value={curColor} onChange={(e) => setCurColor(e.target.value)} />
-                        </div>
-
-                        <div className = {styles.addPlayerItem}>
-                            <Button onClick={()=>{}} isSquishy={true} color="var(--color-green)">Confirm</Button>
-                            <Button onClick={()=>{}} isSquishy={true} color="var(--color-red)">Cancel</Button>
-                        </div>
-                    </div>
-                </Card>
-            }
-
             <Navbar top={6}>
                 <div className={styles.leftNav}>
                     {/*BACK ARROW*/}
@@ -129,36 +146,166 @@ const ScoreBoard = ({ name = "New Game" }: Props) => {
                         137.3L73.4 297.3z"
                         />
                     </svg>
-                    <h3>{name}</h3>
+                    <h3>{boardName}</h3>
                 </div>
 
-                {isMobile ?
-                    <MenuIcon onClick={() => setMenuOpen(!menuOpen)} isOpen={menuOpen} />
-                    :
+                {isMobile ? (
+                    <MenuIcon
+                        onClick={() => setMenuOpen(!menuOpen)}
+                        isOpen={menuOpen}
+                    />
+                ) : (
                     <div className={styles.rightNav}>
-                        <NavItem onClick={handleOpenAddPlayer}>Add Player</NavItem>
-                        <NavItem onClick={handleOpenDeletePlayer}>Delete Player</NavItem>
+                        <NavItem
+                            onClick={() => {
+                                handleCloseAll();
+                                setAddPlayerOpen(true);
+                            }}
+                        >
+                            Add Player
+                        </NavItem>
+                        <NavItem
+                            onClick={() => {
+                                handleCloseAll();
+                                setDeletePlayerOpen(true);
+                            }}
+                        >
+                            Delete Player
+                        </NavItem>
                     </div>
-                }
+                )}
             </Navbar>
 
             {menuOpen && (
                 <div>
-                    <NavItem>Add Player</NavItem>
-                    <NavItem>Delete Player</NavItem>
+                    <NavItem
+                        onClick={() => {
+                            handleCloseAll();
+                            setAddPlayerOpen(true);
+                        }}
+                    >
+                        Add Player
+                    </NavItem>
+                    <NavItem
+                        onClick={() => {
+                            handleCloseAll();
+                            setDeletePlayerOpen(true);
+                        }}
+                    >
+                        Delete Player
+                    </NavItem>
                 </div>
             )}
 
-            <div className={styles.boardContainer}>
-                {playersState.map(p =>
-                    <ScoreKeeper
-                        name={p.name}
-                        color={p.color}
-                        increments={[smallIncr, medIncr, largeIncr]}
-                    ></ScoreKeeper>
-                )}
-            </div>
-            <div className={styles.spacer}></div>
+            {addPlayerOpen && (
+                <Card>
+                    <div className={styles.addPlayerContainer}>
+                        <h2 className={styles.top}>Add Player:</h2>
+                        <div className={styles.bottom}>
+                            <div className={styles.addPlayerItem}>
+                                <h3>Name:</h3>
+                                <input
+                                    className={styles.nameInput}
+                                    type="text"
+                                    placeholder={`Player ${playersState.length}`}
+                                    value={name}
+                                    onChange={(n) => setName(n.target.value)}
+                                />
+                            </div>
+                            <div className={styles.addPlayerItem}>
+                                <h3>Color:</h3>
+                                <input
+                                    className={styles.colorInput}
+                                    style={{ backgroundColor: color }}
+                                    type="color"
+                                    value={color}
+                                    onChange={(c) => setColor(c.target.value)}
+                                />
+                            </div>
+                            <div className={styles.addPlayerItem}>
+                                <Button
+                                    onClick={handleAddPlayer}
+                                    isSquishy={true}
+                                    color="var(--color-green)"
+                                >
+                                    Confirm
+                                </Button>
+                                <Button
+                                    onClick={() => setAddPlayerOpen(false)}
+                                    isSquishy={true}
+                                    color="var(--color-red)"
+                                >
+                                    Cancel
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                </Card>
+            )}
+
+            {deletePlayerOpen && (
+                <Card>
+                    <div className={styles.deletePlayerContainer}>
+                        <h2 className={styles.top}>Delete Player:</h2>
+                    </div>
+
+                    <div className={styles.bottom}>
+                        {playersState.length === 0 ? (
+                            <h3 className={styles.centerText}>No Players</h3>
+                        ) : (
+                            playersState.map((p) => (
+                                <div
+                                    className={styles.deletePlayerItem}
+                                    key={p.id}
+                                >
+                                    <h3>{p.name}</h3>
+                                    <svg
+                                        className={styles.deleteIcon}
+                                        onClick={() => handleDeletePlayer(p.id)}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 640 640"
+                                    >
+                                        {/* Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com 
+                                        License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. */}
+                                        <path
+                                            d="M232.7 69.9L224 96L128 96C110.3 96 96 110.3 96 128C96 145.7 110.3 160 
+                                        128 160L512 160C529.7 160 544 145.7 544 128C544 110.3 529.7 96 512 96L416 96L407.3 
+                                        69.9C402.9 56.8 390.7 48 376.9 48L263.1 48C249.3 48 237.1 56.8 232.7 69.9zM512 
+                                        208L128 208L149.1 531.1C150.7 556.4 171.7 576 197 576L443 576C468.3 576 489.3 
+                                        556.4 490.9 531.1L512 208z"
+                                        />
+                                    </svg>
+                                </div>
+                            ))
+                        )}
+                    </div>
+                    <div className={styles.cancelButton}>
+                        <Button
+                            isSquishy={true}
+                            color="var(--color-red)"
+                            onClick={handleCloseAll}
+                        >
+                            Exit
+                        </Button>
+                    </div>
+                </Card>
+            )}
+
+            {boardOpen && (
+                <>
+                    <div className={styles.boardContainer}>
+                        {playersState.map((p) => (
+                            <ScoreKeeper
+                                key={p.id}
+                                name={p.name}
+                                color={p.color}
+                                increments={[smallIncr, medIncr, largeIncr]}
+                            ></ScoreKeeper>
+                        ))}
+                    </div>
+                    <div className={styles.spacer}></div>
+                </>
+            )}
         </>
     );
 };

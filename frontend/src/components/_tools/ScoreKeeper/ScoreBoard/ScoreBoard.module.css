@@ -24,9 +24,9 @@
 }
 
 .icon {
-    width: 2rem;
     height: 2rem;
     fill:white;
+    cursor:pointer;
 }
 
 .icon:hover {
@@ -47,20 +47,26 @@
 }
 
 
-/*----ADD PLAYER UI----*/
+.top{
+    border-bottom:1.5px var(--color-subtext) solid;
+    text-align:center;
+    padding:1rem;
+}
 .bottom{
     display:flex;
     flex-direction:column;
     gap:1.5rem;
-    width:fit-content;
     align-self:center;
     padding:1rem;
 }
 
-.addPlayerTitle{
-    border-bottom:var(--border);
-    text-align:center;
-    padding:1rem;
+
+/*----ADD PLAYER UI----*/
+.addPlayerContainer {
+    padding: .5rem 1rem;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 }
 
 .addPlayerItem{
@@ -96,4 +102,40 @@
 .colorInput::-moz-color-swatch {
     border:none;
     border-radius: 12px;
+}
+
+
+
+/*----DELETE PLAYER UI----*/
+.deletePlayerContainer{
+    padding:1rem;
+    max-height:400px;
+}
+
+.deletePlayerItem{
+    display:flex;
+    justify-content:space-between;
+    width:100%;
+}
+
+
+.deleteIcon {
+    height: 2rem;
+    fill:white;
+    cursor:pointer;
+}
+
+.deleteIcon:hover {
+    transform: translateY(-5px);
+    fill:var(--color-red);
+}
+
+.centerText{
+    text-align:center;
+}
+
+.cancelButton{
+    margin:1rem;
+    display:flex;
+    justify-content:center;
 }

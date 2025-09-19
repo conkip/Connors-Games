@@ -1,18 +1,17 @@
-export type ScoreHistoryItem = {
-    score: number;
-    color: string;
-};
+/*
+    Author: Connor Kippes
+*/
 
 export type PlayerScore = {
-    id: number;
+    id: string;
     name: string;
     color: string;
     totalScore: number;
-    history: ScoreHistoryItem[];
+    history: number[];
 };
 
 export type Board = {
-    id: number;
+    id: string;
     name: string;
     increments: [number, number, number]; // three-number increments
     scoreKeepers: PlayerScore[];
@@ -23,7 +22,7 @@ export type UserPreferences = {
 }
 
 export type User = {
-    id: number;
+    id: string;
     name: string;
     username: string;
     password: string; // hashed password
