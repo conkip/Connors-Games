@@ -84,19 +84,30 @@ function BoardManager() {
     const [boardsState, setBoardsState] = useState(boards.boards);
 
     const [menuOpen, setMenuOpen] = useState(false);
-    const [boardOpen, setBoardOpen] = useState(false);
     const [boardManagerOpen, setBoardManagerOpen] = useState(true);
     const [addBoardOpen, setAddBoardOpen] = useState(false);
     const [deleteBoardOpen, setDeleteBoardOpen] = useState(false);
+    const [addPlayerOpen, setAddPlayerOpen] = useState(false);
+    const [deletePlayerOpen, setDeletePlayerOpen] = useState(false);
 
     const [name, setName] = useState("");
 
     function handleCloseAll() {
         setMenuOpen(false);
-        setBoardOpen(false);
         setBoardManagerOpen(false);
         setAddBoardOpen(false);
         setDeleteBoardOpen(false);
+        setAddPlayerOpen(false);
+        setDeletePlayerOpen(false);
+    }
+
+    function handleCloseToBoard() {
+        handleCloseAll();
+        setBoardManagerOpen(true);
+    }
+
+    function handleAddItem() {
+        console.log("added item")
     }
 
 
@@ -118,20 +129,20 @@ function BoardManager() {
                     <MenuIcon onClick={()=> setMenuOpen(!menuOpen)} isOpen={menuOpen} /> 
                     :
                     <div className={styles.navItems}>
-                        <button className={styles.button}><NavItem>Add Board</NavItem></button>
-                        <button className={styles.button}><NavItem onClick={() => {handleCloseAll(); setDeleteBoardOpen(true);}}>Delete Board</NavItem></button>
-                        <button className={styles.button}><NavItem>Add Player</NavItem></button>
-                        <button className={styles.button}><NavItem>Delete Player</NavItem></button>
+                        <button className={styles.button} onClick={() => {handleCloseAll(); setAddBoardOpen(true);}}><NavItem>Add Board</NavItem></button>
+                        <button className={styles.button} onClick={() => {handleCloseAll(); setDeleteBoardOpen(true);}}><NavItem>Delete Board</NavItem></button>
+                        <button className={styles.button} onClick={() => {handleCloseAll(); setAddPlayerOpen(true);}}><NavItem>Add Player</NavItem></button>
+                        <button className={styles.button} onClick={() => {handleCloseAll(); setDeletePlayerOpen(true);}}><NavItem>Delete Player</NavItem></button>
                     </div>
                 }
             </Navbar>
 
             { menuOpen &&
                 <div className={styles.navItems}>
-                    <button className={styles.button}><NavItem>Add Board</NavItem></button>
-                    <button className={styles.button}><NavItem>Delete Board</NavItem></button>
-                    <button className={styles.button}><NavItem>Add Player</NavItem></button>
-                    <button className={styles.button}><NavItem>Delete Player</NavItem></button>
+                    <button className={styles.button} onClick={() => {handleCloseAll(); setAddBoardOpen(true);}}><NavItem>Add Board</NavItem></button>
+                    <button className={styles.button} onClick={() => {handleCloseAll(); setDeleteBoardOpen(true);}}><NavItem>Delete Board</NavItem></button>
+                    <button className={styles.button} onClick={() => {handleCloseAll(); setAddPlayerOpen(true);}}><NavItem>Add Player</NavItem></button>
+                    <button className={styles.button} onClick={() => {handleCloseAll(); setDeletePlayerOpen(true);}}><NavItem>Delete Player</NavItem></button>
                 </div>
             }
             { boardsState.length < 1 && <h2 className={styles.message}>{message}</h2>}
@@ -151,54 +162,42 @@ function BoardManager() {
                 </>
             }
 
-            {menuOpen && (
-                <div>
-                    <NavItem
-                        onClick={() => {
-                            handleCloseAll();
-                            setAddPlayerOpen(true);
-                        }}
-                    >
-                        Add Player
-                    </NavItem>
-                    <NavItem
-                        onClick={() => {
-                            handleCloseAll();
-                            setDeletePlayerOpen(true);
-                        }}
-                    >
-                        Delete Player
-                    </NavItem>
-                </div>
-            )}
-
             {addBoardOpen && (
                 <AddItems
-
-                ></AddItems>
+                    title="Add Board"
+                    handleAddItem = {handleAddItem}
+                    handleClose = {handleCloseToBoard}
+                >
+                    <div>input 1</div>
+                    <div>input 2</div>
+                </AddItems>
             )}
 
             {deleteBoardOpen && (
                 <DeleteItems 
                     list={boardsState} 
                     setList={setBoardsState} 
-                    handleClose={handleCloseAll}
+                    handleClose={handleCloseToBoard}
                 ></DeleteItems>
             )}
 
-            {boardOpen && (
-                <>
-                    <div className={styles.boardContainer}>
-                        {playersState.map((p) => (
-                            <ScoreKeeper
-                                key={p.id}
-                                name={p.name}
-                                color={p.color}
-                                increments={[smallIncr, medIncr, largeIncr]}
-                            ></ScoreKeeper>
-                        ))}
-                    </div>
-                </>
+            {addPlayerOpen && (
+                <AddItems
+                    title="Add Player"
+                    handleAddItem = {handleAddItem}
+                    handleClose = {handleCloseToBoard}
+                >
+                    <div>input 1</div>
+                    <div>input 2</div>
+                </AddItems>
+            )}
+
+            {deletePlayerOpen && (
+                <DeleteItems 
+                    list={boardsState} 
+                    setList={setBoardsState} 
+                    handleClose={handleCloseToBoard}
+                ></DeleteItems>
             )}
         </>
     );

@@ -1,17 +1,19 @@
 /*
     Author: Connor Kippes
 */
-import styles from "./ScoreBoard.module.css";
+import styles from "./ScoreBoard.module.css"
 
-import ScoreKeeper from "../PlayerScore/PlayerScore";
-import MenuIcon from "../../../MenuIcon/MenuIcon";
-import Navbar from "../../../Navbar/Navbar";
-import NavItem from "../../../NavItem/NavItem";
-import Button from "../../../Button/Button";
-import Card from "../../../Card/Card";
+import ScoreKeeper from "../PlayerScore/PlayerScore"
+import MenuIcon from "../../../MenuIcon/MenuIcon"
+import Navbar from "../../../Navbar/Navbar"
+import NavItem from "../../../NavItem/NavItem"
+import Button from "../../../Button/Button"
+import Card from "../../../Card/Card"
+import AddItems from '../AddItems/AddItems'
+import DeleteItems from '../DeleteItems/DeleteItems'
 
-import type * as Types from "../../../../types";
-import { useState, useEffect } from "react";
+import type * as Types from "../../../../types"
+import { useState, useEffect } from "react"
 
 interface Props {
     boardName?: string;
@@ -86,6 +88,11 @@ const ScoreBoard = ({ boardName = "New Game" }: Props) => {
         setBoardOpen(false);
     }
 
+    function handleCloseToBoard() {
+        handleCloseAll();
+        setBoardOpen(true);
+    }
+
     function handleAddPlayer() {
         const newPlayer: Types.PlayerScore = {
             id: crypto.randomUUID(),
@@ -96,10 +103,6 @@ const ScoreBoard = ({ boardName = "New Game" }: Props) => {
         };
         setPlayersState((p) => [...p, newPlayer]);
         setAddPlayerOpen(false);
-    }
-
-    function handleDeletePlayer(id: string) {
-        setPlayersState((p) => p.filter((e) => e.id !== id));
     }
 
     useEffect(() => {
@@ -195,97 +198,40 @@ const ScoreBoard = ({ boardName = "New Game" }: Props) => {
             )}
 
             {addPlayerOpen && (
-                <Card>
-                    <div className={styles.addPlayerContainer}>
-                        <h2 className={styles.top}>Add Player:</h2>
-                        <div className={styles.bottom}>
-                            <div className={styles.addPlayerItem}>
-                                <h3>Name:</h3>
-                                <input
-                                    className={styles.nameInput}
-                                    type="text"
-                                    placeholder={`Player ${playersState.length}`}
-                                    value={name}
-                                    onChange={(n) => setName(n.target.value)}
-                                />
-                            </div>
-                            <div className={styles.addPlayerItem}>
-                                <h3>Color:</h3>
-                                <input
-                                    className={styles.colorInput}
-                                    style={{ backgroundColor: color }}
-                                    type="color"
-                                    value={color}
-                                    onChange={(c) => setColor(c.target.value)}
-                                />
-                            </div>
-                            <div className={styles.addPlayerItem}>
-                                <Button
-                                    onClick={handleAddPlayer}
-                                    isSquishy={true}
-                                    color="var(--color-green)"
-                                >
-                                    Confirm
-                                </Button>
-                                <Button
-                                    onClick={() => setAddPlayerOpen(false)}
-                                    isSquishy={true}
-                                    color="var(--color-red)"
-                                >
-                                    Cancel
-                                </Button>
-                            </div>
-                        </div>
+                <AddItems
+                    title="Add Player"
+                    handleAddItem = {handleAddPlayer}
+                    handleClose = {handleCloseToBoard}
+                >
+                    <div className={styles.addPlayerItem}>
+                        <h3>Name:</h3>
+                        <input
+                            className={styles.nameInput}
+                            type="text"
+                            placeholder={`Player ${playersState.length}`}
+                            value={name}
+                            onChange={(n) => setName(n.target.value)}
+                        />
                     </div>
-                </Card>
+                    <div className={styles.addPlayerItem}>
+                        <h3>Color:</h3>
+                        <input
+                            className={styles.colorInput}
+                            style={{ backgroundColor: color }}
+                            type="color"
+                            value={color}
+                            onChange={(c) => setColor(c.target.value)}
+                        />
+                    </div>
+                </AddItems>
             )}
 
             {deletePlayerOpen && (
-                <Card>
-                    <div className={styles.deletePlayerContainer}>
-                        <h2 className={styles.top}>Delete Player:</h2>
-                    </div>
-
-                    <div className={styles.bottom}>
-                        {playersState.length === 0 ? (
-                            <h3 className={styles.centerText}>No Players</h3>
-                        ) : (
-                            playersState.map((p) => (
-                                <div
-                                    className={styles.deletePlayerItem}
-                                    key={p.id}
-                                >
-                                    <h3>{p.name}</h3>
-                                    <svg
-                                        className={styles.deleteIcon}
-                                        onClick={() => handleDeletePlayer(p.id)}
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 640 640"
-                                    >
-                                        {/* Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com 
-                                        License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. */}
-                                        <path
-                                            d="M232.7 69.9L224 96L128 96C110.3 96 96 110.3 96 128C96 145.7 110.3 160 
-                                        128 160L512 160C529.7 160 544 145.7 544 128C544 110.3 529.7 96 512 96L416 96L407.3 
-                                        69.9C402.9 56.8 390.7 48 376.9 48L263.1 48C249.3 48 237.1 56.8 232.7 69.9zM512 
-                                        208L128 208L149.1 531.1C150.7 556.4 171.7 576 197 576L443 576C468.3 576 489.3 
-                                        556.4 490.9 531.1L512 208z"
-                                        />
-                                    </svg>
-                                </div>
-                            ))
-                        )}
-                    </div>
-                    <div className={styles.cancelButton}>
-                        <Button
-                            isSquishy={true}
-                            color="var(--color-red)"
-                            onClick={handleCloseAll}
-                        >
-                            Exit
-                        </Button>
-                    </div>
-                </Card>
+                <DeleteItems 
+                    list={playersState} 
+                    setList={setPlayersState}
+                    handleClose={handleCloseToBoard}
+                ></DeleteItems>
             )}
 
             {boardOpen && (
