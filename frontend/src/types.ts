@@ -1,33 +1,31 @@
 /*
     Author: Connor Kippes
 */
+export type idName ={
+    id: string;
+    name:string;
+}
 
 export type PlayerScore = {
-    id: string;
-    name: string;
     color: string;
     totalScore: number;
     history: number[];
-};
+} & idName;
 
 export type Board = {
-    id: string;
-    name: string;
     increments: [number, number, number]; // three-number increments
     scoreKeepers: PlayerScore[];
-};
+} & idName;
 
 export type UserPreferences = {
     boards: Board[];
-}
+};
 
 export type User = {
-    id: string;
-    name: string;
     username: string;
     password: string; // hashed password
     preferences: UserPreferences;
-}
+} & idName;
 
 
 /*

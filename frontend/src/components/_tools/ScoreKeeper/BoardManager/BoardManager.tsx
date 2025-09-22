@@ -9,6 +9,8 @@ import BoardPreview from '../BoardPreview/BoardPreview'
 import Navbar from '../../../Navbar/Navbar'
 import NavItem from '../../../NavItem/NavItem'
 import MenuIcon from '../../../MenuIcon/MenuIcon'
+import DeleteItems from '../DeleteItems/DeleteItems'
+import AddItems from '../AddItems/AddItems'
 
 import { createContext, useState, useEffect } from 'react'
 
@@ -62,14 +64,44 @@ let boards: Types.UserPreferences = {
 boards.boards.push(board1);
 boards.boards.push(board2);
 
+function useWindowWidth() {
+    const [width, setWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    return width;
+}
+
 function BoardManager() {
-    const [open, setOpen] = useState(false);
+    const width = useWindowWidth();
+    const isMobile = width < 1024;
+
     const [message, setMessage] = useState("No Boards");
-    const [boardsState, setboardsState] = useState(boards);
+    const [boardsState, setBoardsState] = useState(boards.boards);
+
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [boardOpen, setBoardOpen] = useState(false);
+    const [boardManagerOpen, setBoardManagerOpen] = useState(true);
+    const [addBoardOpen, setAddBoardOpen] = useState(false);
+    const [deleteBoardOpen, setDeleteBoardOpen] = useState(false);
+
+    const [name, setName] = useState("");
+
+    function handleCloseAll() {
+        setMenuOpen(false);
+        setBoardOpen(false);
+        setBoardManagerOpen(false);
+        setAddBoardOpen(false);
+        setDeleteBoardOpen(false);
+    }
 
 
     useEffect(() => {
-        if(boardsState.boards.length === 0) {
+        if(boardsState.length === 0) {
             setMessage("");
         }
         else {
@@ -80,12 +112,21 @@ function BoardManager() {
 
     return (
         <>
-            <Navbar top={6}>
+            <Navbar>
                 <h3 className={styles.title}>Board Manager</h3>
-                <MenuIcon onClick={()=> setOpen(!open)} isOpen={open} />
+                {isMobile? 
+                    <MenuIcon onClick={()=> setMenuOpen(!menuOpen)} isOpen={menuOpen} /> 
+                    :
+                    <div className={styles.navItems}>
+                        <button className={styles.button}><NavItem>Add Board</NavItem></button>
+                        <button className={styles.button}><NavItem onClick={() => {handleCloseAll(); setDeleteBoardOpen(true);}}>Delete Board</NavItem></button>
+                        <button className={styles.button}><NavItem>Add Player</NavItem></button>
+                        <button className={styles.button}><NavItem>Delete Player</NavItem></button>
+                    </div>
+                }
             </Navbar>
 
-            { open &&
+            { menuOpen &&
                 <div className={styles.navItems}>
                     <button className={styles.button}><NavItem>Add Board</NavItem></button>
                     <button className={styles.button}><NavItem>Delete Board</NavItem></button>
@@ -93,18 +134,72 @@ function BoardManager() {
                     <button className={styles.button}><NavItem>Delete Player</NavItem></button>
                 </div>
             }
-            { boardsState.boards.length < 1 && <h2 className={styles.message}>{message}</h2>}
+            { boardsState.length < 1 && <h2 className={styles.message}>{message}</h2>}
 
-            <div className={styles.previewContainer}>
-                {boardsState.boards.map((b) => 
-                    <BoardPreview 
-                        players={b.scoreKeepers} 
-                        name={b.name} 
-                        key={b.id} 
-                    />
-                )}
-            </div>
-            <ScoreBoard></ScoreBoard>
+            {boardManagerOpen &&
+                <>
+                <div className={styles.previewContainer}>
+                    {boardsState.map((b) => 
+                        <BoardPreview 
+                            players={b.scoreKeepers} 
+                            name={b.name} 
+                            key={b.id} 
+                        />
+                    )}
+                </div>
+                <ScoreBoard></ScoreBoard>
+                </>
+            }
+
+            {menuOpen && (
+                <div>
+                    <NavItem
+                        onClick={() => {
+                            handleCloseAll();
+                            setAddPlayerOpen(true);
+                        }}
+                    >
+                        Add Player
+                    </NavItem>
+                    <NavItem
+                        onClick={() => {
+                            handleCloseAll();
+                            setDeletePlayerOpen(true);
+                        }}
+                    >
+                        Delete Player
+                    </NavItem>
+                </div>
+            )}
+
+            {addBoardOpen && (
+                <AddItems
+
+                ></AddItems>
+            )}
+
+            {deleteBoardOpen && (
+                <DeleteItems 
+                    list={boardsState} 
+                    setList={setBoardsState} 
+                    handleClose={handleCloseAll}
+                ></DeleteItems>
+            )}
+
+            {boardOpen && (
+                <>
+                    <div className={styles.boardContainer}>
+                        {playersState.map((p) => (
+                            <ScoreKeeper
+                                key={p.id}
+                                name={p.name}
+                                color={p.color}
+                                increments={[smallIncr, medIncr, largeIncr]}
+                            ></ScoreKeeper>
+                        ))}
+                    </div>
+                </>
+            )}
         </>
     );
 }

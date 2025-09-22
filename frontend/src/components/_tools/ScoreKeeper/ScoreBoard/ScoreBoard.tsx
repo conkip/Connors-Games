@@ -62,7 +62,7 @@ function useWindowWidth() {
 
 const ScoreBoard = ({ boardName = "New Game" }: Props) => {
     const width = useWindowWidth();
-    const isMobile = width < 768;
+    const isMobile = width < 1024;
 
     const [playersState, setPlayersState] =
         useState<Types.PlayerScore[]>(players);
@@ -79,9 +79,6 @@ const ScoreBoard = ({ boardName = "New Game" }: Props) => {
     const [medIncr, setMedIncr] = useState(5);
     const [largeIncr, setLargeIncr] = useState(10);
 
-    function openMenu() {
-        document.getElementById("");
-    }
     function handleCloseAll() {
         setMenuOpen(false);
         setAddPlayerOpen(false);
@@ -131,7 +128,7 @@ const ScoreBoard = ({ boardName = "New Game" }: Props) => {
 
     return (
         <>
-            <Navbar top={6}>
+            <Navbar>
                 <div className={styles.leftNav}>
                     {/*BACK ARROW*/}
                     <svg
@@ -303,7 +300,6 @@ const ScoreBoard = ({ boardName = "New Game" }: Props) => {
                             ></ScoreKeeper>
                         ))}
                     </div>
-                    <div className={styles.spacer}></div>
                 </>
             )}
         </>

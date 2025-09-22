@@ -1,0 +1,27 @@
+/*
+    Author: Connor Kippes
+*/
+.top{
+    border-bottom:1.5px var(--color-subtext) solid;
+    text-align:center;
+    padding:1rem;
+}
+.bottom{
+    display:flex;
+    flex-direction:column;
+    gap:1.5rem;
+    align-self:center;
+    padding:1rem;
+}
+
+.addPlayerContainer {
+    padding: .5rem 1rem;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.buttons{
+    display:flex;
+    gap:1rem;
+}

@@ -6,12 +6,12 @@ import styles from './Navbar.module.css'
 
 interface Props {
     children: React.ReactNode;
-    top?:number;
+    isSticky?:boolean;
 }
 
-const Navbar = ({children, top = 0.5}: Props) => {
+const Navbar = ({children, isSticky =false}: Props) => {
   return (
-    <div className={styles.navbar} style ={{top: `${top}rem`}}>{children}</div>
+    <div className={styles.navbar} style ={isSticky? {top: `.5rem`, position: "sticky", zIndex: 9999} : {}}>{children}</div>
   )
 }
 

@@ -46,7 +46,7 @@ function Header() {
 
     return (
         <>
-            <Navbar>
+            <Navbar isSticky={true}>
                 <WebsiteTitle />
 
                 <MenuIcon

@@ -62,7 +62,7 @@ function DesktopHeader() {
     }, [dropdownPos]);
 
     return (
-        <Navbar>
+        <Navbar isSticky={true}>
             <div className={styles.headerItems}>
                 <button className={styles.button} ref={button1Ref} onClick={() => handleClick(button1Ref)}>
                     <NavItem
