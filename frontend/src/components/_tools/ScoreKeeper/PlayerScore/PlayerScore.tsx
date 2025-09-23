@@ -8,7 +8,6 @@ import { useState, useEffect, useRef } from "react";
 interface Props {
     name: string;
     color: string;
-    increments: number[];
     initialScore?: number;
     initialHistory?: number[];
 }
@@ -16,7 +15,6 @@ interface Props {
 const ScoreKeeper = ({
     name,
     color,
-    increments,
     initialScore = 0,
     initialHistory = [],
 }: Props) => {
@@ -97,21 +95,21 @@ const ScoreKeeper = ({
                 <div className={styles.incrementContainer}>
                     <button
                         className={styles.scoreButton}
-                        onClick={() => handleIncrement(-increments[0])}
+                        onClick={() => handleIncrement(-1)}
                     >
-                        -{increments[0]}
+                        -{1}
                     </button>
                     <button
                         className={styles.scoreButton}
-                        onClick={() => handleIncrement(-increments[1])}
+                        onClick={() => handleIncrement(-1)}
                     >
-                        -{increments[1]}
+                        -{5}
                     </button>
                     <button
                         className={styles.scoreButton}
-                        onClick={() => handleIncrement(-increments[2])}
+                        onClick={() => handleIncrement(-10)}
                     >
-                        -{increments[2]}
+                        -{10}
                     </button>
                 </div>
 
@@ -190,21 +188,21 @@ const ScoreKeeper = ({
                 <div className={styles.incrementContainer}>
                     <button
                         className={styles.scoreButton}
-                        onClick={() => handleIncrement(increments[0])}
+                        onClick={() => handleIncrement(1)}
                     >
-                        +{increments[0]}
+                        +{1}
                     </button>
                     <button
                         className={styles.scoreButton}
-                        onClick={() => handleIncrement(increments[1])}
+                        onClick={() => handleIncrement(5)}
                     >
-                        +{increments[1]}
+                        +{5}
                     </button>
                     <button
                         className={styles.scoreButton}
-                        onClick={() => handleIncrement(increments[2])}
+                        onClick={() => handleIncrement(10)}
                     >
-                        +{increments[2]}
+                        +{10}
                     </button>
                 </div>
 

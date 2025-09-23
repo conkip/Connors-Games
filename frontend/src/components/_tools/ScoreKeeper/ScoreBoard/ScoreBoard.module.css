@@ -2,6 +2,14 @@
     Author: Connor Kippes
 */
 
+.boardContainer{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    gap:2rem;
+    margin:2rem;
+}
+
 .leftNav{
     display:flex;
     gap:1rem;
@@ -34,16 +42,8 @@
     fill: var(--color-accent);
 }
 
-.boardContainer{
-    display:flex;
-    flex-direction:row;
-    flex-wrap:wrap;
-    gap:1rem;
-}
-
-
 /*----ADD PLAYER UI----*/
-.addPlayerItem{
+.addItemsRow{
     display:flex;
     gap:1rem;
 }

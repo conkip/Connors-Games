@@ -16,30 +16,32 @@ interface Props {
 
 function AddItems({title, children, handleAddItem, handleClose}:Props) {
     return (
-         <Card>
-            <div className={styles.addItemContainer}>
-                <h2 className={styles.top}>{title}:</h2>
-                <div className={styles.bottom}>
-                    {children}
-                    <div className={styles.buttons}>
-                        <Button
-                            onClick={handleAddItem}
-                            isSquishy={true}
-                            color="var(--color-green)"
-                        >
-                            Confirm
-                        </Button>
-                        <Button
-                            onClick={handleClose}
-                            isSquishy={true}
-                            color="var(--color-red)"
-                        >
-                            Cancel
-                        </Button>
+        <div className={styles.outerContainer}>
+            <Card>
+                <div className={styles.addItemContainer}>
+                    <h2 className={styles.top}>{title}:</h2>
+                    <div className={styles.bottom}>
+                        {children}
+                        <div className={styles.addItemsRow}>
+                            <Button
+                                onClick={handleAddItem}
+                                isSquishy={true}
+                                color="var(--color-green)"
+                            >
+                                Confirm
+                            </Button>
+                            <Button
+                                onClick={handleClose}
+                                isSquishy={true}
+                                color="var(--color-red)"
+                            >
+                                Cancel
+                            </Button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </Card>
+            </Card>
+        </div>
     )
 }
 

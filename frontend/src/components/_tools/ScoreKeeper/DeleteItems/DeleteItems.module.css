@@ -1,9 +1,17 @@
 /*
     Author: Connor Kippes
 */
+.outerContainer {
+    display:flex;
+    justify-content:center;
+}
+
+.innerContainer {
+    padding:1rem;
+}
 
 .top{
-    border-bottom:1.5px var(--color-subtext) solid;
+    border-bottom: var(--border-inside);
     text-align:center;
     padding:1rem;
 }
@@ -17,7 +25,8 @@
 
 .deletePlayerContainer{
     padding:1rem;
-    max-height:400px;
+    max-height:250px;
+    overflow-y:scroll;
 }
 
 .deletePlayerItem{

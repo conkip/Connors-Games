@@ -3,7 +3,7 @@
 */
 import styles from "./ScoreBoard.module.css"
 
-import ScoreKeeper from "../PlayerScore/PlayerScore"
+import PlayerScore from "../PlayerScore/PlayerScore"
 import MenuIcon from "../../../MenuIcon/MenuIcon"
 import Navbar from "../../../Navbar/Navbar"
 import NavItem from "../../../NavItem/NavItem"
@@ -76,10 +76,6 @@ const ScoreBoard = ({ boardName = "New Game" }: Props) => {
 
     const [name, setName] = useState("");
     const [color, setColor] = useState("#FF0000");
-
-    const [smallIncr, setSmallIncr] = useState(1);
-    const [medIncr, setMedIncr] = useState(5);
-    const [largeIncr, setLargeIncr] = useState(10);
 
     function handleCloseAll() {
         setMenuOpen(false);
@@ -203,7 +199,7 @@ const ScoreBoard = ({ boardName = "New Game" }: Props) => {
                     handleAddItem = {handleAddPlayer}
                     handleClose = {handleCloseToBoard}
                 >
-                    <div className={styles.addPlayerItem}>
+                    <div className={styles.addItemsRow}>
                         <h3>Name:</h3>
                         <input
                             className={styles.nameInput}
@@ -213,7 +209,7 @@ const ScoreBoard = ({ boardName = "New Game" }: Props) => {
                             onChange={(n) => setName(n.target.value)}
                         />
                     </div>
-                    <div className={styles.addPlayerItem}>
+                    <div className={styles.addItemsRow}>
                         <h3>Color:</h3>
                         <input
                             className={styles.colorInput}
@@ -238,12 +234,11 @@ const ScoreBoard = ({ boardName = "New Game" }: Props) => {
                 <>
                     <div className={styles.boardContainer}>
                         {playersState.map((p) => (
-                            <ScoreKeeper
+                            <PlayerScore
                                 key={p.id}
                                 name={p.name}
                                 color={p.color}
-                                increments={[smallIncr, medIncr, largeIncr]}
-                            ></ScoreKeeper>
+                            ></PlayerScore>
                         ))}
                     </div>
                 </>

@@ -2,7 +2,7 @@
     Author: Connor Kippes
 */
 .top{
-    border-bottom:1.5px var(--color-subtext) solid;
+    border-bottom: var(--border-inside);
     text-align:center;
     padding:1rem;
 }
@@ -14,14 +14,21 @@
     padding:1rem;
 }
 
-.addPlayerContainer {
+.addItemContainer {
     padding: .5rem 1rem;
     display:flex;
     flex-direction:column;
     justify-content:center;
+    width:fit-content;
 }
 
-.buttons{
+.addItemsRow{
     display:flex;
     gap:1rem;
+    align-self:center;
+}
+
+.outerContainer {
+    display:flex;
+    justify-content:center;
 }

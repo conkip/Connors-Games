@@ -6,7 +6,8 @@
     display:flex;
     flex-direction:row;
     flex-wrap:wrap;
-    gap:1rem;
+    gap:2rem;
+    margin:2rem;
 }
 
 .button {
@@ -26,4 +27,90 @@
 .message{
     text-align:center;
     margin:4rem 0;
+}
+
+
+/*---ADD PLAYER UI---*/
+.addItemsRow{
+    display:flex;
+    gap:1rem;
+}
+
+.playerCountItem{
+    all:unset;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:2rem;
+    width:2rem;
+    font-weight:600;
+    font-size: 1.25rem;
+    border-radius: 50%;
+    border: 2px var(--color-text) solid;
+    color:var(--color-text);
+}
+
+.playerCountItem:hover{
+    filter:brightness(1.25);
+    border: 2px var(--color-accent) solid;
+    color:var(--color-accent);
+}
+
+.selectedPlayerCount {
+    filter:brightness(1.25);
+    border: 2px var(--color-accent) solid;
+    color:var(--color-accent);
+}
+
+.nameInput {
+    all:unset;
+    max-width:10rem;
+    font-weight:600;
+    font-family: var(--ff);
+    font-size: 1.5rem;
+}
+
+.colorInput{
+    appearance:none;
+    -webkit-appearance:none;
+    border:none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    cursor:pointer;
+    transform: translateY(.25rem);
+}
+/* Chrome/Safari/iOS */
+.colorInput::-webkit-color-swatch-wrapper{ padding: 0px;}
+.colorInput::-webkit-color-swatch {
+    border:none;
+    border-radius:12px;
+}
+/* Firefox */
+.colorInput::-moz-color-swatch {
+    border:none;
+    border-radius: 12px;
+}
+
+
+/*---ADD BOARD UI----*/
+.playerCountContainer{
+    display:flex;
+    gap:.5rem
+}
+.addBoardSubscript{
+    text-align:center;
+    color:var(--color-subtext);
+}
+
+.presetPlayersContainer {
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+    padding:1rem;
+    padding-right:0;
+    max-height:10rem;
+    overflow-y:scroll;
+    border: var(--border-inside);
+    border-radius:1rem;
 }

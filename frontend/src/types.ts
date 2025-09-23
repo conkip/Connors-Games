@@ -13,12 +13,12 @@ export type PlayerScore = {
 } & idName;
 
 export type Board = {
-    increments: [number, number, number]; // three-number increments
-    scoreKeepers: PlayerScore[];
+    players: PlayerScore[];
 } & idName;
 
 export type UserPreferences = {
     boards: Board[];
+    presetPlayers: PlayerScore[];
 };
 
 export type User = {

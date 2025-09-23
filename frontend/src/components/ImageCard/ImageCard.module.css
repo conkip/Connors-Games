@@ -63,15 +63,15 @@
 }
 
 .playButton {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--color-text);
-  background: linear-gradient(to right, var(--color-accent) 0%, var(--color-accent) 100%);
-  background-size: 0% 100%;  /* start empty */
-  background-repeat: no-repeat;
-  -webkit-background-clip: text;
-  background-clip: text;
-  transition: background-size 0.5s ease;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-text);
+    background: linear-gradient(to right, var(--color-accent) 0%, var(--color-accent) 100%);
+    background-size: 0% 100%;  /* start empty */
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: background-size 0.5s ease;
 }
 
 .playButton:hover {

@@ -3,9 +3,9 @@
 */
 
 .card{
-    width: fit-content;
+    width:fit-content;
     background-color: var(--color-secondary);
-    border: var(--border);
+    border: var(--border-outside);
     box-shadow:var(--box-shadow);
     border-radius:1rem;
 }
