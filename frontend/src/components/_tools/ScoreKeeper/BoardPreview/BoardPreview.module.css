@@ -46,14 +46,6 @@
     gap:1.5rem;
     padding:1rem;
     overflow-y:auto;
-    scrollbar-width: none;
-}
-.bottom::-webkit-scrollbar {
-  display: none;         /* Chrome, Edge, Safari: hide scrollbar */
-}
-
-.bottom:focus {
-  outline: none;         /* remove focus outline if using keyboard */
 }
 
 

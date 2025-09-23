@@ -111,6 +111,13 @@
     padding-right:0;
     max-height:10rem;
     overflow-y:scroll;
-    border: var(--border-inside);
+    border:var(--border-inside);
+    border-bottom:var(--border-inside);
+    border-top:var(--border-inside);
     border-radius:1rem;
+}
+
+.presetPlayersItem{
+    display:flex;
+    justify-content:space-between;
 }

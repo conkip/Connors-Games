@@ -11,6 +11,7 @@ import NavItem from '../../../NavItem/NavItem'
 import MenuIcon from '../../../MenuIcon/MenuIcon'
 import DeleteItems from '../DeleteItems/DeleteItems'
 import AddItems from '../AddItems/AddItems'
+import Button from '../../../Button/Button'
 
 import { createContext, useState, useEffect } from 'react'
 
@@ -39,6 +40,10 @@ const player2: Types.PlayerScore = {
 }
 
 let players: Types.PlayerScore[] = []
+players.push(player1);
+players.push(player2);
+players.push(player1);
+players.push(player2);
 players.push(player1);
 players.push(player2);
 
@@ -233,7 +238,10 @@ function BoardManager() {
 
                     <div className={styles.presetPlayersContainer}>
                         {playersState.map((p) => (
-                            <h3>{p.name}</h3>
+                            <div className={styles.presetPlayersItem}>
+                                <h3>{p.name}</h3>
+                                <Button color="var(--color-green)">Add</Button>
+                            </div>
                         ))}
                     </div>
 
