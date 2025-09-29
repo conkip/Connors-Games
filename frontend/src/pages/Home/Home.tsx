@@ -21,6 +21,8 @@ function Home() {
     const navigate = useNavigate();
     return (
         <>
+            <h1>Connors Games</h1>
+            <h2>Play some amazing games with your friends or AI!</h2>
             <div className={styles.spacer}></div>
             <h1 className={styles.title}>Games</h1>
             <div className={styles.spacer}></div>

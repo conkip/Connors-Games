@@ -60,7 +60,7 @@
 #root {
     max-width: 1200px; /* pick your site’s standard width */
     margin: 0 auto; /* centers content */
-    padding: 0 1rem; /* spacing for small screens */
+    padding: 0 2rem; /* spacing for small screens */
 }
 
 body {
@@ -133,6 +133,10 @@ html {
 ::-webkit-scrollbar-thumb {
     background: var(--color-subtext); /* or transparent to hide thumb */
     border-radius: 8px;
+}
+
+.section{
+    height:100vh;
 }
 
 
