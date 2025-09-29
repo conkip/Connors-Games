@@ -1,0 +1,34 @@
+/*
+    Author: Connor Kippes
+*/
+.top{
+    border-bottom: var(--border-inside);
+    text-align:center;
+    padding:1rem;
+}
+.bottom{
+    display:flex;
+    flex-direction:column;
+    gap:1.5rem;
+    align-self:center;
+    padding:1rem;
+}
+
+.addItemContainer {
+    padding: .5rem 1rem;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    width:fit-content;
+}
+
+.addItemsRow{
+    display:flex;
+    gap:1rem;
+    align-self:center;
+}
+
+.outerContainer {
+    display:flex;
+    justify-content:center;
+}

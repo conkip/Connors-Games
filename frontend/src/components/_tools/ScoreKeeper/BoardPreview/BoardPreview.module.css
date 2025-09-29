@@ -5,7 +5,8 @@
 .container{
     display:flex;
     flex-direction: column;
-    width:350px;
+    max-height: 300px;
+    width:325px;
     cursor:pointer;
     padding: 1rem;
 }
@@ -16,7 +17,7 @@
     display: flex;
     justify-content: space-between;
     border-bottom:1.5px var(--color-subtext) solid;
-    padding:16px;
+    padding:1rem;
     align-items:center;
 }
 
@@ -42,9 +43,11 @@
 .bottom{
     display:flex;
     flex-direction:column;
-    gap:25px;
-    padding:25px;
+    gap:1.5rem;
+    padding:1rem;
+    overflow-y:auto;
 }
+
 
 .color{
     height: 20px;
@@ -75,4 +78,5 @@
 .button {
     all:unset;
     cursor:pointer;
+    z-index:5;
 }

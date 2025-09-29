@@ -32,7 +32,8 @@
     --subtext: 13.5px/20px var(--ff);
 
     --box-shadow: 5px 5px 10px rgba(0, 0, 0, 1);
-    --border: 2px rgba(0, 0, 0, 0.2) solid;
+    --border-outside: 2px rgba(0, 0, 0, 0.2) solid;
+    --border-inside: 1.5px var(--color-subtext) solid;
 }
 
 /* TYPOGRAPHY */

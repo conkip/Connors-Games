@@ -12,14 +12,11 @@
     justify-self: center;
     border-radius: 9999px;
     margin: 1rem auto;
-    flex-wrap: nowrap;
-    position: sticky;
-    top: 0.5rem;
-    z-index: 9999;
     width: 100%;
-    border: var(--border);
+    border: var(--border-outside);
     box-shadow: var(--box-shadow);
     white-space: nowrap;
+    flex-wrap: nowrap;
 }
 
 @media (max-width: 1024px) {

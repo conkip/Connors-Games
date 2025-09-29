@@ -12,6 +12,6 @@
 .inside{
     display:flex;
     flex-direction:column;
-    gap:.5rem;
-    padding: .5rem;
+    gap:1rem;
+    padding: 1rem;
 }

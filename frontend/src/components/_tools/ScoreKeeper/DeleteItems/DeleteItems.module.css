@@ -1,0 +1,58 @@
+/*
+    Author: Connor Kippes
+*/
+.outerContainer {
+    display:flex;
+    justify-content:center;
+}
+
+.innerContainer {
+    padding:1rem;
+}
+
+.top{
+    border-bottom: var(--border-inside);
+    text-align:center;
+    padding:1rem;
+}
+.bottom{
+    display:flex;
+    flex-direction:column;
+    gap:1.5rem;
+    align-self:center;
+    padding:1rem;
+}
+
+.deletePlayerContainer{
+    padding:1rem;
+    max-height:250px;
+    overflow-y:scroll;
+}
+
+.deletePlayerItem{
+    display:flex;
+    justify-content:space-between;
+    width:100%;
+}
+
+
+.deleteIcon {
+    height: 2rem;
+    fill:white;
+    cursor:pointer;
+}
+
+.deleteIcon:hover {
+    transform: translateY(-5px);
+    fill:var(--color-red);
+}
+
+.centerText{
+    text-align:center;
+}
+
+.cancelButton{
+    margin:1rem;
+    display:flex;
+    justify-content:center;
+}
