@@ -1,6 +1,44 @@
 /*
     Author: Connor Kippes
 */
+
+/*-----GENERAL STUFF--------*/
+.section{
+    height:100vh;
+}
+
+.spacer{
+    height: 4rem;
+}
+.link{
+    text-decoration:none;
+    color: var(--color-text);
+    cursor:pointer;
+}
+.title{
+    font-size:4rem;
+    text-align:center;
+}
+
+.colorText{
+    display:inline;
+    color: var(--color-accent);
+}
+
+/*-----TOP PART ------*/
+.topContainer{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+    height:100%;
+}
+.inner{
+    display:flex;
+    justify-content:space-between;
+    gap:2rem;
+}
+
+/*-----IMAGE MARQUE--------*/
 .imageCardContainer {
     display:flex;
     align-items: flex-start;
@@ -9,50 +47,32 @@
     gap:2rem;
 }
 
-.link{
-    text-decoration:none;
-    color: var(--color-text);
-    font-size:1.8rem;
-    font-weight:500;
-    text-align:center;
+.imgContainer {
+  display: grid;
 }
 
-.link:hover {
-    color:var(--color-accent);
+.imgContainer > * {
+  grid-area: 1 / 1; /* put everything in same cell */
+}
+.imgContainer img{
+    border-radius:1rem;
+    border:var(--border);
+    height:10rem;
+}
+.imgContainer button{
+    all:unset;
+    font-size:2rem;
+    font-weight:600;
+    color:var(--color-subtext);
 }
 
-.title{
-    font-size:4rem;
-    text-align:center;
-}
 
-.spacer{
-    height: 4rem;
-}
-
-.toolsContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
-    gap: 5rem;
-    max-width:900px;
-    margin: 0 auto;
-    place-items: center;
-}
-
-.toolsItem{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:2rem;
-    cursor:pointer;
-    width:fit-content;
-}
-
+/*-----TOOLS MARQUE--------*/
 .scoreKeeperIcon{
-    height:2.7rem;
-    width:3.25rem;
+    height:5rem;
+    width:5rem;
     background-color: red;
-    border-radius: 4px;
+    border-radius: .35rem;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -61,21 +81,18 @@
 
 .incrementor{
     background-color: rgba(95, 95, 95, 0.7);
-    height:2rem;
-    width:2rem;
-    border-radius:4px;
+    height:3.5rem;
+    width:3.5rem;
+    border-radius:.35rem;
     display:flex;
     align-items:center;
     justify-content:center;
     font-weight:600;
-    font-size:1.25rem;
+    font-size:1.85rem;
     user-select: none;          /* Standard */
     -webkit-user-select: none;  /* Safari/Chrome */
     -moz-user-select: none;     /* Firefox */
     -ms-user-select: none;      /* IE/Edge */
-}
-.incrementor:active{
-    transform: scale(1.15);
 }
 .incrementor:hover{
     transform: scale(1.15);
@@ -83,7 +100,7 @@
 
 
 .stopwatchIcon{
-    height:3.4rem;
+    height:5rem;
     fill:var(--color-text);
     transition: transform .5s ease;
 }
@@ -98,14 +115,9 @@
 }
 
 .timerIcon {
-    height:3rem;
+    height:5rem;
     fill:var(--color-text);
-    transition: transform .5s ease;
-}
-
-.timerIcon:active {
-    transform: rotateX(180deg);
-    fill:var(--color-accent);
+    transition: transform .75s ease;
 }
 
 .timerIcon:hover {
@@ -119,16 +131,8 @@
     transition: transform .25s ease;
 }
 
-.toolBarIcon:active {
-    transform: translatey(-10px);
-}
-
 .toolBarIcon:hover {
     transform: translatey(-10px);
-}
-
-.toolBarIcon:active  .toolBarIconFill {
-    fill:var(--color-accent);
 }
 
 .toolBarIcon:hover .toolBarIconFill {
@@ -136,6 +140,8 @@
 }
 
 
+
+/*-----BOTTOM STUFF--------*/
 .fillTextEffect {
   color: var(--color-text);
   background: linear-gradient(to right, var(--color-accent) 0%, var(--color-accent) 100%);

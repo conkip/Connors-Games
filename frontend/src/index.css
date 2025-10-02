@@ -52,10 +52,14 @@
 } */
 
 /* Global page container (wraps all content) */
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+}
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 #root {
@@ -134,10 +138,6 @@ html {
 ::-webkit-scrollbar-thumb {
     background: var(--color-subtext); /* or transparent to hide thumb */
     border-radius: 8px;
-}
-
-.section{
-    height:100vh;
 }
 
 

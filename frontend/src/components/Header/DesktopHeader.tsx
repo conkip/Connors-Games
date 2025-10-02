@@ -63,6 +63,11 @@ function DesktopHeader() {
 
     return (
         <Navbar isSticky={true}>
+            {/*-----WEBSITE TITlE-----*/}
+            <WebsiteTitle />
+
+
+            {/*-----NAV LINKS/ DROPDOWNS-----*/}
             <div className={styles.headerItems}>
                 <button className={styles.button} ref={button1Ref} onClick={() => handleClick(button1Ref)}>
                     <NavItem
@@ -161,8 +166,7 @@ function DesktopHeader() {
                 </Link>
             </div>
 
-            <WebsiteTitle />
-
+            {/*-----LOGIN/SIGNUP-----*/}
             <div className={styles.headerItems}>
                 <Link
                     onClick={handleCloseDropdowns}

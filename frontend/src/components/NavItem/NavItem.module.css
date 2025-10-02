@@ -17,8 +17,7 @@
 
 .caret{
     fill:var(--color-text);
-    height:15px;
-    transition: transform .4s ease;
+    transition: transform .2s ease;
 }
 
 .container:hover .name{
@@ -37,6 +36,6 @@
 }
 
 .active .caret{
-    transform: scaleY(-1);
+    transform: rotate(180deg);
     fill:var(--color-accent);
 }

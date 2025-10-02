@@ -25,16 +25,17 @@ const NavItem = ({ children, expandable = false, onClick}: Props) => {
 
             {/* <?xml version="1.0" encoding="utf-8"?>      License: MIT. Made by phosphor: https://github.com/phosphor-icons/phosphor-icons*/}
             {expandable && (
-                <svg
-                    className={styles.caret}
+                <svg 
+                className={styles.caret}
                     fill="#000000"
-                    width="15px"
-                    height="15px"
-                    viewBox="0 0 256 256"
-                    id="Flat"
-                    xmlns="http://www.w3.org/2000/svg"
+                    width="17px"
+                    height="17px"
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 640 640"
                 >
-                    <path d="M128,188a11.96187,11.96187,0,0,1-8.48535-3.51465l-80-80a12.0001,12.0001,0,0,1,16.9707-16.9707L128,159.0293l71.51465-71.51465a12.0001,12.0001,0,0,1,16.9707,16.9707l-80,80A11.96187,11.96187,0,0,1,128,188Z" />
+                    {/* Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com 
+                    License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.*/}
+                    <path d="M300.3 440.8C312.9 451 331.4 450.3 343.1 438.6L471.1 310.6C480.3 301.4 483 287.7 478 275.7C473 263.7 461.4 256 448.5 256L192.5 256C179.6 256 167.9 263.8 162.9 275.8C157.9 287.8 160.7 301.5 169.9 310.6L297.9 438.6L300.3 440.8z"/>
                 </svg>
             )}
         </div>
