@@ -55,16 +55,19 @@ function Stopwatch() {
     }
 
     return (
-        <Card>
-            <div className={styles.stopwatch}>
-                <div className={styles.display}>{formatTime()}</div>
-                <div className={styles.controls}>
-                    <Button isSquishy={true} color="var(--color-green)" onClick={start}>Start</Button>
-                    <Button isSquishy={true} color="var(--color-red)" onClick={stop}>Stop</Button>
-                    <Button isSquishy={true} color="var(--color-orange)" onClick={reset}>Reset</Button>
+        <div className={styles.container}>
+            <h1>Stopwatch</h1>
+            <Card>
+                <div className={styles.stopwatch}>
+                    <div className={styles.display}>{formatTime()}</div>
+                    <div className={styles.controls}>
+                        <Button isSquishy={true} color="var(--color-green)" onClick={start}>Start</Button>
+                        <Button isSquishy={true} color="var(--color-red)" onClick={stop}>Stop</Button>
+                        <Button isSquishy={true} color="var(--color-orange)" onClick={reset}>Reset</Button>
+                    </div>
                 </div>
-            </div>
-        </Card>
+            </Card>
+        </div>
     )
 }
 

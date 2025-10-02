@@ -9,19 +9,22 @@ import type { ReactNode } from "react"
 
 interface Props {
     children: ReactNode;
-    top: number;
-    left: number;
+    top: string;
+    left: string;
+    width?:string;
+    height?:string;
 }
 
-const Dropdown = ({children, top, left}:Props) => {
+const Dropdown = ({children, top, left, width = "fit-content", height="fit-content"}:Props) => {
     return (
         <div className={styles.dropdown}
             style={{
                 top: top,
                 left: left,
+                width: width,
             }}
         >
-            <Card>
+            <Card width = {width} height ={height}>
                 <div className={styles.inside}>
                     {children}
                 </div>

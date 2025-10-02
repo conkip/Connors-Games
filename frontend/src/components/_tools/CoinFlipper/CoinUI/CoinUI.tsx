@@ -14,6 +14,7 @@ function CoinFlip() {
 
     return (
         <div className={styles.container}>
+            <h1>Coin Flip</h1>
             <Coin size={10} setFace={setFace} setIsDone={setIsDone}></Coin>
             <h2>{isDone ? face : "..."}</h2>
             <h5 className={styles.instructions}>Click on the coin to flip</h5>

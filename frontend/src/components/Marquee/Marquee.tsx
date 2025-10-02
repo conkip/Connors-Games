@@ -13,7 +13,7 @@ interface Props {
     totalWidth?: number;
 }
 
-const Marquee = ({ children, height, width, duration = 10, totalWidth = 50}: Props) => {
+const Marquee = ({ children, height, width, duration = 7, totalWidth = 100}: Props) => {
     return (
         <div
             className={styles.marquee}

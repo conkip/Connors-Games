@@ -1,3 +1,14 @@
+/*
+    Author: Connor Kippes
+*/
+
+.container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1rem;
+}
+
 .stopwatch{
     display:flex;
     flex-direction:column;

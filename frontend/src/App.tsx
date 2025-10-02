@@ -98,7 +98,10 @@ function App() {
                     element={
                         <Layout>
                             <CenteredComponent>
-                                <Timer />
+                                <div className="toolContainer">
+                                    <h1>Timer</h1>
+                                    <Timer />
+                                </div>
                             </CenteredComponent>
                         </Layout>
                     }
@@ -109,7 +112,10 @@ function App() {
                     element={
                         <Layout>
                             <CenteredComponent>
-                                <Stopwatch />
+                                <div className="toolContainer">
+                                    <h1>Stopwatch</h1>
+                                    <Stopwatch />
+                                </div>
                             </CenteredComponent>
                         </Layout>
                     }

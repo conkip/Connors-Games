@@ -14,6 +14,7 @@ function DiceRoll() {
 
     return (
         <div className={styles.container}>
+            <h1>Dice Roll</h1>
             <Dice size={10} setFaceState={setFace} setIsDone={setIsDone}></Dice>
             <h2>{isDone ? face : "..."}</h2>
             <h5 className={styles.instructions}>Click on the die to roll</h5>

@@ -6,7 +6,6 @@ import styles from "./Header.module.css";
 
 import WebsiteTitle from "../WebsiteTitle/WebsiteTitle";
 import MenuIcon from "../MenuIcon/MenuIcon";
-import MenuSection from "../MenuSection/MenuSection";
 import Navbar from '../Navbar/Navbar'
 import NavItem from "../NavItem/NavItem";
 
@@ -62,7 +61,7 @@ function Header() {
             {open && (
                 <>
                     <div className={styles.spacer}></div>
-                    <MenuSection>
+                    <div className={styles.menuSection}>
                         <NavItem
                             expandable={true}
                             onClick={() => {
@@ -72,13 +71,13 @@ function Header() {
                             }}
                         >Products</NavItem>
                         {open1 && (
-                            <MenuSection>
+                            <div className={styles.menuSection}>
                                 <NavItem
                                     expandable={true}
                                     onClick={() => setOpen11(!open11)}
                                 >Games</NavItem>
                                 {open11 && (
-                                    <MenuSection>
+                                    <div className={styles.menuSection}>
                                         <Link
                                             onClick={() => {
                                                 setOpen(false);
@@ -111,7 +110,7 @@ function Header() {
                                         </Link>
 
                                         {/*<a className={styles.link} href="https://papasgamesfree.io/papas-freezeria"target="_blank"><NavItem>Papas Games</NavItem></a>*/}
-                                    </MenuSection>
+                                    </div>
                                 )}
 
                                 <NavItem
@@ -119,7 +118,7 @@ function Header() {
                                     onClick={() => setOpen12(!open12)}
                                 >Tools</NavItem>
                                 {open12 && (
-                                    <MenuSection>
+                                    <div className={styles.menuSection}>
                                         <Link
                                             onClick={() => {
                                                 setOpen(false);
@@ -141,9 +140,9 @@ function Header() {
                                         >
                                             <NavItem>Tools Bar</NavItem>
                                         </Link>
-                                    </MenuSection>
+                                    </div>
                                 )}
-                            </MenuSection>
+                            </div>
                         )}
 
                         <NavItem
@@ -151,9 +150,9 @@ function Header() {
                             onClick={() => setOpen2(!open2)}
                         >Solutions</NavItem>
                         {open2 && (
-                            <MenuSection>
+                            <div className={styles.menuSection}>
                                 <div>Multiplayer</div>
-                            </MenuSection>
+                            </div>
                         )}
 
                         <NavItem
@@ -161,9 +160,9 @@ function Header() {
                             onClick={() => setOpen3(!open3)}
                         >Resources</NavItem>
                         {open3 && (
-                            <MenuSection>
+                            <div className={styles.menuSection}>
                                 <div>Contact</div>
-                            </MenuSection>
+                            </div>
                         )}
 
                         <Link
@@ -196,7 +195,7 @@ function Header() {
                         >
                             <NavItem>SignUp</NavItem>
                         </Link>
-                    </MenuSection>
+                    </div>
                 </>
             )}
             </div>

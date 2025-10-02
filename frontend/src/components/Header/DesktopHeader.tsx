@@ -6,7 +6,6 @@ import styles from './Header.module.css'
 import WebsiteTitle from '../WebsiteTitle/WebsiteTitle'
 import Button from '../Button/Button'
 import NavItem from '../NavItem/NavItem'
-import MenuSection from '../MenuSection/MenuSection'
 import Dropdown from '../Dropdown/Dropdown'
 import Navbar from '../Navbar/Navbar'
 
@@ -29,38 +28,6 @@ function DesktopHeader() {
         setOpen3(false);
     }
 
-    const [dropdownPos, setDropdownPos] = useState<{ top: number; left: number } | null>(null);
-    const button1Ref = useRef<HTMLButtonElement>(null);
-    const button2Ref = useRef<HTMLButtonElement>(null);
-    const button3Ref = useRef<HTMLButtonElement>(null);
-
-    const handleClick = (ref: React.RefObject<HTMLButtonElement | null>) => {
-        if(ref.current) {
-            const rect = ref.current.getBoundingClientRect();
-            setDropdownPos({
-                top: rect.bottom + window.scrollY,
-                left: rect.right + window.scrollX,
-            });
-        }
-    };
-
-    // close popup when clicking outside
-    useEffect(() => {
-        const handleOutsideClick = (e: MouseEvent) => {
-            if (
-                dropdownPos &&
-                (button1Ref.current || button2Ref.current || button3Ref.current) &&
-                (!button1Ref.current?.contains(e.target as Node) ||
-                !button2Ref.current?.contains(e.target as Node) ||
-                !button3Ref.current?.contains(e.target as Node))
-            ) {
-                setDropdownPos(null);
-            }
-        };
-        document.addEventListener("click", handleOutsideClick);
-        return () => document.removeEventListener("click", handleOutsideClick);
-    }, [dropdownPos]);
-
     return (
         <Navbar isSticky={true}>
             {/*-----WEBSITE TITlE-----*/}
@@ -69,24 +36,23 @@ function DesktopHeader() {
 
             {/*-----NAV LINKS/ DROPDOWNS-----*/}
             <div className={styles.headerItems}>
-                <button className={styles.button} ref={button1Ref} onClick={() => handleClick(button1Ref)}>
+                <button className={styles.button}>
                     <NavItem
                         expandable={true}
                         onClick={() => {
+                            handleCloseDropdowns();
                             setOpen1(!open1);
-                            setOpen11(false);
-                            setOpen12(false);
                         }}
                     >Products</NavItem>
                 </button>
-                {open1 && dropdownPos && (
-                    <Dropdown top={dropdownPos.top} left={dropdownPos.left}>
+                {open1 && (
+                    <Dropdown top="5.5rem" left="100%" width="70%" height="10rem">
                         <NavItem
                             expandable={true}
                             onClick={() => setOpen11(!open11)}
                         >Games</NavItem>
                         {open11 && (
-                            <MenuSection>
+                            <div className={styles.menuSection}>
                                 <Link
                                     onClick={handleCloseDropdowns}
                                     className={styles.link}
@@ -108,7 +74,7 @@ function DesktopHeader() {
                                 >
                                     <NavItem>Codenames</NavItem>
                                 </Link>
-                            </MenuSection>
+                            </div>
                         )}
 
                         <NavItem
@@ -116,7 +82,7 @@ function DesktopHeader() {
                             onClick={() => setOpen12(!open12)}
                         >Tools</NavItem>
                         {open12 && (
-                            <MenuSection>
+                            <div className={styles.menuSection}>
                                 <Link
                                     onClick={handleCloseDropdowns}
                                     className={styles.link}
@@ -132,7 +98,7 @@ function DesktopHeader() {
                                 >
                                     <NavItem>Tool Bar</NavItem>
                                 </Link>
-                            </MenuSection>
+                            </div>
                         )}
                     </Dropdown>
                 )}
@@ -142,9 +108,11 @@ function DesktopHeader() {
                     onClick={() => setOpen2(!open2)}
                 >Solutions</NavItem>
                 {open2 && (
-                    <MenuSection>
-                        <div>Multiplayer</div>
-                    </MenuSection>
+                    <Dropdown top="5.5rem" left="100%" width="80%" height="10rem">
+                        <div className={styles.menuSection}>
+                            <div>Multiplayer</div>
+                        </div>
+                    </Dropdown>
                 )}
 
                 <NavItem
@@ -152,9 +120,11 @@ function DesktopHeader() {
                     onClick={() => setOpen3(!open3)}
                 >Resources</NavItem>
                 {open3 && (
-                    <MenuSection>
-                        <div>Contact</div>
-                    </MenuSection>
+                    <Dropdown top="5.5rem" left="100%" width="80%" height="10rem">
+                        <div className={styles.menuSection}>
+                            <div>Contact</div>
+                        </div>
+                    </Dropdown>
                 )}
 
                 <Link

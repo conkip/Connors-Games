@@ -24,33 +24,32 @@ function Home() {
         <>
             <div className={styles.section}>
                 <div className={styles.topContainer}>
+                    <h1 className={styles.animatedText}>Connors Games</h1>
                     <div className={styles.inner}>
                         <div>
-                            <h1>Connors Games</h1>
-                            <br></br>
                             <h2>Play some <h2 className={styles.colorText}>amazing games</h2> with your <h2 className={styles.colorText}>friends</h2> or <h2 className={styles.colorText}>AI</h2>!</h2>
                         </div>
 
-                        <Marquee height={10} width= {10}>
+                        <Marquee height={15} width= {15} duration={7}>
                             <div className={styles.imgContainer}>
                                 <img alt="Pixies Image" src={pixiesImg}></img>
-                                <button>Play Now</button>
+                                <button>Pixies</button>
                             </div>
 
                             <div className={styles.imgContainer}>
-                                <img alt="Wurfel Image" src={wurfelBohnanzaImg}></img>
-                                <button>Play Now</button>
+                                <img alt="Wurfel Bohnanza Image" src={wurfelBohnanzaImg}></img>
+                                <button>Wurfel Bohnanza</button>
                             </div>
 
                             <div className={styles.imgContainer}>
                                 <img alt="Codenames Image" src={codenamesImg}></img>
-                                <button>Play Now</button>
+                                <button>Codenames</button>
                             </div>
                         </Marquee>
                     </div>
 
                     <div className={styles.inner}>
-                        <Marquee height={10} width= {10}>
+                        <Marquee height={5} width= {5}>
                             {/*Score Keeper*/}
                             <Link className={styles.link} to="/tools/board-manager">
                                 <div className={styles.scoreKeeperIcon}>
@@ -65,7 +64,7 @@ function Home() {
                             <Link className={styles.link} to="/tools/coin"><Coin size={5}/></Link>
 
                             {/* Timer */}
-                            <Link className={styles.link} to="/tools/timer">
+                            <Link className={`${styles.link} ${styles.timerIconWrapper}`} to="/tools/timer">
                                 <svg className={styles.timerIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                                     {/* Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com 
                                     License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc. */}
@@ -79,7 +78,7 @@ function Home() {
                                 </svg>
                             </Link>
                             
-                            {/* Stopwtach */}
+                            {/* Stopwatch */}
                             <Link className={styles.link} to="/tools/stopwatch">
                                 <svg className={styles.stopwatchIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                                     {/* Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com 
@@ -100,10 +99,6 @@ function Home() {
                     </div>
                 </div>
             </div>
-
-            <h1 className={styles.title}>Games</h1>
-            <div className={styles.spacer}></div>
-
             <div className={styles.imageCardContainer}>
                 <ImageCard
                     image={pixiesImg}
