@@ -65,6 +65,9 @@
 }
 
 /*---MOBILE HEADER--*/
+.relative{
+    display:relative;
+}
 .menu{
     padding-top:1rem;
     overflow: auto;
