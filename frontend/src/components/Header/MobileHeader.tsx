@@ -58,7 +58,7 @@ function Header() {
                 />
             
                 {open && (
-                    <Dropdown top="4rem" left="calc(100%)" width="92%">
+                    <Dropdown top="4rem" left="100%" width="100%">
                         <div className={styles.menu}>
                         <div className={styles.mobileMenuContent}>
                             <NavItem
