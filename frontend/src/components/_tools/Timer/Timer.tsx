@@ -81,7 +81,7 @@ function Timer() {
 
     return (
         <Card>
-            <div className={styles.stopwatch}>
+            <div className={styles.timer}>
                 <div className={styles.display}>{formatTime()}</div>
                 <div className={styles.increments}>
                     <button className={styles.button} onClick={() => addTime(30)}>+0:30</button>

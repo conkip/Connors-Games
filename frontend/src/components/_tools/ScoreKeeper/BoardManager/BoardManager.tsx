@@ -13,6 +13,8 @@ import DeleteItems from '../DeleteItems/DeleteItems'
 import AddItems from '../AddItems/AddItems'
 import Button from '../../../Button/Button'
 
+import useWindowWidth from '../../../../hooks/useWindowWidth'
+
 import { createContext, useState, useEffect } from 'react'
 
 import type * as Types from '../../../../types'
@@ -67,18 +69,6 @@ let boards: Types.UserPreferences = {
 
 boards.boards.push(board1);
 boards.boards.push(board2);
-
-function useWindowWidth() {
-    const [width, setWidth] = useState(window.innerWidth);
-
-    useEffect(() => {
-        const handleResize = () => setWidth(window.innerWidth);
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    return width;
-}
 
 function BoardManager() {
     const playerCountArray = ["1", "2", "3", "4", "5", "6", "7", "8"];

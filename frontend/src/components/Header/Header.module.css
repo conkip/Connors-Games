@@ -2,13 +2,46 @@
     Author: Connor Kippes
 */
 
+/*---GENERAL-----*/
 .link {
     text-decoration:none;
+    color:var(--color-text);
+}
+.link:hover{
+    color:var(--color-accent);
+}
+.subtext{
+    color:var(--color-subtext);
 }
 
 
-
 /*--DESKTOP HEADER---*/
+.dropdownContainer {
+    position:relative;
+    display: flex;
+    justify-content:space-between;
+    width:100%;
+    text-wrap:wrap;
+    gap:2rem;
+    padding:1rem;
+}
+.side{
+    width:50%;
+    display:flex;
+    flex-direction:column;
+    gap:.5rem;
+}
+.inline{
+    text-decoration:none;
+    display:inline;
+    color:var(--color-text);
+    border-bottom:1px solid var(--color-text);
+}
+
+.inline:hover{
+    color:var(--color-accent);
+    border-bottom:1px solid var(--color-accent);
+}
 .headerItems {
     display:flex;
     gap: 1rem;
@@ -26,43 +59,27 @@
     all:unset;
     cursor:pointer;
 }
+.colorText{
+    display:inline;
+    color: var(--color-accent) !important;
+}
 
 /*---MOBILE HEADER--*/
 .menu{
-    position:sticky;
-    top:6rem;
-    display:flex;
-    flex-direction:column;
-    background-color:var(--color-secondary);
-    border-radius:50px;
-    padding:1rem;
-    transform:translateY(-5.5rem);
-    padding-top:5rem;
+    padding-top:1rem;
     overflow: auto;
-    max-height: 95vh;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    max-height: 70vh;
     z-index:9998;
-    box-shadow: var(--box-shadow);
-}
-
-
-.menu::-webkit-scrollbar {
-    display: none;
 }
 
 .spacer{
     margin-top:2rem;
 }
 
-.link{
-    text-decoration:none;
-}
-
-.menuSection{
+.mobileMenuContent{
     display:flex;
     flex-direction:column;
     gap:2rem;
-    padding:0 2rem 1rem 2rem;
+    padding:0rem 2rem 1rem 2rem;
     width:100%;
 }

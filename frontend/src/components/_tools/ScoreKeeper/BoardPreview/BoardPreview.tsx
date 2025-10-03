@@ -77,7 +77,7 @@ const BoardPreview = ({name, players}:Props) => {
                 </button>
 
                 {dropdownPos && (
-                    <Dropdown top={dropdownPos.top + 3} left={dropdownPos.left}>
+                    <Dropdown top={`${dropdownPos.top + 3}px`} left={`${dropdownPos.left + 3}px`}>
                         <p>Delete</p>
                         <p>Resume</p>
                         <p>Create a Copy</p>

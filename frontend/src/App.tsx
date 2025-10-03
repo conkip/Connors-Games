@@ -15,11 +15,11 @@ import WurfelBohnanza from "./pages/_games/WurfelBohnanza/WurfelBohnanza";
 import Codenames from "./pages/_games/Codenames/Codenames";
 
 import BoardManager from "./components/_tools/ScoreKeeper/BoardManager/BoardManager";
-import ToolsBar from './components/_tools/ToolsBar/ToolsBar'
-import DiceUI from "./components/_tools/DiceRoller/DiceUI/DiceUI";
-import CoinUI from "./components/_tools/CoinFlipper/CoinUI/CoinUI";
-import Timer from './components/_tools/Timer/Timer'
-import Stopwatch from './components/_tools/Stopwatch/Stopwatch'
+import ToolsBar from "./components/_tools/ToolsBar/ToolsBar";
+import DiceUI from "./components/_tools/DiceStuff/DiceUI/DiceUI";
+import CoinUI from "./components/_tools/CoinStuff/CoinUI/CoinUI";
+import Timer from "./components/_tools/Timer/Timer";
+import Stopwatch from "./components/_tools/Stopwatch/Stopwatch";
 
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse/TermsOfUse";
@@ -63,7 +63,7 @@ function App() {
                 />
 
                 <Route
-                    path="/tools/tool-bar"
+                    path="/tools/tools-bar"
                     element={
                         <Layout>
                             <ToolsBar />

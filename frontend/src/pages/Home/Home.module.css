@@ -61,14 +61,6 @@
 }
 
 /*-----IMAGE MARQUE--------*/
-.imageCardContainer {
-    display:flex;
-    align-items: flex-start;
-    flex-wrap:wrap;
-    justify-content: center;
-    gap:2rem;
-}
-
 .imgContainer {
   position: relative;
   display: inline-block;
@@ -157,6 +149,14 @@
 
 
 /*-----BOTTOM STUFF--------*/
+.imageCardContainer {
+    display:flex;
+    align-items: flex-start;
+    flex-wrap:wrap;
+    justify-content: center;
+    gap:2rem;
+}
+
 .fillTextEffect {
   color: var(--color-text);
   background: linear-gradient(to right, var(--color-accent) 0%, var(--color-accent) 100%);

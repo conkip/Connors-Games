@@ -7,13 +7,14 @@ import PlayerScore from "../PlayerScore/PlayerScore"
 import MenuIcon from "../../../MenuIcon/MenuIcon"
 import Navbar from "../../../Navbar/Navbar"
 import NavItem from "../../../NavItem/NavItem"
-import Button from "../../../Button/Button"
-import Card from "../../../Card/Card"
 import AddItems from '../AddItems/AddItems'
 import DeleteItems from '../DeleteItems/DeleteItems'
 
-import type * as Types from "../../../../types"
+import useWindowWidth from '../../../../hooks/useWindowWidth'
+
 import { useState, useEffect } from "react"
+
+import type * as Types from "../../../../types"
 
 interface Props {
     boardName?: string;
@@ -49,18 +50,6 @@ const players: Types.PlayerScore[] = [];
 players.push(player1);
 players.push(player2);
 players.push(player3);
-
-function useWindowWidth() {
-    const [width, setWidth] = useState(window.innerWidth);
-
-    useEffect(() => {
-        const handleResize = () => setWidth(window.innerWidth);
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    return width;
-}
 
 const ScoreBoard = ({ boardName = "New Game" }: Props) => {
     const width = useWindowWidth();

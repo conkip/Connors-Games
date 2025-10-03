@@ -11,6 +11,7 @@ function WebsiteTitle() {
         if (location.pathname === "/") {
             // already on homepage → scroll to top
             window.scrollTo({ top: 0, behavior: "smooth" });
+            navigate("/");
         } else {
             // not on homepage → redirect
             navigate("/");

@@ -6,5 +6,5 @@
     background-color: var(--color-secondary);
     border: var(--border-outside);
     box-shadow:var(--box-shadow);
-    border-radius:2rem;
+    border-radius:1rem;
 }

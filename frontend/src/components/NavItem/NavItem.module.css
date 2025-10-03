@@ -1,8 +1,12 @@
+/*
+    Author: Connor Kippes
+*/
+
 .container{
     display:flex;
     gap: 3px;
     align-items:center;
-    cursor:pointer
+    cursor:pointer;
 }
 
 .name {

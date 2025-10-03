@@ -3,10 +3,12 @@
 */
 
 .dropdown{
-    position: absolute;
+    opacity: 0;
     transform: translate(-100%, 0);
+    position: absolute;
     color: var(--color-text);
     z-index: 1000;
+    transition: transform .5s ease, opacity .5s ease;
 }
 
 .inside{

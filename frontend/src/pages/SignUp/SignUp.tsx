@@ -5,7 +5,7 @@
 import styles from './SignUp.module.css'
 function SignUp() {
   return (
-    <h1 className={styles.title}>SignUp</h1>
+    <h1 className={styles.title}>SignUp- Under Construction</h1>
   )
 }
 

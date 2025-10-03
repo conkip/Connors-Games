@@ -2,14 +2,7 @@
     Author: Connor Kippes
 */
 
-.container{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:1rem;
-}
-
-.stopwatch{
+.timer{
     display:flex;
     flex-direction:column;
     align-items:center;

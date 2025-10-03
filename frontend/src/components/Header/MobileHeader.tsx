@@ -8,6 +8,7 @@ import WebsiteTitle from "../WebsiteTitle/WebsiteTitle";
 import MenuIcon from "../MenuIcon/MenuIcon";
 import Navbar from '../Navbar/Navbar'
 import NavItem from "../NavItem/NavItem";
+import Dropdown from '../Dropdown/Dropdown'
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -56,12 +57,11 @@ function Header() {
                     }}
                 />
             </Navbar>
-
-            <div className={styles.menu} style={{display: `${open ? "block" : "none"}`}}>
+            
             {open && (
-                <>
-                    <div className={styles.spacer}></div>
-                    <div className={styles.menuSection}>
+                <Dropdown top="5.5rem" left="calc(100%)" width="92%">
+                    <div className={styles.menu}>
+                    <div className={styles.mobileMenuContent}>
                         <NavItem
                             expandable={true}
                             onClick={() => {
@@ -71,13 +71,13 @@ function Header() {
                             }}
                         >Products</NavItem>
                         {open1 && (
-                            <div className={styles.menuSection}>
+                            <div className={styles.mobileMenuContent}>
                                 <NavItem
                                     expandable={true}
                                     onClick={() => setOpen11(!open11)}
                                 >Games</NavItem>
                                 {open11 && (
-                                    <div className={styles.menuSection}>
+                                    <div className={styles.mobileMenuContent}>
                                         <Link
                                             onClick={() => {
                                                 setOpen(false);
@@ -86,7 +86,7 @@ function Header() {
                                             className={styles.link}
                                             to="/games/pixies"
                                         >
-                                            <NavItem>Pixies</NavItem>
+                                            <h6 className={styles.link}>Pixies</h6>
                                         </Link>
                                         <Link
                                             onClick={() => {
@@ -96,7 +96,7 @@ function Header() {
                                             className={styles.link}
                                             to="/games/wurfel-bohnanza"
                                         >
-                                            <NavItem>Wurfel Bohnanza</NavItem>
+                                            <h6 className={styles.link}>Wurfel Bohnanza</h6>
                                         </Link>
                                         <Link
                                             onClick={() => {
@@ -106,7 +106,7 @@ function Header() {
                                             className={styles.link}
                                             to="/games/codenames"
                                         >
-                                            <NavItem>Codenames</NavItem>
+                                            <h6 className={styles.link}>Codenames</h6>
                                         </Link>
 
                                         {/*<a className={styles.link} href="https://papasgamesfree.io/papas-freezeria"target="_blank"><NavItem>Papas Games</NavItem></a>*/}
@@ -118,7 +118,7 @@ function Header() {
                                     onClick={() => setOpen12(!open12)}
                                 >Tools</NavItem>
                                 {open12 && (
-                                    <div className={styles.menuSection}>
+                                    <div className={styles.mobileMenuContent}>
                                         <Link
                                             onClick={() => {
                                                 setOpen(false);
@@ -127,7 +127,7 @@ function Header() {
                                             className={styles.link}
                                             to="/tools/board-manager"
                                         >
-                                            <NavItem>Score Keeper</NavItem>
+                                            <h6 className={styles.link}>Score Keeper</h6>
                                         </Link>
 
                                         <Link
@@ -138,7 +138,7 @@ function Header() {
                                             className={styles.link}
                                             to="/tools/tools-bar"
                                         >
-                                            <NavItem>Tools Bar</NavItem>
+                                            <h6 className={styles.link}>Tools Bar</h6>
                                         </Link>
                                     </div>
                                 )}
@@ -150,8 +150,10 @@ function Header() {
                             onClick={() => setOpen2(!open2)}
                         >Solutions</NavItem>
                         {open2 && (
-                            <div className={styles.menuSection}>
-                                <div>Multiplayer</div>
+                            <div className={styles.mobileMenuContent}>
+                                <h6>Multiplayer - <span className={styles.subtext}>Play with your friends!</span></h6>
+                                <h6>Easy to Use - <span className={styles.subtext}>No complicated signups.</span></h6>
+                                <h6>Built in Tools - <span className={styles.subtext}>Can use tools like a Score Keeper in game!</span></h6>
                             </div>
                         )}
 
@@ -160,8 +162,9 @@ function Header() {
                             onClick={() => setOpen3(!open3)}
                         >Resources</NavItem>
                         {open3 && (
-                            <div className={styles.menuSection}>
-                                <div>Contact</div>
+                            <div className={styles.mobileMenuContent}>
+                                <h6>Email - <span><a className={`${styles.link} ${styles.subtext}`} href="mailto:connorkippes1@gmail.com">connorkippes1@gmail.com</a></span></h6>
+                                <h6>Phone - <span><a className={`${styles.link} ${styles.subtext}`}  href="tel:+1-480-465-3241">(480) 465-3241</a></span></h6>
                             </div>
                         )}
 
@@ -196,9 +199,9 @@ function Header() {
                             <NavItem>SignUp</NavItem>
                         </Link>
                     </div>
-                </>
+                    </div>
+                </Dropdown>
             )}
-            </div>
         </>
     );
 }

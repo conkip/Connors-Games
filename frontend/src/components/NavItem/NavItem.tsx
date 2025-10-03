@@ -1,18 +1,19 @@
-import styles from "./NavItem.module.css";
+/*
+    Author: Connor Kippes
+*/
 
-import { useState } from "react";
+import styles from "./NavItem.module.css";
 
 interface Props {
     children: React.ReactNode;
     expandable?: boolean;
     onClick?: () => void;
+    active?: boolean;
 }
 
-const NavItem = ({ children, expandable = false, onClick}: Props) => {
-    const [active, setActive] = useState(false);
+const NavItem = ({ children, expandable = false, onClick, active}: Props) => {
 
     const handleClick = () => {
-        setActive(!active);
         onClick?.();
     };
 
