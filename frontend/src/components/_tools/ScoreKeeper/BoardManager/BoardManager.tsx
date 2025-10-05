@@ -21,12 +21,12 @@ import type * as Types from '../../../../types'
 
 //export const UserContext = createContext();
 
-const player1History: number[] = [10, -10]
+const player1History: number[] = []
 
 const player1: Types.PlayerScore = {
     id: "1",
-    name:"Connor",
-    color:"#FF0000",
+    name:"Player1",
+    color:"#7700ff",
     totalScore:10,
     history: player1History,
 }
@@ -35,30 +35,31 @@ const player2History: number[] = []
 
 const player2: Types.PlayerScore = {
     id: "2",
-    name:"Kippes",
-    color:"#0000FF",
+    name:"Player2",
+    color:"#26a500",
     totalScore:10,
     history: player2History,
+}
+
+const player3History: number[] = []
+
+const player3: Types.PlayerScore = {
+    id: "3",
+    name:"Player3",
+    color:"#ffe600",
+    totalScore:10,
+    history: player3History,
 }
 
 let players: Types.PlayerScore[] = []
 players.push(player1);
 players.push(player2);
-players.push(player1);
-players.push(player2);
-players.push(player1);
-players.push(player2);
+players.push(player3);
 
 
 let board1: Types.Board = {
     id: "1",
-    name: "board1",
-    players: players
-}
-
-let board2: Types.Board = {
-    id: "2",
-    name: "board2",
+    name: "Example",
     players: players
 }
 
@@ -68,7 +69,6 @@ let boards: Types.UserPreferences = {
 }
 
 boards.boards.push(board1);
-boards.boards.push(board2);
 
 function BoardManager() {
     const playerCountArray = ["1", "2", "3", "4", "5", "6", "7", "8"];
