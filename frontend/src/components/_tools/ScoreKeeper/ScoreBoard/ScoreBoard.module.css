@@ -27,10 +27,6 @@
     cursor: pointer;
 }
 
-.button:hover{
-    color: var(--color-accent)
-}
-
 .icon {
     height: 2rem;
     fill:white;

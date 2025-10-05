@@ -6,7 +6,6 @@
     display:flex;
     gap: 3px;
     align-items:center;
-    cursor:pointer;
 }
 
 .name {
@@ -42,4 +41,9 @@
 .active .caret{
     transform: rotate(180deg);
     fill:var(--color-accent);
+}
+
+.button {
+    all:unset;
+    cursor:pointer;
 }

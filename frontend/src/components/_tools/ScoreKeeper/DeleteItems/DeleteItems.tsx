@@ -10,12 +10,13 @@ import Button from '../../../Button/Button'
 import type * as Types from '../../../../types'
 
 interface Props<T extends Types.idName> {
-    list: T[],
+    list: T[];
     setList: React.Dispatch<React.SetStateAction<T[]>>;
-    handleClose: () => void,
+    handleClose: () => void;
+    title: string;
 }
 
-function DeleteItems<T extends Types.idName>({list, setList, handleClose}:Props<T>) {
+function DeleteItems<T extends Types.idName>({list, setList, handleClose, title}:Props<T>) {
     function handleDelete(id: string) {
         setList((l: T[]) => l.filter((e: T) => e.id !== id));
     }
@@ -25,7 +26,7 @@ function DeleteItems<T extends Types.idName>({list, setList, handleClose}:Props<
         <div className={styles.outerContainer}>
             <Card>
                 <div className={styles.innerContainer}>
-                    <h2 className={styles.top}>Delete Player:</h2>
+                    <h2 className={styles.top}>{title}</h2>
 
                     <div className={styles.deletePlayerContainer}>
                         <div className={styles.bottom}>

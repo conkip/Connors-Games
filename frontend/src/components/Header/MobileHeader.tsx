@@ -135,9 +135,9 @@ function Header() {
                                                     handleCloseDropdowns();
                                                 }}
                                                 className={styles.link}
-                                                to="/tools/tools-bar"
+                                                to="/tools/tool-bar"
                                             >
-                                                <h6 className={styles.link}>Tools Bar</h6>
+                                                <h6 className={styles.link}>Tool Bar</h6>
                                             </Link>
                                         </div>
                                     )}

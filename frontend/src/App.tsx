@@ -15,7 +15,7 @@ import WurfelBohnanza from "./pages/_games/WurfelBohnanza/WurfelBohnanza";
 import Codenames from "./pages/_games/Codenames/Codenames";
 
 import BoardManager from "./components/_tools/ScoreKeeper/BoardManager/BoardManager";
-import ToolsBar from "./components/_tools/ToolsBar/ToolsBar";
+import ToolsBar from "./components/_tools/ToolBar/ToolBar";
 import DiceUI from "./components/_tools/DiceStuff/DiceUI/DiceUI";
 import CoinUI from "./components/_tools/CoinStuff/CoinUI/CoinUI";
 import Timer from "./components/_tools/Timer/Timer";
@@ -63,7 +63,7 @@ function App() {
                 />
 
                 <Route
-                    path="/tools/tools-bar"
+                    path="/tools/tool-bar"
                     element={
                         <Layout>
                             <ToolsBar />
@@ -76,7 +76,10 @@ function App() {
                     element={
                         <Layout>
                             <CenteredComponent>
-                                <DiceUI />
+                                <div className="toolContainer">
+                                    <h1>Dice Roll</h1>
+                                    <DiceUI />
+                                </div>
                             </CenteredComponent>
                         </Layout>
                     }
@@ -87,7 +90,10 @@ function App() {
                     element={
                         <Layout>
                             <CenteredComponent>
-                                <CoinUI />
+                                <div className="toolContainer">
+                                    <h1>Coin Flip</h1>
+                                    <CoinUI />
+                                </div>
                             </CenteredComponent>
                         </Layout>
                     }

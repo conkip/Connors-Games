@@ -8,14 +8,17 @@ import Button from '../../../Button/Button'
 
 import { useState } from 'react'
 
-function CoinFlip() {
+interface Props{
+    size?: number;
+}
+
+const CoinFlip = ({size = 10}: Props) => {
     const [face, setFace]= useState("Heads");
     const [isDone, setIsDone] = useState(true);
 
     return (
         <div className={styles.container}>
-            <h1>Coin Flip</h1>
-            <Coin size={10} setFace={setFace} setIsDone={setIsDone}></Coin>
+            <Coin size={size} setFace={setFace} setIsDone={setIsDone}></Coin>
             <h2>{isDone ? face : "..."}</h2>
             <h5 className={styles.instructions}>Click on the coin to flip</h5>
         </div>

@@ -159,7 +159,7 @@ function BoardManager() {
     return (
         <>
             <Navbar>
-                <h3 className={styles.title}>Board Manager</h3>
+                <button className={styles.button} onClick={handleCloseToBoard}><h3 className={styles.title}>Board Manager</h3></button>
                 {isMobile? 
                     <MenuIcon onClick={()=> setMenuOpen(!menuOpen)} isOpen={menuOpen} /> 
                     :
@@ -226,9 +226,9 @@ function BoardManager() {
 
                     <h3>Choose Preset Players:</h3>
 
-                    <div className={styles.presetPlayersContainer}>
+                    <div className={styles.choosePlayersContainer}>
                         {playersState.map((p) => (
-                            <div className={styles.presetPlayersItem}>
+                            <div className={styles.choosePlayersItem}>
                                 <h3>{p.name}</h3>
                                 <Button color="var(--color-green)">Add</Button>
                             </div>
@@ -243,6 +243,7 @@ function BoardManager() {
                     list={boardsState} 
                     setList={setBoardsState} 
                     handleClose={handleCloseToBoard}
+                    title="Delete Board:"
                 ></DeleteItems>
             )}
 
@@ -280,6 +281,7 @@ function BoardManager() {
                     list={boardsState} 
                     setList={setBoardsState} 
                     handleClose={handleCloseToBoard}
+                    title="Delete Player:"
                 ></DeleteItems>
             )}
         </>

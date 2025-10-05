@@ -17,24 +17,14 @@
     display: flex;
     justify-content: space-between;
     border-bottom:1.5px var(--color-subtext) solid;
-    padding:1rem;
+    padding-bottom:1rem;
     align-items:center;
+    justify-content:center;
 }
 
 .name{
     font-weight:600;
     font-size: 32px;
-}
-
-.dots{
-    height: 35px;
-    fill:var(--color-text);
-}
-.dots:hover{
-    fill:var(--color-accent);
-}
-.dots:active{
-    fill:var(--color-accent);
 }
 
 
@@ -73,10 +63,4 @@
 .playerRow {
     display:flex;
     justify-content: space-between;
-}
-
-.button {
-    all:unset;
-    cursor:pointer;
-    z-index:5;
 }

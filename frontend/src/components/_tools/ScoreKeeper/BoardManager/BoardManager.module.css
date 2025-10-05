@@ -12,6 +12,7 @@
 
 .button {
     all: unset;
+    cursor:pointer;
 }
 
 .navItems{
@@ -103,7 +104,7 @@
     color:var(--color-subtext);
 }
 
-.presetPlayersContainer {
+.choosePlayersContainer {
     display:flex;
     flex-direction:column;
     gap:1rem;
@@ -114,10 +115,9 @@
     border:var(--border-inside);
     border-bottom:var(--border-inside);
     border-top:var(--border-inside);
-    border-radius:1rem;
 }
 
-.presetPlayersItem{
+.choosePlayersItem{
     display:flex;
     justify-content:space-between;
 }

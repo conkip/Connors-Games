@@ -13,19 +13,30 @@
     flex-wrap:wrap;
 }
 
-.item{
+.toolWrapper{
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:1.5rem;
-    padding:2rem;
+    border: 1px solid var(--color-subtext);
+    padding:.5rem;
+    height:17rem;
 }
 
 .icon{
     fill:var(--color-subtext);
-    height:2rem;
+    height:1.5rem;
 }
 
 .icon:hover{
     filter:brightness(1.2);
+}
+
+.button {
+    all: unset;
+    align-self:flex-end;
+}
+
+.center{
+    width:100%;
+    text-align:center;
 }

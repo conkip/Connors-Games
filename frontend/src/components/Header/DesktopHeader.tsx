@@ -126,7 +126,7 @@ function DesktopHeader() {
                                     <Link
                                         onClick={handleCloseDropdowns}
                                         className={styles.link}
-                                        to="/tools/tools-bar"
+                                        to="/tools/tool-bar"
                                     >
                                         <p className={styles.inline}>tool bar</p>
                                     </Link></p>
