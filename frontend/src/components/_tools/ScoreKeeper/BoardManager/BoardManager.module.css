@@ -37,32 +37,6 @@
     gap:1rem;
 }
 
-.playerCountItem{
-    all:unset;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:2rem;
-    width:2rem;
-    font-weight:600;
-    font-size: 1.25rem;
-    border-radius: 50%;
-    border: 2px var(--color-text) solid;
-    color:var(--color-text);
-}
-
-.playerCountItem:hover{
-    filter:brightness(1.25);
-    border: 2px var(--color-accent) solid;
-    color:var(--color-accent);
-}
-
-.selectedPlayerCount {
-    filter:brightness(1.25);
-    border: 2px var(--color-accent) solid;
-    color:var(--color-accent);
-}
-
 .nameInput {
     all:unset;
     max-width:10rem;
@@ -95,10 +69,6 @@
 
 
 /*---ADD BOARD UI----*/
-.playerCountContainer{
-    display:flex;
-    gap:.5rem
-}
 .addBoardSubscript{
     text-align:center;
     color:var(--color-subtext);
@@ -110,7 +80,7 @@
     gap:1rem;
     padding:1rem;
     padding-right:0;
-    max-height:10rem;
+    max-height:12.5rem;
     overflow-y:scroll;
     border:var(--border-inside);
     border-bottom:var(--border-inside);
@@ -120,4 +90,34 @@
 .choosePlayersItem{
     display:flex;
     justify-content:space-between;
+}
+
+.playerCountContainer{
+    display:flex;
+    gap:.5rem
+}
+.playerCountItem{
+    all:unset;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:2rem;
+    width:2rem;
+    font-weight:600;
+    font-size: 1.25rem;
+    border-radius: 50%;
+    border: 2px var(--color-text) solid;
+    color:var(--color-text);
+}
+
+.playerCountItem:hover{
+    filter:brightness(1.25);
+    border: 2px var(--color-accent) solid;
+    color:var(--color-accent);
+}
+
+.selectedPlayerCount {
+    filter:brightness(1.25);
+    border: 2px var(--color-accent) solid;
+    color:var(--color-accent);
 }

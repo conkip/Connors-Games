@@ -5,15 +5,19 @@
 import styles from './BoardPreview.module.css'
 
 import Card from '../../../Card/Card'
+import Button from '../../../Button/Button'
+
+import { useState } from 'react'
 
 import type * as Types from '../../../../types'
 
 interface Props {
     name:string,
     players: Types.PlayerScore[];
+    onClick: () => void;
 }
 
-const BoardPreview = ({name, players}:Props) => {
+const BoardPreview = ({name, players, onClick}:Props) => {
     const playerRows = players.map((player) => {
         return(
             <div className={styles.playerRow} key={player.id}>
@@ -35,6 +39,7 @@ const BoardPreview = ({name, players}:Props) => {
                 </div>
 
                 <div className={styles.bottom}>{playerRows}</div>
+                <div className={styles.bottomButton}><Button color="var(--color-green)" onClick={onClick} isSquishy={true}>Open</Button></div>
             </div>
         </Card>
     )

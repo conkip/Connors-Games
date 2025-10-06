@@ -59,15 +59,16 @@ function DeleteItems<T extends Types.idName>({list, setList, handleClose, title}
                                 ))
                             )}
                         </div>
-                        <div className={styles.cancelButton}>
-                            <Button
-                                isSquishy={true}
-                                color="var(--color-red)"
-                                onClick={handleClose}
-                            >
-                                Exit
-                            </Button>
-                        </div>
+                    </div>
+
+                    <div className={styles.cancelButton}>
+                        <Button
+                            isSquishy={true}
+                            color="var(--color-red)"
+                            onClick={handleClose}
+                        >
+                            Exit
+                        </Button>
                     </div>
                 </div>
             </Card>

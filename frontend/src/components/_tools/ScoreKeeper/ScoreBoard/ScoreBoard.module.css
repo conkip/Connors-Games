@@ -33,11 +33,6 @@
     cursor:pointer;
 }
 
-.icon:hover {
-    cursor: pointer;
-    fill: var(--color-accent);
-}
-
 /*----ADD PLAYER UI----*/
 .addItemsRow{
     display:flex;

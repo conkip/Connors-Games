@@ -17,41 +17,15 @@ import { useState, useEffect } from "react"
 import type * as Types from "../../../../types"
 
 interface Props {
-    boardName?: string;
+    boardName: string;
+    players: Types.PlayerScore[];
+    handleClose: () => void;
 }
 
 // check user logged in in the database and checks for information on that name
 let loggedIn = false;
-const player1: Types.PlayerScore = {
-    id: "1",
-    name: "Connor",
-    color: "#c2af00",
-    totalScore: 0,
-    history: [],
-};
 
-const player2: Types.PlayerScore = {
-    id: "2",
-    name: "Kyle",
-    color: "#0eac00",
-    totalScore: 0,
-    history: [],
-};
-
-const player3: Types.PlayerScore = {
-    id: "3",
-    name: "Valerie",
-    color: "#9900ff",
-    totalScore: 0,
-    history: [],
-};
-
-const players: Types.PlayerScore[] = [];
-players.push(player1);
-players.push(player2);
-players.push(player3);
-
-const ScoreBoard = ({ boardName = "New Game" }: Props) => {
+const ScoreBoard = ({ boardName, players, handleClose }: Props) => {
     const width = useWindowWidth();
     const isMobile = width < 1024;
 
@@ -119,7 +93,7 @@ const ScoreBoard = ({ boardName = "New Game" }: Props) => {
             <Navbar>
                 <div className={styles.leftNav}>
                     {/*BACK ARROW*/}
-                    <button className={styles.button}>
+                    <button className={styles.button} onClick={handleClose}>
                         <svg
                             className={styles.icon}
                             xmlns="http://www.w3.org/2000/svg"
@@ -230,6 +204,8 @@ const ScoreBoard = ({ boardName = "New Game" }: Props) => {
                                 key={p.id}
                                 name={p.name}
                                 color={p.color}
+                                initialHistory = {p.history}
+                                initialScore = {p.totalScore}
                             ></PlayerScore>
                         ))}
                     </div>
