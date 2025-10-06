@@ -119,7 +119,7 @@ function BoardManager() {
         for (let i = 1 + curPresetPlayers.length; i < playerCount + 2; i++) {
             newPlayers.push({
                 id: crypto.randomUUID(),
-                name: name == "" ? `Player ${i}` : name,
+                name: "New Player",
                 color: "#FF0000",
                 totalScore: 0,
                 history: [],
@@ -128,7 +128,7 @@ function BoardManager() {
 
         const newBoard: Types.Board = {
             id: crypto.randomUUID(),
-            name: name == "" ? `Board ${boardsState.length}` : name,
+            name: name == "" ? "New Board" : name,
             players: newPlayers,
         };
 
@@ -142,7 +142,7 @@ function BoardManager() {
     function handleAddPlayer() {
         const newPlayer: Types.PlayerScore = {
             id: crypto.randomUUID(),
-            name: name == "" ? `Player ${presetPlayers.length}` : name,
+            name: name == "" ? "New Player" : name,
             color: color,
             totalScore: 0,
             history: [],
@@ -304,7 +304,7 @@ function BoardManager() {
                         <input
                             className={styles.nameInput}
                             type="text"
-                            placeholder={`Board ${boardsState.length}`}
+                            placeholder="New Board"
                             value={name}
                             onChange={(n) => setName(n.target.value)}
                         />
@@ -391,7 +391,7 @@ function BoardManager() {
                         <input
                             className={styles.nameInput}
                             type="text"
-                            placeholder={`Player ${presetPlayers.length}`}
+                            placeholder="New Player"
                             value={name}
                             onChange={(n) => setName(n.target.value)}
                         />
@@ -411,8 +411,8 @@ function BoardManager() {
 
             {deletePlayerOpen && (
                 <DeleteItems
-                    list={boardsState}
-                    setList={setBoardsState}
+                    list={presetPlayers}
+                    setList={setPresetPlayers}
                     handleClose={handleCloseToBoard}
                     title="Delete Player:"
                 ></DeleteItems>
