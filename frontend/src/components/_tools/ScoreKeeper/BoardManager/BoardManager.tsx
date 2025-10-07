@@ -79,8 +79,9 @@ function BoardManager() {
     const [boardsState, setBoardsState] = useState(boards.boards);
     const [presetPlayers, setPresetPlayers] = useState(boards.presetPlayers);
 
-    const [name, setName] = useState("");
-    const [color, setColor] = useState("#FF0000");
+    const [boardName, setBoardName] = useState("");
+    const [playerName, setPlayerName] = useState("");
+    const [playerColor, setPlayerColor] = useState("#FF0000");
     const [playerCount, setPlayerCount] = useState(-1);
     const [curPresetPlayers, setCurPresetPlayers] = useState<Types.PlayerScore[]>([]);
 
@@ -101,6 +102,8 @@ function BoardManager() {
         setDeleteBoardOpen(false);
         setAddPlayerOpen(false);
         setDeletePlayerOpen(false);
+        handleResetAddBoard();
+        handleResetAddPlayer();
     }
 
     function handleCloseToBoard() {
@@ -128,28 +131,39 @@ function BoardManager() {
 
         const newBoard: Types.Board = {
             id: crypto.randomUUID(),
-            name: name == "" ? "New Board" : name,
+            name: boardName == "" ? "New Board" : boardName,
             players: newPlayers,
         };
 
         setBoardsState((b) => [...b, newBoard]);
         setAddBoardOpen(false);
         setBoardManagerOpen(true);
-        setCurPresetPlayers([]);
+        handleResetAddBoard();
+    }
+
+    function handleResetAddBoard() {
+        setBoardName("");
         setPlayerCount(-1);
+        setCurPresetPlayers([]);
     }
 
     function handleAddPlayer() {
         const newPlayer: Types.PlayerScore = {
             id: crypto.randomUUID(),
-            name: name == "" ? "New Player" : name,
-            color: color,
+            name: playerName == "" ? "New Player" : playerName,
+            color: playerColor,
             totalScore: 0,
             history: [],
         };
         setPresetPlayers((p) => [...p, newPlayer]);
         setAddPlayerOpen(false);
         setBoardManagerOpen(true);
+        handleResetAddPlayer();
+    }
+
+    function handleResetAddPlayer() {
+        setPlayerName("");
+        setPlayerColor("#FF0000");
     }
 
     function handleOpenBoard(boardName: string, players: Types.PlayerScore[]) {
@@ -297,7 +311,7 @@ function BoardManager() {
                 <AddItems
                     title="Add Board"
                     handleAddItem={handleAddBoard}
-                    handleClose={handleCloseToBoard}
+                    handleClose={() => {handleCloseToBoard(); handleResetAddBoard();}}
                 >
                     <div className={styles.addItemsRow}>
                         <h3>Board Name:</h3>
@@ -305,8 +319,8 @@ function BoardManager() {
                             className={styles.nameInput}
                             type="text"
                             placeholder="New Board"
-                            value={name}
-                            onChange={(n) => setName(n.target.value)}
+                            value={boardName}
+                            onChange={(n) => setBoardName(n.target.value)}
                         />
                     </div>
 
@@ -384,7 +398,7 @@ function BoardManager() {
                 <AddItems
                     title="Add Player"
                     handleAddItem={handleAddPlayer}
-                    handleClose={handleCloseToBoard}
+                    handleClose={() => {handleCloseToBoard(); handleResetAddPlayer();}}
                 >
                     <div className={styles.addItemsRow}>
                         <h3>Name:</h3>
@@ -392,18 +406,18 @@ function BoardManager() {
                             className={styles.nameInput}
                             type="text"
                             placeholder="New Player"
-                            value={name}
-                            onChange={(n) => setName(n.target.value)}
+                            value={playerName}
+                            onChange={(n) => setPlayerName(n.target.value)}
                         />
                     </div>
                     <div className={styles.addItemsRow}>
                         <h3>Color:</h3>
                         <input
                             className={styles.colorInput}
-                            style={{ backgroundColor: color }}
+                            style={{ backgroundColor: playerColor }}
                             type="color"
-                            value={color}
-                            onChange={(c) => setColor(c.target.value)}
+                            value={playerColor}
+                            onChange={(c) => setPlayerColor(c.target.value)}
                         />
                     </div>
                 </AddItems>
