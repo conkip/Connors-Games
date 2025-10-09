@@ -86,6 +86,17 @@
 
 
 /*-----TOOLS MARQUE--------*/
+.toolBarIcon{
+    height:5rem;
+    fill:var(--color-text);
+    transition: transform .225s ease;
+}
+
+.toolBarIcon:hover{
+    transform: rotate(60deg);
+    fill:var(--color-accent);
+}
+
 .scoreKeeperIcon{
     height:5rem;
     width:5rem;
@@ -121,10 +132,6 @@
     height:5rem;
     fill:var(--color-text);
     transition: transform .5s ease;
-}
-.stopwatchIcon:active{
-    transform: rotate(360deg);
-    fill:var(--color-accent);
 }
 
 .stopwatchIcon:hover{
