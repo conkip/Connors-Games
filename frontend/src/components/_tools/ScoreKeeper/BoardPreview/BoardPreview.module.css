@@ -41,7 +41,10 @@
     overflow-y:auto;
     border: var(--border-inside);;
 }
-
+.emptyText{
+    align-self:center;
+    color: var(--color-subtext);
+}
 
 .color{
     height: 20px;

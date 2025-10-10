@@ -192,14 +192,17 @@ const ScoreBoard = ({ boardName, players, handleClose }: Props) => {
                     list={playersState} 
                     setList={setPlayersState}
                     handleClose={handleCloseToBoard}
-                    title="Delete Player:"
+                    type="Player"
                 ></DeleteItems>
             )}
 
             {boardOpen && (
-                <>
-                    <div className={styles.boardContainer}>
-                        {playersState.map((p) => (
+                <div className={styles.boardContainer}>
+                    {playersState.length < 1 ?
+                        <h2 className={styles.emptyText}>No Players</h2>
+                        
+                        :
+                        playersState.map((p) => (
                             <PlayerScore
                                 key={p.id}
                                 name={p.name}
@@ -207,9 +210,9 @@ const ScoreBoard = ({ boardName, players, handleClose }: Props) => {
                                 initialHistory = {p.history}
                                 initialScore = {p.totalScore}
                             ></PlayerScore>
-                        ))}
-                    </div>
-                </>
+                        ))
+                    }
+                </div>
             )}
         </>
     );

@@ -296,14 +296,19 @@ function BoardManager() {
 
             {boardManagerOpen && (
                 <div className={styles.previewContainer}>
-                    {boardsState.map((b) => (
-                        <BoardPreview
-                            players={b.players}
-                            name={b.name}
-                            key={b.id}
-                            onClick={() => handleOpenBoard(b.name, b.players)}
-                        />
-                    ))}
+                    {boardsState.length < 1 ?
+                        <h2 className={styles.emptyText}>No Boards</h2>
+                        
+                        :
+                        boardsState.map((b) => (
+                            <BoardPreview
+                                players={b.players}
+                                name={b.name}
+                                key={b.id}
+                                onClick={() => handleOpenBoard(b.name, b.players)}
+                            />
+                        ))
+                    }
                 </div>
             )}
 
@@ -390,7 +395,7 @@ function BoardManager() {
                     list={boardsState}
                     setList={setBoardsState}
                     handleClose={handleCloseToBoard}
-                    title="Delete Board:"
+                    type="Board"
                 ></DeleteItems>
             )}
 
@@ -428,7 +433,7 @@ function BoardManager() {
                     list={presetPlayers}
                     setList={setPresetPlayers}
                     handleClose={handleCloseToBoard}
-                    title="Delete Player:"
+                    type="Player"
                 ></DeleteItems>
             )}
 

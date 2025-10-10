@@ -47,6 +47,7 @@
     background-size: 800% 800%; /* large so animation moves */
     
     /* Clip background to text */
+    background-clip:text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     

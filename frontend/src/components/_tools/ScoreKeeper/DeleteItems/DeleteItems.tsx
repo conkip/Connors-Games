@@ -13,10 +13,10 @@ interface Props<T extends Types.idName> {
     list: T[];
     setList: React.Dispatch<React.SetStateAction<T[]>>;
     handleClose: () => void;
-    title: string;
+    type: string;
 }
 
-function DeleteItems<T extends Types.idName>({list, setList, handleClose, title}:Props<T>) {
+function DeleteItems<T extends Types.idName>({list, setList, handleClose, type}:Props<T>) {
     function handleDelete(id: string) {
         setList((l: T[]) => l.filter((e: T) => e.id !== id));
     }
@@ -26,16 +26,15 @@ function DeleteItems<T extends Types.idName>({list, setList, handleClose, title}
         <div className={styles.outerContainer}>
             <Card>
                 <div className={styles.innerContainer}>
-                    <h2 className={styles.top}>{title}</h2>
+                    <h2 className={styles.top}>Delete {type}:</h2>
 
-                    <div className={styles.deletePlayerContainer}>
-                        <div className={styles.bottom}>
+                    <div className={styles.deleteContainer}>
                             {list.length === 0 ? (
-                                <h3 className={styles.centerText}>No Boards</h3>
+                                <h3 className={styles.emptyText}>No {type}s</h3>
                             ) : (
                                 list.map((p) => (
                                     <div
-                                        className={styles.deletePlayerItem}
+                                        className={styles.deleteItem}
                                         key={p.id}
                                     >
                                         <h3>{p.name}</h3>
@@ -58,7 +57,6 @@ function DeleteItems<T extends Types.idName>({list, setList, handleClose, title}
                                     </div>
                                 ))
                             )}
-                        </div>
                     </div>
 
                     <div className={styles.cancelButton}>

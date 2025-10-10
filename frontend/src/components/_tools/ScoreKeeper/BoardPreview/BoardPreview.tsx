@@ -38,7 +38,13 @@ const BoardPreview = ({name, players, onClick}:Props) => {
                     <div className={styles.name}>{name}</div>
                 </div>
 
-                <div className={styles.bottom}>{playerRows}</div>
+                <div className={styles.bottom}>
+                    {playerRows.length < 1 ?
+                        <h3 className={styles.emptyText}>Empty</h3>
+                        :
+                        playerRows
+                    }
+                </div>
                 <div className={styles.bottomButton}><Button color="var(--color-green)" onClick={onClick} isSquishy={true}>Open</Button></div>
             </div>
         </Card>

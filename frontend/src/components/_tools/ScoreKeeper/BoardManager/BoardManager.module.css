@@ -10,6 +10,11 @@
     margin:2rem 0;
 }
 
+.emptyText{
+    width:100%;
+    text-align:center;
+}
+
 .button {
     all: unset;
     cursor:pointer;
