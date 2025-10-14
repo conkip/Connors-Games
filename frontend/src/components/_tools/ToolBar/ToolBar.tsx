@@ -88,21 +88,25 @@ function ToolBar() {
                 )}
 
                 {menuOpen && (
-                    <Dropdown top="3rem" left="100%" width="100%">
-                        <div className={styles.menuContent}>
-                            <NavItem onClick={() => handleAddTool("dice")}>Add Dice</NavItem>
-                            <NavItem onClick={() => handleAddTool("coin")}>Add Coin</NavItem>
-                            <NavItem onClick={() => handleAddTool("stopwatch")}>Add Stopwatch</NavItem>
-                            <NavItem onClick={() => handleAddTool("timer")}>Add Timer</NavItem>
-                        </div>
-                    </Dropdown>
-                )}
+                <Dropdown top="3rem" left="100%" width="100%">
+                    <div className={styles.menuContent}>
+                        <NavItem onClick={() => handleAddTool("dice")}>Add Dice</NavItem>
+                        <NavItem onClick={() => handleAddTool("coin")}>Add Coin</NavItem>
+                        <NavItem onClick={() => handleAddTool("stopwatch")}>Add Stopwatch</NavItem>
+                        <NavItem onClick={() => handleAddTool("timer")}>Add Timer</NavItem>
+                    </div>
+                </Dropdown>
+            )}
             </Navbar>
 
             <div className={styles.container}>
                 {tools.length == 0 ? <h1 className={styles.center}>No Tools</h1> 
                 : 
-                tools.map(tool => tool.element)}
+                tools.map(tool => 
+                    <div key={tool.id}>
+                        {tool.element}
+                    </div>
+                )}
             </div>
         </>
     );
