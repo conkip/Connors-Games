@@ -73,16 +73,15 @@ function DesktopHeader() {
             <div className={styles.headerItems}>
 
                 {/*------PRODUCTS------*/}
-                <button ref={buttonRef1} className={styles.button}>
-                    <NavItem
-                        expandable={true}
-                        onClick={() => {
-                            handleCloseDropdowns();
-                            setOpen1(!open1);
-                        }}
-                        active={open1}
-                    >Products</NavItem>
-                </button>
+                <NavItem
+                    ref={buttonRef1}
+                    expandable={true}
+                    onClick={() => {
+                        handleCloseDropdowns();
+                        setOpen1(!open1);
+                    }}
+                    active={open1}
+                >Products</NavItem>
                 {open1 && (
                     <Dropdown top="4rem" left="100%" width="70%" fadeIn={true}>
                         <div ref={navRef1} className={styles.dropdownContainer}>
@@ -136,16 +135,15 @@ function DesktopHeader() {
                 )}
 
                 {/*------SOLUTIONS------*/}
-                <button ref={buttonRef2} className={styles.button}>
-                    <NavItem
-                        expandable={true}
-                        onClick={() => {
-                            handleCloseDropdowns();
-                            setOpen2(!open2);
-                        }}
-                        active={open2}
-                    >Solutions</NavItem>
-                </button>
+                <NavItem
+                    ref={buttonRef2}
+                    expandable={true}
+                    onClick={() => {
+                        handleCloseDropdowns();
+                        setOpen2(!open2);
+                    }}
+                    active={open2}
+                >Solutions</NavItem>
                 {open2 && (
                     <Dropdown top="4rem" left="100%" width="80%" fadeIn={true}>
                         <div ref={navRef2} className={styles.dropdownContainer}>
@@ -176,16 +174,15 @@ function DesktopHeader() {
                 )}
 
                 {/*------RESOURCES------*/}
-                <button ref={buttonRef3} className={styles.button}>
-                    <NavItem
-                        expandable={true}
-                        onClick={() => {
-                            handleCloseDropdowns();
-                            setOpen3(!open3);
-                        }}
-                        active={open3}
-                    >Resources</NavItem>
-                </button>
+                <NavItem
+                    ref={buttonRef3}
+                    expandable={true}
+                    onClick={() => {
+                        handleCloseDropdowns();
+                        setOpen3(!open3);
+                    }}
+                    active={open3}
+                >Resources</NavItem>
 
                 {open3 && (
                     <Dropdown top="4rem" left="100%" width="80%" fadeIn={true}>

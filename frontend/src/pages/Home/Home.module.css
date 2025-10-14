@@ -17,7 +17,6 @@
 }
 
 .colorText{
-    display:inline;
     color: var(--color-accent);
 }
 
@@ -26,10 +25,10 @@
     display:flex;
     flex-direction:column;
     justify-content: space-between;
-    height:60%;
+    height:70%;
     padding-top:2.5rem;
 }
-.inner{
+.marqueeContainer{
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -178,4 +177,15 @@
 .fillTextEffect:hover {
     color:transparent;
     background-size: 100% 100%; /* fill from left to right */
+}
+
+
+@media (max-width: 768px) {
+    .marqueeContainer{
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+        align-items:center;
+        gap:2rem;
+    }
 }

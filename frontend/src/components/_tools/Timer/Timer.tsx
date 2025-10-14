@@ -84,9 +84,9 @@ function Timer() {
             <div className={styles.timer}>
                 <div className={styles.display}>{formatTime()}</div>
                 <div className={styles.increments}>
+                    <button className={styles.button} onClick={() => addTime(5)}>+0:05</button>
                     <button className={styles.button} onClick={() => addTime(30)}>+0:30</button>
                     <button className={styles.button} onClick={() => addTime(60)}>+1:00</button>
-                    <button className={styles.button} onClick={() => addTime(60*5)}>+5:00</button>
                 </div>
                 <div className={styles.controls}>
                     <Button isSquishy={true} color="var(--color-green)" onClick={start}>Start</Button>

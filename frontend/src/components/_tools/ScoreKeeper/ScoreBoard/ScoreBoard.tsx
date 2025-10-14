@@ -9,6 +9,7 @@ import Navbar from "../../../Navbar/Navbar"
 import NavItem from "../../../NavItem/NavItem"
 import AddItems from '../AddItems/AddItems'
 import DeleteItems from '../DeleteItems/DeleteItems'
+import Dropdown from '../../../Dropdown/Dropdown'
 
 import useWindowWidth from '../../../../hooks/useWindowWidth'
 
@@ -135,28 +136,31 @@ const ScoreBoard = ({ boardName, players, handleClose }: Props) => {
                         </NavItem>
                     </div>
                 )}
-            </Navbar>
 
-            {menuOpen && (
-                <div>
-                    <NavItem
-                        onClick={() => {
-                            handleCloseAll();
-                            setAddPlayerOpen(true);
-                        }}
-                    >
-                        Add Player
-                    </NavItem>
-                    <NavItem
-                        onClick={() => {
-                            handleCloseAll();
-                            setDeletePlayerOpen(true);
-                        }}
-                    >
-                        Delete Player
-                    </NavItem>
-                </div>
-            )}
+                {menuOpen &&
+                    <Dropdown top="3rem" left="100%" width="100%">
+                        <div className={styles.menuContent}>
+                            <NavItem
+                                onClick={() => {
+                                    handleCloseAll();
+                                    setAddPlayerOpen(true);
+                                }}
+                            >
+                                Add Player
+                            </NavItem>
+                            
+                            <NavItem
+                                onClick={() => {
+                                    handleCloseAll();
+                                    setDeletePlayerOpen(true);
+                                }}
+                            >
+                                Delete Player
+                            </NavItem>
+                        </div>
+                    </Dropdown>
+                }
+            </Navbar>
 
             {addPlayerOpen && (
                 <AddItems

@@ -41,16 +41,16 @@ function Home() {
             <div className={styles.section}>
                 <div className={styles.topContainer}>
                     <h1 className={styles.animatedText}>Connors Games</h1>
-                    <div className={styles.inner}>
+                    <div className={styles.marqueeContainer}>
                         <div>
                             <h2>
                                 Play some{" "}
-                                <h2 className={styles.colorText}>
+                                <span className={styles.colorText}>
                                     amazing games
-                                </h2>{" "}
+                                </span>{" "}
                                 with your{" "}
-                                <h2 className={styles.colorText}>friends</h2> or{" "}
-                                <h2 className={styles.colorText}>AI</h2>!
+                                <span className={styles.colorText}>friends</span> or{" "}
+                                <span className={styles.colorText}>AI</span>!
                             </h2>
                         </div>
 
@@ -78,7 +78,7 @@ function Home() {
                         </Marquee>
                     </div>
 
-                    <div className={styles.inner}>
+                    <div className={styles.marqueeContainer}>
                         <Marquee height={5} width={5}>
                             {/*Score Keeper*/}
                             <Link
@@ -176,9 +176,9 @@ function Home() {
 
                         <h2>
                             Use{" "}
-                            <h2 className={styles.colorText}>built in tools</h2>{" "}
+                            <span className={styles.colorText}>built in tools</span>{" "}
                             like a{" "}
-                            <h2 className={styles.colorText}>score keeper</h2>{" "}
+                            <span className={styles.colorText}>score keeper</span>{" "}
                             or dice roller
                         </h2>
                     </div>

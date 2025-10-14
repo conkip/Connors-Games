@@ -17,6 +17,7 @@
     box-shadow: var(--box-shadow);
     white-space: nowrap;
     flex-wrap: nowrap;
+    position:relative; /* relative if not sticky */
 }
 
 @media (max-width: 1024px) {

@@ -12,6 +12,7 @@
 }
 .subtext{
     color:var(--color-subtext);
+    text-wrap:wrap;
 }
 
 
@@ -55,10 +56,6 @@
     padding-top:.5px;
 }
 
-.button{
-    all:unset;
-    cursor:pointer;
-}
 .colorText{
     display:inline;
     color: var(--color-accent) !important;
@@ -70,7 +67,7 @@
 }
 .menu{
     padding-top:1rem;
-    overflow: auto;
+    overflow-y: auto;
     max-height: 65vh;
     z-index:9998;
 }

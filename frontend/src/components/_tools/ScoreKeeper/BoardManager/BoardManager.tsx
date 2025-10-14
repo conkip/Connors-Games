@@ -2,22 +2,23 @@
     Author: Connor Kippes
 */
 
-import styles from "./BoardManager.module.css";
+import styles from "./BoardManager.module.css"
 
-import ScoreBoard from "../ScoreBoard/ScoreBoard";
-import BoardPreview from "../BoardPreview/BoardPreview";
-import Navbar from "../../../Navbar/Navbar";
-import NavItem from "../../../NavItem/NavItem";
-import MenuIcon from "../../../MenuIcon/MenuIcon";
-import DeleteItems from "../DeleteItems/DeleteItems";
-import AddItems from "../AddItems/AddItems";
-import Button from "../../../Button/Button";
+import ScoreBoard from "../ScoreBoard/ScoreBoard"
+import BoardPreview from "../BoardPreview/BoardPreview"
+import Navbar from "../../../Navbar/Navbar"
+import NavItem from "../../../NavItem/NavItem"
+import MenuIcon from "../../../MenuIcon/MenuIcon"
+import DeleteItems from "../DeleteItems/DeleteItems"
+import AddItems from "../AddItems/AddItems"
+import Button from "../../../Button/Button"
+import Dropdown from '../../../Dropdown/Dropdown'
 
-import useWindowWidth from "../../../../hooks/useWindowWidth";
+import useWindowWidth from "../../../../hooks/useWindowWidth"
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 
-import type * as Types from "../../../../types";
+import type * as Types from "../../../../types"
 
 //export const UserContext = createContext();
 
@@ -202,6 +203,7 @@ function BoardManager() {
                     >
                         <h3 className={styles.title}>Board Manager</h3>
                     </button>
+
                     {isMobile ? (
                         <MenuIcon
                             onClick={() => setMenuOpen(!menuOpen)}
@@ -209,87 +211,56 @@ function BoardManager() {
                         />
                     ) : (
                         <div className={styles.navItems}>
-                            <button
-                                className={styles.button}
-                                onClick={() => {
-                                    handleCloseAll();
-                                    setAddBoardOpen(true);
-                                }}
-                            >
-                                <NavItem>Add Board</NavItem>
-                            </button>
-                            <button
-                                className={styles.button}
-                                onClick={() => {
-                                    handleCloseAll();
-                                    setDeleteBoardOpen(true);
-                                }}
-                            >
-                                <NavItem>Delete Board</NavItem>
-                            </button>
-                            <button
-                                className={styles.button}
-                                onClick={() => {
-                                    handleCloseAll();
-                                    setAddPlayerOpen(true);
-                                }}
-                            >
-                                <NavItem>Add Player</NavItem>
-                            </button>
-                            <button
-                                className={styles.button}
-                                onClick={() => {
-                                    handleCloseAll();
-                                    setDeletePlayerOpen(true);
-                                }}
-                            >
-                                <NavItem>Delete Player</NavItem>
-                            </button>
+                            <NavItem onClick={() => {
+                                handleCloseAll();
+                                setAddBoardOpen(true);
+                            }}>Add Board</NavItem>
+
+                            <NavItem onClick={() => {
+                                handleCloseAll();
+                                setDeleteBoardOpen(true);
+                            }}>Delete Board</NavItem>
+
+                            <NavItem onClick={() => {
+                                handleCloseAll();
+                                setAddPlayerOpen(true);
+                            }}>Add Player</NavItem>
+
+                            <NavItem onClick={() => {
+                                handleCloseAll();
+                                setDeletePlayerOpen(true);
+                            }}>Delete Player</NavItem>
                         </div>
                     )}
+
+                    {menuOpen &&
+                        <Dropdown top="3rem" left="100%" width="100%">
+                            <div className={styles.menuContent}>
+                                <NavItem onClick={() => {
+                                    handleCloseAll();
+                                    setAddBoardOpen(true);
+                                }}>Add Board</NavItem>
+
+                                <NavItem onClick={() => {
+                                    handleCloseAll();
+                                    setDeleteBoardOpen(true);
+                                }}>Delete Board</NavItem>
+
+                                <NavItem onClick={() => {
+                                    handleCloseAll();
+                                    setAddPlayerOpen(true);
+                                }}>Add Player</NavItem>
+
+                                <NavItem onClick={() => {
+                                    handleCloseAll();
+                                    setDeletePlayerOpen(true);
+                                }}>Delete Player</NavItem>
+                            </div>
+                        </Dropdown>
+                    }
                 </Navbar>
             )}
 
-            {menuOpen && (
-                <div className={styles.navItems}>
-                    <button
-                        className={styles.button}
-                        onClick={() => {
-                            handleCloseAll();
-                            setAddBoardOpen(true);
-                        }}
-                    >
-                        <NavItem>Add Board</NavItem>
-                    </button>
-                    <button
-                        className={styles.button}
-                        onClick={() => {
-                            handleCloseAll();
-                            setDeleteBoardOpen(true);
-                        }}
-                    >
-                        <NavItem>Delete Board</NavItem>
-                    </button>
-                    <button
-                        className={styles.button}
-                        onClick={() => {
-                            handleCloseAll();
-                            setAddPlayerOpen(true);
-                        }}
-                    >
-                        <NavItem>Add Player</NavItem>
-                    </button>
-                    <button
-                        className={styles.button}
-                        onClick={() => {
-                            handleCloseAll();
-                            setDeletePlayerOpen(true);
-                        }}
-                    >
-                        <NavItem>Delete Player</NavItem>
-                    </button>
-                </div>
-            )}
             {boardsState.length < 1 && (
                 <h2 className={styles.message}>{message}</h2>
             )}

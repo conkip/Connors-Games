@@ -10,6 +10,14 @@
     margin:2rem 0;
 }
 
+.menuContent{
+    display:flex;
+    flex-direction:column;
+    gap:2rem;
+    padding:1rem 2rem 1rem 2rem;
+    width:100%;
+}
+
 .emptyText{
     width: 100%;
     text-align:center;

@@ -3,6 +3,7 @@
 */
 
 .container{
+    all:unset;
     display:flex;
     gap: 3px;
     align-items:center;

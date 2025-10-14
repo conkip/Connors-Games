@@ -11,6 +11,7 @@ import Coin from "../CoinStuff/CoinUI/CoinUI"
 import Navbar from "../../Navbar/Navbar"
 import NavItem from "../../NavItem/NavItem"
 import MenuIcon from '../../MenuIcon/MenuIcon'
+import Dropdown from '../../Dropdown/Dropdown'
 
 import useWindowWidth from "../../../hooks/useWindowWidth";
 
@@ -70,7 +71,7 @@ function ToolBar() {
     return (
         <>
             <Navbar>
-                <h2>Tool Bar</h2>
+                <h3 className={styles.title}>Tool Bar</h3>
 
                 {isMobile ? (
                     <MenuIcon
@@ -85,16 +86,18 @@ function ToolBar() {
                         <NavItem onClick={() => handleAddTool("timer")}>Add Timer</NavItem>
                     </div>
                 )}
-            </Navbar>
 
-            {menuOpen && (
-                <div>
-                    <NavItem onClick={() => handleAddTool("dice")}>Add Dice</NavItem>
-                    <NavItem onClick={() => handleAddTool("coin")}>Add Coin</NavItem>
-                    <NavItem onClick={() => handleAddTool("stopwatch")}>Add Stopwatch</NavItem>
-                    <NavItem onClick={() => handleAddTool("timer")}>Add Timer</NavItem>
-                </div>
-            )}
+                {menuOpen && (
+                    <Dropdown top="3rem" left="100%" width="100%">
+                        <div className={styles.menuContent}>
+                            <NavItem onClick={() => handleAddTool("dice")}>Add Dice</NavItem>
+                            <NavItem onClick={() => handleAddTool("coin")}>Add Coin</NavItem>
+                            <NavItem onClick={() => handleAddTool("stopwatch")}>Add Stopwatch</NavItem>
+                            <NavItem onClick={() => handleAddTool("timer")}>Add Timer</NavItem>
+                        </div>
+                    </Dropdown>
+                )}
+            </Navbar>
 
             <div className={styles.container}>
                 {tools.length == 0 ? <h1 className={styles.center}>No Tools</h1> 

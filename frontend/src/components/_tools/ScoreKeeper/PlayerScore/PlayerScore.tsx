@@ -101,7 +101,7 @@ const ScoreKeeper = ({
                     </button>
                     <button
                         className={styles.scoreButton}
-                        onClick={() => handleIncrement(-1)}
+                        onClick={() => handleIncrement(-5)}
                     >
                         -{5}
                     </button>

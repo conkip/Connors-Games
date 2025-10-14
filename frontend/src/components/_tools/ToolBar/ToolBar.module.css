@@ -13,6 +13,18 @@
     flex-wrap:wrap;
 }
 
+.menuContent{
+    display:flex;
+    flex-direction:column;
+    gap:2rem;
+    padding:1rem 2rem 1rem 2rem;
+    width:100%;
+}
+
+.title{
+    padding-left:1rem;
+}
+
 .toolWrapper{
     display:flex;
     flex-direction:column;

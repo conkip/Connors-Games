@@ -2,6 +2,19 @@
     Author: Connor Kippes
 */
 
+.menuContent{
+    display:flex;
+    flex-direction:column;
+    gap:2rem;
+    padding:1rem 2rem 1rem 2rem;
+    width:100%;
+}
+
+.navItems{
+    display:flex;
+    gap:1rem;
+}
+
 .previewContainer{
     display:flex;
     flex-direction:row;
@@ -18,12 +31,6 @@
 .button {
     all: unset;
     cursor:pointer;
-}
-
-.navItems{
-    display:flex;
-    gap:2rem;
-    text-wrap:none;
 }
 
 .title{
