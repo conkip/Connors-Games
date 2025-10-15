@@ -14,6 +14,7 @@ import codenamesImg from "../../assets/images/codenames.webp";
 
 import Marquee from "../../components/Marquee/Marquee";
 
+import useWindowWidth from '../../hooks/useWindowWidth'
 import { useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
@@ -35,6 +36,10 @@ function Home() {
             }
         }
     }, [location]);
+
+    
+    const width = useWindowWidth();
+    const isMobile = width < 769;
 
     return (
         <>
@@ -79,6 +84,16 @@ function Home() {
                     </div>
 
                     <div className={styles.marqueeContainer}>
+                        {isMobile && 
+                            <h2>
+                                Use{" "}
+                                <span className={styles.colorText}>built in tools</span>{" "}
+                                like a{" "}
+                                <span className={styles.colorText}>score keeper</span>{" "}
+                                or dice roller
+                            </h2>
+                        }
+
                         <Marquee height={5} width={5}>
                             {/*Score Keeper*/}
                             <Link
@@ -173,14 +188,16 @@ function Home() {
                                 </svg>
                             </Link>
                         </Marquee>
-
-                        <h2>
-                            Use{" "}
-                            <span className={styles.colorText}>built in tools</span>{" "}
-                            like a{" "}
-                            <span className={styles.colorText}>score keeper</span>{" "}
-                            or dice roller
-                        </h2>
+                        
+                        {!isMobile && 
+                            <h2>
+                                Use{" "}
+                                <span className={styles.colorText}>built in tools</span>{" "}
+                                like a{" "}
+                                <span className={styles.colorText}>score keeper</span>{" "}
+                                or dice roller
+                            </h2>
+                        }
                     </div>
                 </div>
             </div>
