@@ -27,6 +27,10 @@ export type User = {
     preferences: UserPreferences;
 } & idName;
 
+export type Card = {
+    
+}
+
 
 /*
     mongoDB or mySQL for the database
