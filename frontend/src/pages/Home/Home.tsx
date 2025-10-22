@@ -2,21 +2,22 @@
     Author: Connor Kippes
 */
 
-import styles from "./Home.module.css";
+import styles from "./Home.module.css"
 
-import ImageCard from "../../components/ImageCard/ImageCard";
-import Dice from "../../components/_tools/DiceStuff/Dice/Dice";
-import Coin from "../../components/_tools/CoinStuff/Coin/Coin";
+import ImageCard from "../../components/ImageCard/ImageCard"
+import Dice from "../../components/_tools/DiceStuff/Dice/Dice"
+import Coin from "../../components/_tools/CoinStuff/Coin/Coin"
 
-import pixiesImg from "../../assets/images/pixies/pixies.webp";
-import wurfelBohnanzaImg from "../../assets/images/wurfel/wurfel-bohnanza.webp";
-import codenamesImg from "../../assets/images/codenames.webp";
+import pixiesImg from "../../assets/images/pixies/pixies-closeup.webp"
+import wurfelImg from "../../assets/images/wurfel/wurfel-closeup.webp"
+import squirrelsImg from "../../assets/images/squirrels/squirrels-closeup.webp"
 
-import Marquee from "../../components/Marquee/Marquee";
+import Marquee from "../../components/Marquee/Marquee"
+import BoardGameBox from '../../components/BoardGameBox/BoardGameBox'
 
 import useWindowWidth from '../../hooks/useWindowWidth'
 import { useEffect } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom"
 
 function Home() {
     const navigate = useNavigate();
@@ -60,26 +61,41 @@ function Home() {
                         </div>
 
                         <Marquee height={15} width={15} duration={7}>
-                            <div className={styles.imgContainer}>
-                                <img alt="Pixies Image" src={pixiesImg}></img>
-                                <button>Pixies</button>
-                            </div>
+                            <Link
+                                className={styles.link}
+                                to="/games/pixies"
+                            >
+                                <div className={styles.marqueeImgContainer}>
+                                    <img className={styles.imgContainer} alt="Pixies Image" src={pixiesImg}></img>
+                                    <h1>Pixies</h1>
+                                </div>
+                            </Link>
 
-                            <div className={styles.imgContainer}>
-                                <img
-                                    alt="Wurfel Bohnanza Image"
-                                    src={wurfelBohnanzaImg}
-                                ></img>
-                                <button>Wurfel Bohnanza</button>
-                            </div>
+                            <Link
+                                className={styles.link}
+                                to="/games/wurfel"
+                            >
+                                <div className={styles.marqueeImgContainer}>
+                                    <img
+                                        alt="Wurfel Bohnanza Image"
+                                        src={wurfelImg}
+                                    ></img>
+                                    <h1>Wurfel Bohnanza</h1>
+                                </div>
+                            </Link>
 
-                            <div className={styles.imgContainer}>
-                                <img
-                                    alt="Codenames Image"
-                                    src={codenamesImg}
-                                ></img>
-                                <button>Codenames</button>
-                            </div>
+                            <Link
+                                className={styles.link}
+                                to="/games/squirrels"
+                            >
+                                <div className={styles.marqueeImgContainer}>
+                                    <img
+                                        alt="Squirrels Image"
+                                        src={squirrelsImg}
+                                    ></img>
+                                    <h1>Squirrels</h1>
+                                </div>
+                            </Link>
                         </Marquee>
                     </div>
 
@@ -206,22 +222,33 @@ function Home() {
                 <ImageCard
                     image={pixiesImg}
                     title="Pixies"
-                    desc="2–5 players | ~30 minutes. A light, beautiful, and strategic card game about placing cute pixie cards in a 3×3 grid to score points across three rounds."
+                    desc="2–5 players | 30 minutes. A light, beautiful, and strategic card game about placing cute pixie cards in a 3×3 grid to score points across three rounds."
                     onClick={() => navigate("/games/pixies")}
                 />
                 <ImageCard
-                    image={wurfelBohnanzaImg}
+                    image={wurfelImg}
                     title="Wurfel Bohnanza"
-                    desc="2–5 players | ~30 minutes. A quick, push-your-luck dice game where players complete bean orders for coins, while everyone gets to profit from each roll."
-                    onClick={() => navigate("/games/wurfel-bohnanza")}
+                    desc="2–5 players | 20-45 minutes. A quick, push-your-luck dice game where players complete bean orders for coins, while everyone gets to profit from each roll."
+                    onClick={() => navigate("/games/wurfel")}
                 />
                 <ImageCard
-                    image={codenamesImg}
-                    title="Codenames"
-                    desc="2–5 players | ~30 minutes. A clever word-association party game where spymasters give one-word clues to help their team find secret agents on the board—while avoiding the deadly assassin."
-                    onClick={() => navigate("/games/codenames")}
+                    image={squirrelsImg}
+                    title="Squirrels"
+                    desc="2–8 players | 15-45 minutes. A fast, chaotic strategy game where players collect and protect acorns while stealing from rivals to become the top squirrel."
+                    onClick={() => navigate("/games/squirrels")}
                 />
             </div>
+
+
+            {/*
+            <div style={{ display: "flex", gap: "2rem", justifyContent: "center", marginTop: "50px" }}>
+                <BoardGameBox
+                    frontImg={wurfelImg}
+                    backText="In Pixies, explore magical seasons, meet tiny creatures, and score by forming color zones!"
+                    title="Pixies"
+                />
+            </div>
+            */}
 
             <div className={styles.spacer}></div>
             <div className={styles.spacer}></div>

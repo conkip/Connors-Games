@@ -93,7 +93,7 @@ function Header() {
                                                     handleCloseDropdowns();
                                                 }}
                                                 className={styles.link}
-                                                to="/games/wurfel-bohnanza"
+                                                to="/games/wurfel"
                                             >
                                                 <h6 className={styles.link}>Wurfel Bohnanza</h6>
                                             </Link>
@@ -103,9 +103,9 @@ function Header() {
                                                     handleCloseDropdowns();
                                                 }}
                                                 className={styles.link}
-                                                to="/games/codenames"
+                                                to="/games/squirrels"
                                             >
-                                                <h6 className={styles.link}>Codenames</h6>
+                                                <h6 className={styles.link}>Squirrels</h6>
                                             </Link>
 
                                             {/*<a className={styles.link} href="https://papasgamesfree.io/papas-freezeria"target="_blank"><NavItem>Papas Games</NavItem></a>*/}

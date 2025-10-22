@@ -11,9 +11,10 @@ interface Props {
     color?: string;
     onClick?: () => void;
     isSquishy?: boolean;
+    sizeRem?:number;
 }
 
-const Button = ({children, color = "var(--color-accent)", onClick, isSquishy=false}: Props) => {
+const Button = ({children, color = "var(--color-accent)", onClick, isSquishy=false, sizeRem=1}: Props) => {
     const handleMouseDown = () => {
         if(isSquishy) {
             const sound = new Audio(squishSound);
@@ -26,7 +27,10 @@ const Button = ({children, color = "var(--color-accent)", onClick, isSquishy=fal
         <button 
             type="button"
             className= {isSquishy ? `${styles.button} ${styles.squishyButton}` : styles.button}
-            style={{background: color}}
+            style={{
+                background: color,
+                "--size": `${sizeRem}rem`,
+            } as React.CSSProperties}
             onMouseDown={handleMouseDown}
             onClick={onClick}
         >

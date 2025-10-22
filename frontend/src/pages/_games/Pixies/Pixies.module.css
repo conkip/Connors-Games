@@ -2,28 +2,6 @@
     Author: Connor Kippes
 */
 
-/* GAME PREVIEW */
-
-.gamePreviewContainer{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-}
-.center {
-    text-align:center;
-}
-
-.link {
-    text-decoration: none;
-    color: var(--color-accent);
-    font-weight:bold;
-}
-
-.ruleBook{
-    overflow-x: auto;
-}
-
-/* GAME */
 .gameContainer{
     background: linear-gradient(to bottom right, #5f7b4b, #415e30);
     width:100%;

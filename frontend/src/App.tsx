@@ -11,8 +11,8 @@ import Home from "./pages/Home/Home";
 import Pricing from "./pages/Pricing/Pricing";
 
 import Pixies from "./pages/_games/Pixies/Pixies";
-import WurfelBohnanza from "./pages/_games/WurfelBohnanza/WurfelBohnanza";
-import Codenames from "./pages/_games/Codenames/Codenames";
+import Wurfel from "./pages/_games/Wurfel/Wurfel";
+import Squirrels from "./pages/_games/Squirrels/Squirrels";
 
 import BoardManager from "./components/_tools/ScoreKeeper/BoardManager/BoardManager";
 import ToolsBar from "./components/_tools/ToolBar/ToolBar";
@@ -137,19 +137,19 @@ function App() {
                 />
 
                 <Route
-                    path="/games/wurfel-bohnanza"
+                    path="/games/wurfel"
                     element={
                         <Layout>
-                            <WurfelBohnanza />
+                            <Wurfel />
                         </Layout>
                     }
                 />
 
                 <Route
-                    path="/games/codenames"
+                    path="/games/squirrels"
                     element={
                         <Layout>
-                            <Codenames />
+                            <Squirrels />
                         </Layout>
                     }
                 />

@@ -99,16 +99,16 @@ function DesktopHeader() {
                                     <Link
                                         onClick={handleCloseDropdowns}
                                         className={styles.link}
-                                        to="/games/wurfel-bohnanza"
+                                        to="/games/wurfel"
                                     >
                                         <p className={styles.inline}>Wurfel Bohnanza</p>
                                     </Link>, or {" "}
                                     <Link
                                         onClick={handleCloseDropdowns}
                                         className={styles.link}
-                                        to="/games/wurfel-bohnanza"
+                                        to="/games/squirrels"
                                     >
-                                        <p className={styles.inline}>Codenames</p>
+                                        <p className={styles.inline}>Squirrels</p>
                                     </Link>
                                 </p>
                             </div>

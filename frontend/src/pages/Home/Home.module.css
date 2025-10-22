@@ -3,189 +3,194 @@
 */
 
 /*-----GENERAL STUFF--------*/
-.section{
-    height:100vh;
+.section {
+    height: 100vh;
 }
 
-.spacer{
+.spacer {
     height: 4rem;
 }
-.link{
-    text-decoration:none;
+.link {
+    text-decoration: none;
     color: var(--color-text);
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.colorText{
+.colorText {
     color: var(--color-accent);
 }
 
 /*-----TOP PART ------*/
-.topContainer{
-    display:flex;
-    flex-direction:column;
+.topContainer {
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    height:70%;
-    padding-top:2.5rem;
+    height: 70%;
+    padding-top: 2.5rem;
 }
-.marqueeContainer{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:2rem;
+.marqueeContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
 }
 
 /* The animated effect implementation was inspired from GPT */
 .animatedText {
-    align-self:center;
+    align-self: center;
     font-size: 3rem;
     font-weight: bold;
-    
+
     /* Gradient background */
-    background: linear-gradient(270deg,#ffee00, #00d9ff, #00ff22, #ff00ea);
+    background: linear-gradient(270deg, #ffee00, #00d9ff, #00ff22, #ff00ea);
     background-size: 800% 800%; /* large so animation moves */
-    
+
     /* Clip background to text */
-    background-clip:text;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    
+
     /* Animate background */
     animation: gradientMove 10s ease infinite;
 }
 
 @keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /*-----IMAGE MARQUE--------*/
-.imgContainer {
-  position: relative;
-  display: inline-block;
+.marqueeImgContainer {
+    position: relative;
+    display: inline-block;
 }
 
-.imgContainer img {
-  border-radius: 1rem;
-  border: var(--border);
-  height: 15rem;
+.marqueeImgContainer img {
+    border-radius: 1rem;
+    border: var(--border);
+    height: 15rem;
 }
 
-.imgContainer button {
-  all: unset;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2rem;
-  font-weight: 600;
-  color: rgb(255, 255, 255);
-  cursor: pointer;
+.marqueeImgContainer h1 {
+    all: unset;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
 }
-
 
 /*-----TOOLS MARQUE--------*/
-.toolBarIcon{
-    height:5rem;
-    fill:var(--color-text);
-    transition: transform .225s ease;
+.toolBarIcon {
+    height: 5rem;
+    fill: var(--color-text);
+    transition: transform 0.225s ease;
 }
 
-.toolBarIcon:hover{
+.toolBarIcon:hover {
     transform: rotate(60deg);
-    fill:var(--color-accent);
+    fill: var(--color-accent);
 }
 
-.scoreKeeperIcon{
-    height:5rem;
-    width:5rem;
+.scoreKeeperIcon {
+    height: 5rem;
+    width: 5rem;
     background-color: red;
-    border-radius: .35rem;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:1rem;
+    border-radius: 0.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
 }
 
-.incrementor{
+.incrementor {
     background-color: rgba(95, 95, 95, 0.7);
-    height:3.5rem;
-    width:3.5rem;
-    border-radius:.35rem;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:600;
-    font-size:1.85rem;
-    user-select: none;          /* Standard */
-    -webkit-user-select: none;  /* Safari/Chrome */
-    -moz-user-select: none;     /* Firefox */
-    -ms-user-select: none;      /* IE/Edge */
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 0.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.85rem;
+    user-select: none; /* Standard */
+    -webkit-user-select: none; /* Safari/Chrome */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE/Edge */
 }
-.incrementor:hover{
+.incrementor:hover {
     transform: scale(1.15);
 }
 
-
-.stopwatchIcon{
-    height:5rem;
-    fill:var(--color-text);
-    transition: transform .5s ease;
+.stopwatchIcon {
+    height: 5rem;
+    fill: var(--color-text);
+    transition: transform 0.5s ease;
 }
 
-.stopwatchIcon:hover{
+.stopwatchIcon:hover {
     transform: rotate(360deg);
-    fill:var(--color-accent);
+    fill: var(--color-accent);
 }
 
-.timerIconWrapper{
+.timerIconWrapper {
     display: inline-block;
 }
-.timerIcon{
-    height:5rem;
-    fill:var(--color-text);
-    transition: transform .75s ease;
-
+.timerIcon {
+    height: 5rem;
+    fill: var(--color-text);
+    transition: transform 0.75s ease;
 }
 
 .timerIconWrapper:hover .timerIcon {
     transform: rotateX(180deg);
-    fill:var(--color-accent);
+    fill: var(--color-accent);
 }
-
 
 /*-----BOTTOM STUFF--------*/
 .imageCardContainer {
-    display:flex;
+    display: flex;
     align-items: flex-start;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     justify-content: center;
-    gap:2rem;
+    gap: 2rem;
 }
 
 .fillTextEffect {
-  color: var(--color-text);
-  background: linear-gradient(to right, var(--color-accent) 0%, var(--color-accent) 100%);
-  background-size: 0% 100%;  /* start empty */
-  background-repeat: no-repeat;
-  -webkit-background-clip: text;
-  background-clip: text;
-  transition: background-size .75s ease;
+    color: var(--color-text);
+    background: linear-gradient(
+        to right,
+        var(--color-accent) 0%,
+        var(--color-accent) 100%
+    );
+    background-size: 0% 100%; /* start empty */
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: background-size 0.75s ease;
 }
 
 .fillTextEffect:hover {
-    color:transparent;
+    color: transparent;
     background-size: 100% 100%; /* fill from left to right */
 }
 
-
 @media (max-width: 768px) {
-    .marqueeContainer{
-        display:flex;
-        flex-direction:column;
-        justify-content:space-between;
-        align-items:center;
-        gap:2rem;
+    .marqueeContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
     }
 }

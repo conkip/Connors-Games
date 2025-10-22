@@ -27,8 +27,12 @@ export type User = {
     preferences: UserPreferences;
 } & idName;
 
-export type Card = {
-    
+export type PixiesCard = {
+    imgPath: string,
+    color:string,
+    value: number,
+    swirlCount: number,
+    xCount: number,
 }
 
 

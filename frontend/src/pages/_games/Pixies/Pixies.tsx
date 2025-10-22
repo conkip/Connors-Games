@@ -2,27 +2,27 @@
     Author: Connor Kippes
 */
 
-import styles from "./Pixies.module.css"
+import styles from "./Pixies.module.css";
 
-import pixiesRules from "../../../assets/images/pixies/Pixies-rules-EN.webp"
+import pixiesTitleImg from "../../../assets/images/pixies/pixies-title.webp";
+import pixiesBoxImg from "../../../assets/images/pixies/pixies-box.webp";
 
-import cardBack from "../../../assets/images/pixies/deck/pixies-card-back.webp"
+import cardBack from "../../../assets/images/pixies/deck/pixies-card-back.webp";
 
 /*import card1 from "../../../assets/images/pixies/deck/pixies-card-1.webp"*/
 
-import Button from "../../../components/Button/Button"
-import ScoreBoard from '../../../components/_tools/ScoreKeeper/ScoreBoard/ScoreBoard'
-import NavItem from '../../../components/NavItem/NavItem'
+import PreviewPage from "../PreviewPage/PreviewPage";
+import Button from "../../../components/Button/Button";
+import ScoreBoard from "../../../components/_tools/ScoreKeeper/ScoreBoard/ScoreBoard";
+import NavItem from "../../../components/NavItem/NavItem";
 
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 
-import type * as Types from "../../../types"
+import type * as Types from "../../../types";
 
-let gameState= {
-    
-    curPlayer:"hi",
-    
-}
+let gameState = {
+    curPlayer: "hi",
+};
 interface Props {
     players: Types.PlayerScore[];
 }
@@ -33,7 +33,6 @@ const deckOffsets = [
     { zIndex: 3, top: 2, left: 3 },
     { zIndex: 2, top: 3, left: 4.5 },
 ];
-
 
 const Pixies = () => {
     const [gameOpen, setGameOpen] = useState(false);
@@ -49,73 +48,48 @@ const Pixies = () => {
 
     const [roundNumber, setRoundNumber] = useState(1);
 
-
     useEffect(() => {
-        if(tableCards.length == 0){
+        if (tableCards.length == 0) {
             //refill table cards
         }
-
-    }, tableCards)
-    function chooseCard() {
-
-    }
+    }, tableCards);
+    function chooseCard() {}
 
     return (
         <>
             {!gameOpen && (
-                <div className={styles.gamePreviewContainer}>
-                    <h1 className={styles.center}>
-                        Pixies - Under Construction
-                    </h1>
-                    <p>
-                        Designed by <b>Johannes Goupy</b>
-                    </p>
-                    <p>
-                        Art by <b>Sylvain Trabut</b>
-                    </p>
-                    <p>
-                        Published by <b>Bombyx</b>
-                    </p>
-                    <p>
-                        Year <b>2024</b>
-                    </p>
-                    <p>
-                        Bombyx{" "}
-                        <a
-                            className={styles.link}
-                            href="https://studiobombyx.com/en/jeu/pixies/"
-                            target="_blank"
-                        >
-                            Link
-                        </a>
-                    </p>
-
-                    <h2>How to play:</h2>
-                    <a
-                        className={styles.link}
-                        href="https://www.youtube.com/watch?v=Md3J335rZWM"
-                        target="_blank"
-                    >
-                        Video Link
-                    </a>
-                    <Button onClick={() => setRulesOpen(!rulesOpen)}>
-                        {rulesOpen ? "Close Rules" : "Open Rules"}
-                    </Button>
-                    {rulesOpen && (
-                        <img
-                            className={styles.ruleBook}
-                            src={pixiesRules}
-                        ></img>
-                    )}
-                    <Button onClick={() => setGameOpen(!gameOpen)}>Play</Button>
-                </div>
+                <PreviewPage
+                    gameName="Pixies"
+                    titleImgPath={pixiesTitleImg}
+                    boxImgPath={pixiesBoxImg}
+                    designer="Johannes Goupy"
+                    artist="Sylvain Trabut"
+                    publisher="Bombyx"
+                    year={2024}
+                    about={`In Pixies, you move through the seasons to meet little creatures 
+                        emerging from a flower or sheltering in the hollow of a tree. 
+                        Choose one of the revealed cards, but be careful which ones you 
+                        leave to your opponents! Place that card in your playing area 
+                        according to its number. Cards placed one on top of another are 
+                        validated and earn you points at the end of the round, as do your 
+                        largest color zone and your spirals. Easy...yet you'll find that 
+                        the other players won't be short of bad advice.`}
+                    players ="2-5"
+                    playtimeMinutes="30"
+                    publisherLink="https://studiobombyx.com/en/jeu/pixies/"
+                    rulesLink="https://studiobombyx.com/assets/PIXIES_rulebook_EN.pdf"
+                    videoDemoLink= "https://www.youtube.com/watch?v=Md3J335rZWM"
+                    setGameOpen = {setGameOpen}
+                />
             )}
 
             {gameOpen && (
                 <div className={styles.gameContainer}>
                     <div className={styles.roundContainer}>
                         <div className={styles.roundLabel}>Round</div>
-                        <div className={styles.roundNumber}>{roundNumber} / 3</div>
+                        <div className={styles.roundNumber}>
+                            {roundNumber} / 3
+                        </div>
                     </div>
 
                     <div className={styles.turnStatus}>
@@ -138,7 +112,7 @@ const Pixies = () => {
                                         src={cardBack}
                                         alt="Pixies Card Back"
                                     />
-                                    ))}
+                                ))}
                             </div>
 
                             <div className={styles.tableCards}>
@@ -189,10 +163,30 @@ const Pixies = () => {
                         </div>
                     </div>
 
-                    <Button isSquishy={true} color={scoreBoardOpen ? "var(--color-red)" : "var(--color-green)"} onClick={() => setScoreBoardOpen(!scoreBoardOpen)}> {scoreBoardOpen ? "Close Scoreboard" : "Show Scoreboard"}</Button>
-                    <a className={styles.link} target="_blank" href="https://boardgamegeek.com/filepage/278431/english-rulebook"><NavItem>Rules Link</NavItem></a>
+                    <Button
+                        isSquishy={true}
+                        color={
+                            scoreBoardOpen
+                                ? "var(--color-red)"
+                                : "var(--color-green)"
+                        }
+                        onClick={() => setScoreBoardOpen(!scoreBoardOpen)}
+                    >
+                        {" "}
+                        {scoreBoardOpen
+                            ? "Close Scoreboard"
+                            : "Show Scoreboard"}
+                    </Button>
+                    <a
+                        className={styles.link}
+                        target="_blank"
+                        href="https://boardgamegeek.com/filepage/278431/english-rulebook"
+                    >
+                        <NavItem>Rules Link</NavItem>
+                    </a>
 
-                    {scoreBoardOpen && <></>
+                    {
+                        scoreBoardOpen && <></>
                         /* <ScoreBoard boardName="Pixies Game"></ScoreBoard> */
                     }
                 </div>
