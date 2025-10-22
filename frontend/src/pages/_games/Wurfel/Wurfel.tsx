@@ -66,7 +66,7 @@ function WurfelBohnanza() {
         }
 
         {gameOpen &&
-            <h1 className={styles.center}>Squirrels: The Card Game - Under Construction</h1>
+            <h1 className={styles.center}>Wurfel Bohnanza - Under Construction</h1>
         }
         </>
     )

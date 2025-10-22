@@ -22,11 +22,21 @@ import type * as Types from "../../../../types"
 
 //export const UserContext = createContext();
 
+function chooseRandomColor(){
+    const colors = [
+        "#FF0000", "#008000", "#0060b9", "#dbc500ff", "#00FFFF", "#FF00FF",
+        "#FFA500", "#800080", "#fcb2bf", "#a5472a", "#00FF00", "#008080"
+    ];
+
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    return randomColor
+}
+
 const player1History: number[] = [];
 
 const player1: Types.PlayerScore = {
     id: "1",
-    name: "Player1",
+    name: "Valerie",
     color: "#7700ff",
     totalScore: 0,
     history: player1History,
@@ -36,7 +46,7 @@ const player2History: number[] = [];
 
 const player2: Types.PlayerScore = {
     id: "2",
-    name: "Player2",
+    name: "Kyle",
     color: "#26a500",
     totalScore: 0,
     history: player2History,
@@ -46,7 +56,7 @@ const player3History: number[] = [];
 
 const player3: Types.PlayerScore = {
     id: "3",
-    name: "Player3",
+    name: "Connor",
     color: "#ffe600",
     totalScore: 0,
     history: player3History,
@@ -123,8 +133,8 @@ function BoardManager() {
         for (let i = 1 + curPresetPlayers.length; i < playerCount + 2; i++) {
             newPlayers.push({
                 id: crypto.randomUUID(),
-                name: "New Player",
-                color: "#FF0000",
+                name: `Player ${i}`,
+                color: chooseRandomColor(),
                 totalScore: 0,
                 history: [],
             });
@@ -132,7 +142,7 @@ function BoardManager() {
 
         const newBoard: Types.Board = {
             id: crypto.randomUUID(),
-            name: boardName == "" ? "New Board" : boardName,
+            name: boardName == "" ? `Board ${boardsState.length + 1}` : boardName,
             players: newPlayers,
         };
 
@@ -151,7 +161,7 @@ function BoardManager() {
     function handleAddPlayer() {
         const newPlayer: Types.PlayerScore = {
             id: crypto.randomUUID(),
-            name: playerName == "" ? "New Player" : playerName,
+            name: playerName == "" ? `Player ${presetPlayers.length + 1}` : playerName,
             color: playerColor,
             totalScore: 0,
             history: [],
@@ -164,7 +174,7 @@ function BoardManager() {
 
     function handleResetAddPlayer() {
         setPlayerName("");
-        setPlayerColor("#FF0000");
+        setPlayerColor(chooseRandomColor());
     }
 
     function handleOpenBoard(boardName: string, players: Types.PlayerScore[]) {
@@ -294,7 +304,7 @@ function BoardManager() {
                         <input
                             className={styles.nameInput}
                             type="text"
-                            placeholder="New Board"
+                            placeholder={`Board ${boardsState.length + 1}`}
                             value={boardName}
                             onChange={(n) => setBoardName(n.target.value)}
                         />
@@ -381,7 +391,7 @@ function BoardManager() {
                         <input
                             className={styles.nameInput}
                             type="text"
-                            placeholder="New Player"
+                            placeholder={`Player ${presetPlayers.length + 1}`}
                             value={playerName}
                             onChange={(n) => setPlayerName(n.target.value)}
                         />

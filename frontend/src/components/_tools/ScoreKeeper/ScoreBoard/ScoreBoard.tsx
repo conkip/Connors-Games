@@ -23,8 +23,15 @@ interface Props {
     handleClose: () => void;
 }
 
-// check user logged in in the database and checks for information on that name
-let loggedIn = false;
+function chooseRandomColor(){
+    const colors = [
+        "#FF0000", "#008000", "#0060b9", "#dbc500ff", "#00FFFF", "#FF00FF",
+        "#FFA500", "#800080", "#fcb2bf", "#a5472a", "#00FF00", "#008080"
+    ];
+
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    return randomColor
+}
 
 const ScoreBoard = ({ boardName, players, handleClose }: Props) => {
     const width = useWindowWidth();
@@ -85,7 +92,7 @@ const ScoreBoard = ({ boardName, players, handleClose }: Props) => {
         function closeAddPlayer() {
             setAddPlayerOpen(false);
             setName("");
-            setColor("#FF0000");
+            setColor(chooseRandomColor);
         }
     }, [addPlayerOpen, deletePlayerOpen]);
 
@@ -173,7 +180,7 @@ const ScoreBoard = ({ boardName, players, handleClose }: Props) => {
                         <input
                             className={styles.nameInput}
                             type="text"
-                            placeholder={`Player ${playersState.length}`}
+                            placeholder={`Player ${playersState.length + 1}`}
                             value={name}
                             onChange={(n) => setName(n.target.value)}
                         />
