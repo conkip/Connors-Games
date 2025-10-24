@@ -164,7 +164,6 @@ const Pixies = () => {
                     </div>
 
                     <Button
-                        isSquishy={true}
                         color={
                             scoreBoardOpen
                                 ? "var(--color-red)"

@@ -25,14 +25,12 @@ function AddItems({title, children, handleAddItem, handleClose}:Props) {
                         <div className={styles.addItemsRow}>
                             <Button
                                 onClick={handleAddItem}
-                                isSquishy={true}
                                 color="var(--color-green)"
                             >
                                 Confirm
                             </Button>
                             <Button
                                 onClick={handleClose}
-                                isSquishy={true}
                                 color="var(--color-red)"
                             >
                                 Cancel
