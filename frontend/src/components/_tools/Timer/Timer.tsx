@@ -89,9 +89,9 @@ function Timer() {
                     <button className={styles.button} onClick={() => addTime(60)}>+1:00</button>
                 </div>
                 <div className={styles.controls}>
-                    <Button isSquishy={true} color="var(--color-green)" onClick={start}>Start</Button>
-                    <Button isSquishy={true} color="var(--color-red)" onClick={stop}>Stop</Button>
-                    <Button isSquishy={true} color="var(--color-orange)" onClick={reset}>Reset</Button>
+                    <Button color="var(--color-green)" onClick={start}>Start</Button>
+                    <Button color="var(--color-red)" onClick={stop}>Stop</Button>
+                    <Button color="var(--color-orange)" onClick={reset}>Reset</Button>
                 </div>
             </div>
         </Card>

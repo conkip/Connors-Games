@@ -230,7 +230,7 @@ function DesktopHeader() {
                     <NavItem>Login</NavItem>
                 </Link>
                 <Link className={styles.link} to="/signup">
-                    <Button isSquishy={true} onClick={handleCloseDropdowns}>
+                    <Button onClick={handleCloseDropdowns}>
                         Get Started
                     </Button>
                 </Link>

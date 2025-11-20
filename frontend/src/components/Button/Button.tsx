@@ -3,35 +3,25 @@
 */
 
 import styles from './Button.module.css'
-import squishSound from '../../assets/audio/squish.mp3'
 import type { ReactNode } from "react"
 
 interface Props {
     children: ReactNode;
     color?: string;
     onClick?: () => void;
-    isSquishy?: boolean;
     sizeRem?:number;
 }
 
-const Button = ({children, color = "var(--color-accent)", onClick, isSquishy=false, sizeRem=1}: Props) => {
-    const handleMouseDown = () => {
-        if(isSquishy) {
-            const sound = new Audio(squishSound);
-            sound.volume = 0.2;
-            sound.play();
-        }
-    }
+const Button = ({children, color = "var(--color-accent)", onClick, sizeRem=1}: Props) => {
 
     return (
         <button 
             type="button"
-            className= {isSquishy ? `${styles.button} ${styles.squishyButton}` : styles.button}
+            className= {styles.button}
             style={{
                 background: color,
                 "--size": `${sizeRem}rem`,
             } as React.CSSProperties}
-            onMouseDown={handleMouseDown}
             onClick={onClick}
         >
             {children}

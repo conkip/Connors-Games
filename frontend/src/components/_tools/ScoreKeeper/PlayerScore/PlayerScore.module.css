@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     height: 300px;
-    min-width: 355px;
+    min-width: 370px;
     border-radius:15px;
     box-shadow: var(--box-shadow);
 }
@@ -198,7 +198,7 @@
   outline: none;         /* remove focus outline if using keyboard */
 }
 
-@media (max-width: 1205px) {
+@media (max-width: 1300px) {
     .container {
         min-width: 325px;
         flex-grow:1;

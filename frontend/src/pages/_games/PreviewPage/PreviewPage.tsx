@@ -127,7 +127,7 @@ const PreviewPage =(props: Props) => {
                 </div>
             </div>
             <div className={styles.center}>
-                <Button isSquishy={true} color ="var(--color-green)" sizeRem ={2.5} onClick={() => props.setGameOpen(true)}>Play!</Button>
+                <Button color ="var(--color-green)" sizeRem ={2.5} onClick={() => props.setGameOpen(true)}>Play!</Button>
             </div>
         </div>
     )
