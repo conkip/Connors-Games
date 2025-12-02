@@ -112,7 +112,7 @@ const PreviewPage =(props: Props) => {
             <div className={styles.about}>
                 <h2 className={styles.center}>About</h2>
                 <div>
-                `<p className={expanded ? styles.desc : `${styles.desc} ${styles.clamped}`}>
+                <p className={expanded ? styles.desc : `${styles.desc} ${styles.clamped}`}>
                     {props.about
                         .replace(/\s+/g, " ")  // collapse all normal whitespace (spaces, tabs, real newlines)
                         .split("\\n")          // split on literal backslash-n
@@ -123,7 +123,7 @@ const PreviewPage =(props: Props) => {
                         </span>
                     ))}
                 </p>
-                <p className={styles.toggle} onClick={() => setExpanded(!expanded)}>{expanded ? "Show less" : "Read more"}</p>`
+                <p className={styles.toggle} onClick={() => setExpanded(!expanded)}>{expanded ? "Show less" : "Read more"}</p>
                 </div>
             </div>
             <div className={styles.center}>

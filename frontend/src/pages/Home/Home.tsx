@@ -4,16 +4,19 @@
 
 import styles from "./Home.module.css"
 
-import ImageCard from "../../components/ImageCard/ImageCard"
 import Dice from "../../components/_tools/DiceStuff/Dice/Dice"
 import Coin from "../../components/_tools/CoinStuff/Coin/Coin"
 
-import pixiesImg from "../../assets/images/pixies/pixies-closeup.webp"
-import wurfelImg from "../../assets/images/wurfel/wurfel-closeup.webp"
-import squirrelsImg from "../../assets/images/squirrels/squirrels-closeup.webp"
+import pixiesCloseupImg from "../../assets/images/pixies/pixies-closeup.webp"
+import wurfelCloseupImg from "../../assets/images/wurfel/wurfel-closeup.webp"
+import squirrelsCloseupImg from "../../assets/images/squirrels/squirrels-closeup.webp"
+
+import pixiesCoverImg from "../../assets/images/pixies/pixies-cover.webp"
+import wurfelCoverImg from "../../assets/images/wurfel/wurfel-cover.webp"
+import squirrelsCoverImg from "../../assets/images/squirrels/squirrels-cover.webp"
 
 import Marquee from "../../components/Marquee/Marquee"
-import BoardGameBox from '../../components/BoardGameBox/BoardGameBox'
+import ThreeDBox from "../../components/ThreeDBox/ThreeDBox"
 
 import useWindowWidth from '../../hooks/useWindowWidth'
 import { useEffect } from "react";
@@ -66,7 +69,7 @@ function Home() {
                                 to="/games/pixies"
                             >
                                 <div className={styles.marqueeImgContainer}>
-                                    <img className={styles.imgContainer} alt="Pixies Image" src={pixiesImg}></img>
+                                    <img className={styles.imgContainer} alt="Pixies Image" src={pixiesCloseupImg}></img>
                                     <h1>Pixies</h1>
                                 </div>
                             </Link>
@@ -78,7 +81,7 @@ function Home() {
                                 <div className={styles.marqueeImgContainer}>
                                     <img
                                         alt="Wurfel Bohnanza Image"
-                                        src={wurfelImg}
+                                        src={wurfelCloseupImg}
                                     ></img>
                                     <h1>Wurfel Bohnanza</h1>
                                 </div>
@@ -91,7 +94,7 @@ function Home() {
                                 <div className={styles.marqueeImgContainer}>
                                     <img
                                         alt="Squirrels Image"
-                                        src={squirrelsImg}
+                                        src={squirrelsCloseupImg}
                                     ></img>
                                     <h1>Squirrels</h1>
                                 </div>
@@ -219,36 +222,10 @@ function Home() {
             </div>
 
             <div id="games" className={styles.imageCardContainer}>
-                <ImageCard
-                    image={pixiesImg}
-                    title="Pixies"
-                    desc="2–5 players | 30 minutes. A light, beautiful, and strategic card game about placing cute pixie cards in a 3×3 grid to score points across three rounds."
-                    onClick={() => navigate("/games/pixies")}
-                />
-                <ImageCard
-                    image={wurfelImg}
-                    title="Wurfel Bohnanza"
-                    desc="2–5 players | 20-45 minutes. A quick, push-your-luck dice game where players complete bean orders for coins, while everyone gets to profit from each roll."
-                    onClick={() => navigate("/games/wurfel")}
-                />
-                <ImageCard
-                    image={squirrelsImg}
-                    title="Squirrels"
-                    desc="2–8 players | 15-45 minutes. A fast, chaotic strategy game where players collect and protect acorns while stealing from rivals to become the top squirrel."
-                    onClick={() => navigate("/games/squirrels")}
-                />
+                <ThreeDBox front ={pixiesCoverImg} desc="2–5 players | 30 minutes. A light, beautiful, and strategic card game about placing cute pixie cards in a 3×3 grid to score points across three rounds." onClick={() => navigate("/games/pixies")}></ThreeDBox>
+                <ThreeDBox front ={wurfelCoverImg} desc="2–5 players | 20-45 minutes. A quick, push-your-luck dice game where players complete bean orders for coins, while everyone gets to profit from each roll." onClick={() => navigate("/games/wurfel")}></ThreeDBox>
+                <ThreeDBox front ={squirrelsCoverImg} desc="2–8 players | 15-45 minutes. A fast, chaotic strategy game where players collect and protect acorns while stealing from rivals to become the top squirrel." onClick={() => navigate("/games/squirrels")}></ThreeDBox>
             </div>
-
-
-            {/*
-            <div style={{ display: "flex", gap: "2rem", justifyContent: "center", marginTop: "50px" }}>
-                <BoardGameBox
-                    frontImg={wurfelImg}
-                    backText="In Pixies, explore magical seasons, meet tiny creatures, and score by forming color zones!"
-                    title="Pixies"
-                />
-            </div>
-            */}
 
             <div className={styles.spacer}></div>
             <div className={styles.spacer}></div>
