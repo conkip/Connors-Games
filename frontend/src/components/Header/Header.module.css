@@ -36,12 +36,11 @@
     text-decoration:none;
     display:inline;
     color:var(--color-text);
-    border-bottom:1px solid var(--color-text);
 }
 
 .inline:hover{
     color:var(--color-accent);
-    border-bottom:1px solid var(--color-accent);
+    transition: color 0.2s ease;
 }
 .headerItems {
     display:flex;

@@ -1,19 +1,21 @@
 /*
     Author: Connor Kippes
 */
+import styles from './Coin.module.css'
 
-import heads from "../../../../assets/images/coin/coin-heads.webp";
-import tails from "../../../../assets/images/coin/coin-tails.webp";
+import heads from "../../../../assets/images/coin/coin-heads.webp"
+import tails from "../../../../assets/images/coin/coin-tails.webp"
 
 import { useState, useRef} from "react";
 
 interface Props {
     size?: number;
+    canHover?: boolean;
     setFace?: (f:string) => void;
     setIsDone?: (f:boolean) => void;
 }
 
-const Coin = ({size = 5, setFace, setIsDone}: Props) => {
+const Coin = ({size = 5, setFace, setIsDone, canHover = false}: Props) => {
     const [rotation, setRotation] = useState(0);
     const [isHeads, setIsHeads] = useState(true);
     const [isHalfFlipped, setIsHalfFlipped] = useState(false);
@@ -56,8 +58,12 @@ const Coin = ({size = 5, setFace, setIsDone}: Props) => {
         }  
     }
     return (
-        <>
+        <div className= {canHover ? styles.canHover : ""} style={{
+                    height: `${size}rem`,
+                    width: `${size}rem`,
+                }}>
             <img
+                className={styles.image}
                 style={{
                     height: `${size}rem`,
                     width: `${size}rem`,
@@ -68,7 +74,7 @@ const Coin = ({size = 5, setFace, setIsDone}: Props) => {
                 onTransitionEnd={handleTransitionEnd}
                 src={isHeads? tails : heads}
             ></img>
-        </>
+        </div>
     );
 };
 

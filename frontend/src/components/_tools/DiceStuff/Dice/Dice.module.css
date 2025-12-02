@@ -2,6 +2,19 @@
     Author: Connor Kippes
 */
 
+.canHover:hover {
+  animation: wiggle 0.2s alternate infinite;
+}
+
+@keyframes wiggle {
+  from {
+    transform: translateX(-.5rem);
+  }
+  to {
+    transform: translateX(.5rem);
+  }
+}
+
 .overallContainer {
     height:fit-content;
     width:fit-content;

@@ -8,7 +8,7 @@
     margin-inline:auto;
     height:var(--height);
     margin:1rem;
-    overflow:hidden;
+    overflow:visible;
     mask-image: linear-gradient(
         to right, 
         rgba(0, 0, 0, 0),

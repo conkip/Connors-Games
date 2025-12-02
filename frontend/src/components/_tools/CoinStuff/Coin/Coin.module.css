@@ -1,0 +1,5 @@
+
+.canHover:hover .image{
+    transform: rotateX(180deg) !important; 
+    transition: transform .5s ease-out !important;
+}
