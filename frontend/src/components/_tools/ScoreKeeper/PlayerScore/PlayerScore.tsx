@@ -18,7 +18,6 @@ const ScoreKeeper = ({
     initialScore = 0,
     initialHistory = [],
 }: Props) => {
-    const mountCount = useRef(0);
 
     const [pColor, setColor] = useState(color);
     const [pName, setName] = useState(name);
@@ -29,59 +28,87 @@ const ScoreKeeper = ({
     const duration =3000;
     const circumference = 2 * Math.PI * 24;
     const [dashOffset, setDashOffset] = useState(circumference);
-    const [isIncrementing, setIsIncrementing] = useState(false);
-    const [resetKey, setResetKey] = useState(0); // used to force animation reset
+    type Phase = "idle" | "animating";
+    const [phase, setPhase] = useState<Phase>("idle");
+    const [resetKey, setResetKey] = useState(0);
+    const commitTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    const historyRef = useRef<HTMLUListElement | null>(null);
+
 
     function resetBoard() {
         setTotalScore(0);
         setHistory([]);
-        setIsIncrementing(false);
+        setPhase("idle");
         setCurScore(0);
     }
 
     function handleIncrement(amount: number) {
-        setCurScore((c) => c + amount);
+        setCurScore(c => c + amount);
+
+        setPhase("animating");
         setResetKey((prev) => prev + 1);
-        setIsIncrementing(false);
-        setIsIncrementing(true);
+
+        if (commitTimeoutRef.current) {
+            clearTimeout(commitTimeoutRef.current);
+        }
+
+        commitTimeoutRef.current = setTimeout(() => commitIncrement(curScore + amount), duration);
     }
 
-    function handleCancel() {
+    const commitIncrement = (amount: number) => {
+
         setCurScore(0);
-        setIsIncrementing(false);
+
+        setTotalScore(t => t + amount);
+        setHistory(h => [...h, amount]);
+        setPhase("idle");
+        setDashOffset(circumference);
+
+        if (commitTimeoutRef.current) {
+            clearTimeout(commitTimeoutRef.current);
+            commitTimeoutRef.current = null;
+        }
+    };
+
+    function cancelIncrement() {
+        if (commitTimeoutRef.current) {
+            clearTimeout(commitTimeoutRef.current);
+            commitTimeoutRef.current = null;
+        }
+
+        setCurScore(0);
+        setPhase("idle");
+        setDashOffset(circumference);
     }
 
     useEffect(() => {
-        const container = document.getElementById("scrollContainer");
-        if(container !== null)
-            container.scrollTop = container.scrollHeight;
+        if (!historyRef.current) return;
+
+        historyRef.current.scrollTop =
+            historyRef.current.scrollHeight;
     }, [history])
 
+
+    // resets loading animation after adding to score
     useEffect(() => {
-        if (mountCount.current < 2) {
-            mountCount.current += 1;
-            return;
-        }
+        if (phase === "idle") return;
 
-        if(isIncrementing) {
-            setDashOffset(circumference); // start empty
-            setTimeout(() => setDashOffset(0), 1000); // animate to full
-        } else {
-            setDashOffset(circumference);
-        }
+        setDashOffset(circumference); // start empty
+        const t = setTimeout(() => setDashOffset(0), 1000); // animate to full
 
-        if (!isIncrementing) {
-            setTotalScore((t) => t + curScore);
-            setHistory((h) => [...h, curScore]);
-            setCurScore(0);
-        }
+        return () => clearTimeout(t);
+    }, [resetKey]);
 
-        const timeout = setTimeout(() => {
-            setIsIncrementing(false);
-        }, duration);
 
-        return () => clearTimeout(timeout);
-    }, [isIncrementing, resetKey]);
+
+    useEffect(() => {
+        return () => {
+            if (commitTimeoutRef.current) {
+                clearTimeout(commitTimeoutRef.current);
+            }
+        };
+    }, []);
 
     return (
         <div className={styles.container} style={{ backgroundColor: pColor }}>
@@ -113,7 +140,7 @@ const ScoreKeeper = ({
                     </button>
                 </div>
 
-                {!isIncrementing ? (
+                {phase === "idle" ? (
                     <>
                         <p className={`${styles.middleContainer} ${styles.totalScore}`}>{totalScore}</p>
                     </>
@@ -124,7 +151,7 @@ const ScoreKeeper = ({
                                 {/* X Icon */}
                                 <svg
                                     className={styles.svg}
-                                    onClick={() => handleCancel()}
+                                    onClick={() => cancelIncrement()}
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 640 640"
                                 >
@@ -149,6 +176,7 @@ const ScoreKeeper = ({
                                     viewBox="0 0 50 50"
                                 >
                                     <circle
+                                        key={resetKey}
                                         cx="24.8px"
                                         cy="24.8px"
                                         r="21px"
@@ -167,7 +195,7 @@ const ScoreKeeper = ({
                                 <svg
                                     key={resetKey}
                                     className={styles.svg}
-                                    onClick={() => setIsIncrementing(false)}
+                                    onClick={() => commitIncrement(curScore)}
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 640 640"
                                 >
@@ -206,7 +234,7 @@ const ScoreKeeper = ({
                     </button>
                 </div>
 
-                <ul id="scrollContainer" className={styles.historyContainer}>
+                <ul ref={historyRef} className={styles.historyContainer}>
                     {history.map((elem, index) => {
                         return (
                             <li key={index} style={{ color: elem < 0 ? "red" : "green" }}>
