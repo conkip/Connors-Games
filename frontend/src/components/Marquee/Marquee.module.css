@@ -3,6 +3,9 @@
 */
 
 .marquee {
+    display:flex;
+    align-items:center;
+    justify-content: center;
     position:relative;
     width:var(--totalWidth);
     margin-inline:auto;

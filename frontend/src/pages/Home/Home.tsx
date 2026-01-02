@@ -126,12 +126,12 @@ function Home() {
 
                             {/*Dice*/}
                             <Link className={styles.link} to="/tools/dice">
-                                <Dice size={5} canHover={true}/>
+                                <Dice size={5} animateOnHover={true}/>
                             </Link>
 
                             {/*Coin*/}
                             <Link className={styles.link} to="/tools/coin">
-                                <Coin size={5} canHover={true}/>
+                                <Coin size={5} animateOnHover={true}/>
                             </Link>
 
                             {/* Tool Bar */}

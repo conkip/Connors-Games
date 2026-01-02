@@ -9,7 +9,7 @@ import { useState, useRef } from "react";
 interface Props {
     color?: string;
     size?: number;
-    canHover?: boolean;
+    animateOnHover?: boolean;
     setFaceState?: (f: number) => void;
     setIsDone?: (f: boolean) => void;
 }
@@ -19,7 +19,7 @@ const Dice = ({
     size = 4,
     setFaceState,
     setIsDone,
-    canHover = false,
+    animateOnHover = false,
 }: Props) => {
     const [face, setFace] = useState(6);
     const [rotation, setRotation] = useState(0);
@@ -66,7 +66,7 @@ const Dice = ({
     return (
         <div
             className={`${styles.overallContainer} ${
-                canHover ? styles.canHover : ""
+                animateOnHover ? styles.animateOnHover : ""
             }`}
             style={
                 {

@@ -10,12 +10,12 @@ import { useState, useRef} from "react";
 
 interface Props {
     size?: number;
-    canHover?: boolean;
+    animateOnHover?: boolean;
     setFace?: (f:string) => void;
     setIsDone?: (f:boolean) => void;
 }
 
-const Coin = ({size = 5, setFace, setIsDone, canHover = false}: Props) => {
+const Coin = ({size = 5, setFace, setIsDone, animateOnHover = false}: Props) => {
     const [rotation, setRotation] = useState(0);
     const [isHeads, setIsHeads] = useState(true);
     const [isHalfFlipped, setIsHalfFlipped] = useState(false);
@@ -58,7 +58,7 @@ const Coin = ({size = 5, setFace, setIsDone, canHover = false}: Props) => {
         }  
     }
     return (
-        <div className= {canHover ? styles.canHover : ""} style={{
+        <div className= {animateOnHover ? styles.animateOnHover : ""} style={{
                     height: `${size}rem`,
                     width: `${size}rem`,
                 }}>
